@@ -25,7 +25,7 @@ category:
 :::
 
 ### 2023-07-27
-- [ ] 01. Interview with Thuc.Le
+- [x] 01. Interview with Thuc.Le
 - [ ] 02. Get all the objects of JSON for canvas
 
 ::: details Details for each task
