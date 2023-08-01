@@ -7,7 +7,7 @@ heroImage: /haiyue.svg
 heroText: Haiyue's blog
 #bgImage: /assets/images/bg_data.webp
 bgImage: /assets/images/sky.jpg
-tagline: My techniqual life, scroll down for details
+tagline: Notes from a coding dog
 heroFullScreen: true
 #projects:
 #  - icon: image-portrait
