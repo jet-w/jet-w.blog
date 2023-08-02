@@ -10,12 +10,13 @@ tag:
   - linear regression
   - excel
 ---
-## **Excel**
+## **Excel**: Linear Regression
 ### **Part1**: Simple Linear Regression
+::: details Steps of Simple Linear Regression
 #### **Step 1**: View the original data set
 ![Original](/data/unisa/AdvancedAnalytic1/LakeHuron-1.png)
 
-#### **Step 2**: Year subtract 1785 for starting from 0
+#### **Step 2**: Year subtract 1875 for starting from 0
 ![Add New Column](/data/unisa/AdvancedAnalytic1/LakeHuron-2.jpg)
 
 #### **Step 3**: Select Analysis tool
@@ -35,6 +36,7 @@ Please refer [here](./LinearRegressionAnalysis) for more information of each par
 
 
 ### **Part2**: Multiple Linear Regression
+::: details Steps of Multiple Linear Regression
 Do Regression on $x$ and $x^2$.
 #### **Step 1**: Copy Data to a New Place
 ![Copy data](/data/unisa/AdvancedAnalytic1/LakeHuron-part2-1.jpg)
@@ -48,4 +50,28 @@ Select tool please refer to Step3 and Step 4 from Part1
 
 #### **Step 4**: Results
 ![Results](/data/unisa/AdvancedAnalytic1/LakeHuron-part2-4.jpg)
+:::
 
+
+## **Minitab**: Simple Linear Regression
+::: details Steps on Minitab
+### **Step 1**: Copy Data to Minitab
+![Copy data](/data/unisa/AdvancedAnalytic1/minitab-simple-1.jpg)
+
+### **Step 2**: Select Regression Tool
+![Tool](/data/unisa/AdvancedAnalytic1/minitab-simple-2.jpg)
+
+### **Step 3**: Set Parameters
+![Storage](/data/unisa/AdvancedAnalytic1/minitab-simple-3.jpg)
+![Graphs](/data/unisa/AdvancedAnalytic1/minitab-simple-4.jpg)
+
+### **Step 4**: Results
+![Numerical Results](/data/unisa/AdvancedAnalytic1/minitab-simple-5.jpg)
+
+### **Step 5**: Visulization
+![Select Menu](/data/unisa/AdvancedAnalytic1/minitab-simple-6.jpg)
+
+![Setting Parameters](/data/unisa/AdvancedAnalytic1/minitab-simple-7.jpg)
+
+![Visulization Result](/data/unisa/AdvancedAnalytic1/minitab-simple-8.jpg)
+::: 
