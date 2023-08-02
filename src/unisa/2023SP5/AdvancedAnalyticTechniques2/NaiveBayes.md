@@ -74,8 +74,8 @@ $P(C=c_i|\Chi=\chi)=\frac{P(\Chi=\chi|C=c_i)P(C=c_i)}{P(\Chi=\chi)} \propto P(\C
 ## Naïve Bayes
 
 - **Bayes classification**
-$P(C|\Chi) \propto P(\Chi|C)P(C)=P(X_1,\cdot\cdot\cdot，X_n|C)P(C)$
-Difficulty: learning the joint probability $P(X_1,\cdot\cdot\cdot,X_n|C)$
+$P(C|\Chi) \propto P(\Chi|C)P(C)=P(X_1,\cdot\cdot\cdot, X_n | C) P(C)$
+Difficulty: learning the joint probability $P(X_1,\cdot\cdot\cdot ,X_n|C)$
 - **Naïve Bayes classification**
   Assumption that <span style="color:red">all input features are conditionally independent!</span>
 $$\begin{equation}
