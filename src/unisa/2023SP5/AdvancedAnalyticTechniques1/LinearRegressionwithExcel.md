@@ -1,5 +1,5 @@
 ---
-title: Linear Regression
+title: Linear Regression And Solver
 index: true
 icon: timeline
 author: Haiyue
@@ -10,6 +10,9 @@ tag:
   - linear regression
   - excel
 ---
+[How to find Tools in Excel](https://zhuanlan.zhihu.com/p/61531510)
+
+
 ## **Excel**: Linear Regression
 ### **Part1**: Simple Linear Regression
 ::: details <span style="color:red;font-weight: bold;">Click for</span> Steps of Simple Linear Regression
