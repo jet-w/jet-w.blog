@@ -28,7 +28,8 @@ Data Science Professional Development
 05. [UNICEF](https://data.unicef.org/)
 06. [Kaggle.com](https://www.kaggle.com/datasets)
 07. [Google cloud](https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset&_ga=2.131561224.621606622.1691050407-940279348.1691050407&_gac=1.79689190.1691050407.Cj0KCQjwoK2mBhDzARIsADGbjervnl3nG7dgtBeSZ8q3RYf_3ZaXKOUPt1DiPgR1hgL57YCybL4Nc0oaAlZKEALw_wcB&pli=1)  [Google dataset search](https://datasetsearch.research.google.com/)
-
+08. [City of NewYork](https://opendata.cityofnewyork.us/)
+09. [UCI Datasets](https://archive.ics.uci.edu/datasets)
 
 ### UniSA Online Project
 [UniSA Online Project](https://lo.unisa.edu.au/mod/resource/view.php?id=3381451)
