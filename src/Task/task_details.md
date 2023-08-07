@@ -42,9 +42,9 @@ category:
 
 
 ### 2023-08-07
-- [ ] 01. Finish the practice of Thuc.Le's course
+- [x] 01. Finish the practice of Thuc.Le's course
 - [ ] 02. Finish the project of 42 Adelaide
 
 ::: details Details for each task
-  
+01. Finished. [Details here](/unisa/2023SP5/AdvancedAnalyticTechniques2/NaiveBayes_Prac1)
 :::
