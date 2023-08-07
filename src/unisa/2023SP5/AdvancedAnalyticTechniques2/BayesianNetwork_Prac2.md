@@ -48,7 +48,10 @@ plist$either
 net1=grain(plist) 
 plot(net1)
 ```
-
+## Convert data into table
+``` r
+plist$tub %>% as.data.frame.table
+```
 ## Query the marginal probabilities P(lung) and P(bronc):
 ``` r
 querygrain(net1, nodes=c("lung","bronc"), type="marginal")
@@ -61,8 +64,6 @@ querygrain(net1, nodes=c("lung","bronc"), type="joint")
 ``` r
 querygrain(net1, nodes=c("lung","bronc"), type="conditional")
 ```
-
-
 
 ## Result
 ![result](/data/unisa/AdvancedAnalytic2/prac2/result.jpg)
