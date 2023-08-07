@@ -74,7 +74,7 @@ querygrain(net1, nodes=c("lung","bronc"), type="conditional")
 querygrain(net1, nodes=c("bronc"), type="marginal")
 querygrain(net1, nodes=c("bronc"), type="conditional")
 
-querygrain(net1, nodes=c("lung","bronc"), type="conditional")
+querygrain(net1, nodes=c("lung","bronc"), type="joint")
 querygrain(net1, nodes=c("lung","smoke"), type="conditional")
 querygrain(net1, nodes=c("xray","smoke"), type="conditional")
 querygrain(net1, nodes=c("xray","smoke", "asia"), type="conditional")
