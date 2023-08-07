@@ -39,3 +39,12 @@ category:
 - 02. json objects
   
 :::
+
+
+### 2023-08-07
+- [ ] 01. Finish the practice of Thuc.Le's course
+- [ ] 02. Finish the project of 42 Adelaide
+
+::: details Details for each task
+  
+:::
