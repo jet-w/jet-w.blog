@@ -57,6 +57,8 @@ Select tool please refer to Step3 and Step 4 from Part1
 
 
 ## **Minitab**: Simple Linear Regression
+[Download Minitab](https://drive.google.com/file/d/1G7GS4dQ-b22q4gMHFv4wojYlHMJHgk-m/view?usp=drive_link)
+
 ::: details <span style="color:red;font-weight: bold;">Click for</span> Steps on Minitab
 ### **Step 1**: Copy Data to Minitab
 ![Copy data](/data/unisa/AdvancedAnalytic1/minitab-simple-1.jpg)
