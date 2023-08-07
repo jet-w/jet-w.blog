@@ -66,3 +66,15 @@ querygrain(net1, nodes=c("lung","bronc"), type="conditional")
 
 ## Result
 ![result](/data/unisa/AdvancedAnalytic2/prac2/result.jpg)
+
+
+
+## More quesitons
+Calculate the following probabilities:
+- P(lung=yes,bronc=yes)
+- P(bronc=yes)
+- P(lung=yes|smoke=yes)
+- P(xray=yes|smoke=yes)
+- P(xray=yes|smoke=yes, asia=yes)
+- P(lung=yes|asia=yes)
+- P(bronc=yes|smoke=yes, asia=yes)
