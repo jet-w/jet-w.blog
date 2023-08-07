@@ -68,14 +68,26 @@ querygrain(net1, nodes=c("lung","bronc"), type="conditional")
 ## Result
 ![result](/data/unisa/AdvancedAnalytic2/prac2/result.jpg)
 
-
-
 ## More quesitons
+``` r
+
+querygrain(net1, nodes=c("bronc"), type="marginal")
+querygrain(net1, nodes=c("bronc"), type="conditional")
+
+querygrain(net1, nodes=c("lung","bronc"), type="conditional")
+querygrain(net1, nodes=c("lung","smoke"), type="conditional")
+querygrain(net1, nodes=c("xray","smoke"), type="conditional")
+querygrain(net1, nodes=c("xray","smoke", "asia"), type="conditional")
+
+querygrain(net1, nodes=c("lung", "asia"), type="conditional")
+querygrain(net1, nodes=c("bronc", "smoke"), type="conditional")
+
+```
 Calculate the following probabilities:
-- P(lung=yes,bronc=yes)
-- P(bronc=yes)
-- P(lung=yes|smoke=yes)
-- P(xray=yes|smoke=yes)
+- P(lung=yes,bronc=yes)   : 0.07
+- P(bronc=yes)            :0.45
+- P(lung=yes|smoke=yes)   : 0.1
+- P(xray=yes|smoke=yes)   : 0.1517048
 - P(xray=yes|smoke=yes, asia=yes)
-- P(lung=yes|asia=yes)
-- P(bronc=yes|smoke=yes, asia=yes)
+- P(lung=yes|asia=yes)    : 0.055
+- P(bronc=yes|smoke=yes, asia=yes) : 0.6
