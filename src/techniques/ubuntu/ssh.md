@@ -35,7 +35,8 @@ ssh user@ip
 # Verify that ssh service running
 sudo systemctl status ssh
 ```
-
+## How to enable ssh authentication
+https://www.ibm.com/docs/en/sia?topic=kbaula-enabling-rsa-key-based-authentication-unix-linux-operating-systems-3
 
 ## References
 01. [Ubuntu Linux install OpenSSH server](https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/)

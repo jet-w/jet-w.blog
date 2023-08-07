@@ -955,6 +955,15 @@ When analyse the functions, it can easily find that the 7 functions are all abou
 
 
 
-
 ### Part3: Bonus part
 
+
+
+## Helper
+strlcpy
+strlcat
+memchr
+ft_strtrim
+ft_split
+ft_strchr
+ft_strncmp
