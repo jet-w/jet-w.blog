@@ -17,3 +17,5 @@ Reference
 - [Seasonality](https://www.sciencedirect.com/topics/earth-and-planetary-sciences/seasonality)
 - [5.03 Seasonal adjustments and deseasonalising data](https://mathspace.co/textbooks/syllabuses/Syllabus-845/topics/Topic-18558/subtopics/Subtopic-251579/)
 - [Seasonal component (for time-series data)](https://nzmaths.co.nz/category/glossary/seasonal-component-time-series-data)
+- [时间序列数据分析](https://zhuanlan.zhihu.com/p/379486476)
+- [时间序列数据分析(github)](https://skywateryang.gitbook.io/)
