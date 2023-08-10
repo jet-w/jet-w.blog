@@ -299,53 +299,51 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 ::: code-tabs#ft_string_2.c
 @tab ft_strlcpy
 ```cpp
-size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	idx;
-	size_t	src_len;
+	size_t	i;
 
-	if (dstsize <= 0)
-		return (0);
-	idx = 0;
-	src_len = ft_strlen(src);
-	while (idx < dstsize -1)
+	i = 0;
+	if (dstsize == 0)
 	{
-		if (idx <= src_len)
-			*(dst + idx) = *(src + idx);
-		else
-			*(dst + idx) = 0;
-		idx ++;
+		while (src[i])
+			i++;
+		return (i);
 	}
-	*(dst + idx) = 0;
-	return (ft_strlen(src));
+	while (i < dstsize - 1 && 0 != src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (i < dstsize)
+		dst[i] = 0;
+	while (src[i] != 0)
+		i++;
+	return (i);
 }
-
 ```
+
 @tab ft_strlcat
 ```cpp
-size_t	ft_strlcat(
-		char *restrict dst,
-		const char *restrict src,
-		size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	dstr_size;
-	size_t	src_size;
-	size_t	ret;
+	size_t		i;
+	size_t		dest_size;
+	size_t		src_size;
 
-	dstr_size = ft_strlen(dst);
+	dest_size = ft_strlen(dst);
 	src_size = ft_strlen(src);
-
-	if (dstsize <= dstr_size)
-		ret = (src_size + dstsize);
-	else
+	if (dstsize <= dest_size)
+		return (src_size + dstsize);
+	i = 0;
+	while (src[i] && (dest_size + i) < (dstsize - 1))
 	{
-		ft_memcpy(dst + dstr_size, src, dstsize-dstr_size);
-		*(dst + dstsize - 1) = 0;
-		ret = (src_size + dstr_size);
+		dst[dest_size + i] = src[i];
+		i++;
 	}
-	return (ret);
+	dst[dest_size + i] = '\0';
+	return (dest_size + src_size);
 }
-
 ```
 
 @tab ft_toupper
@@ -434,16 +432,16 @@ int	ft_strncmp(const char *s1, const char*s2, size_t n)
 ```cpp
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*src;
-	size_t			idx;
+	size_t				i;
+	unsigned char		*tmp;
 
-	idx = 0;
-	src = (unsigned char *) s;
-	while (idx < n)
+	tmp = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		if (*(src + idx) == c)
-			return (src + idx);
-		idx ++;
+		if (tmp[i] == (unsigned char)c)
+			return (tmp + i);
+		i++;
 	}
 	return (NULL);
 }
@@ -951,11 +949,192 @@ When analyse the functions, it can easily find that the 7 functions are all abou
 | ft_split | - | ft_putnbr_fd |
 | - | ft_itoa | - |
 
+#### ft_part2_str1.c
+::: code-tabs
+@tab ft_substr
+``` cpp
+//Parameters 
+//    s: The string from which to create the substring.
+//    start: The start index of the substring in the string ’s’.
+//    len: The maximum length of the substring.
+//Return value
+//    The substring.
+//    NULL if the allocation fails.
+//External functs. 
+//    malloc
+//Description 
+//    Allocates (with malloc(3)) and returns a substring from the string ’s’.
+//    The substring begins at index ’start’ and is of maximum size ’len’.
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*str;
+	size_t	str_len;
 
+	if (!s)
+		return (0);
+	str_len = ft_strlen((char *)s);
+	if (start > str_len)
+		return (ft_strdup(""));
+	if (str_len - start >= len)
+		str = (char *)malloc((len + 1) * sizeof(char));
+	else
+		str = (char *)malloc((str_len - start + 1) * sizeof(char));
+	if (!str)
+		return (0);
+	ft_strlcpy(str, (s + start), (len + 1));
+	return (str);
+}
+```
+@tab ft_strjoin
+``` cpp
+//Parameters 
+//    s1: The prefix string.
+//    s2: The suffix string.
+//Return value 
+//    The new string.
+//    NULL if the allocation fails.
+//External functs. 
+//    malloc
+//Description 
+//    Allocates (with malloc(3)) and returns a new string, which is the
+//    result of the concatenation of ’s1’ and ’s2’.
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*rc;
+	int		len1;
+	int		len2;
 
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	rc = malloc(len1 + len2 + 1);
+	ft_memcpy(rc, s1, len1); 
+	ft_memcpy(rc + len1, s2, len2);
+	rc[len1 + len2] = 0;
+	return (rc);
+}
+```
+@tab ft_strtrim
+``` cpp
 
+//Parameters 
+//    s1: The string to be trimmed.  
+//    set: The reference set of characters to trim.  
+//Return value 
+//    The trimmed string.
+//    NULL if the allocation fails.
+//External functs. 
+//    malloc
+//Description 
+//    Allocates (with malloc(3)) and returns a copy of ’s1’ with the characters 
+//    specified in ’set’ removed from the beginning and the end of the string.
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int		start;
+	int		end;
+	char	*str;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (ft_strchr(set, s1[start]) && start <= end)
+		start++;
+	if (start > end)
+		return (ft_strdup(s1 + end + 1));
+	while (ft_strchr(set, s1[end]) && end >= 0)
+		end--;
+	str = malloc(end - start + 2);
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, &s1[start], end - start + 2);
+	return (str);
+}
+```
+@tab ft_split
+``` cpp
+static size_t	countword(char const *s, char c)
+{
+	size_t	count;
+
+	if (!*s)
+		return (0);
+	count = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+			count++;
+		while (*s != c && *s)
+			s++;
+	}
+	return (count);
+}
+char	**ft_split(char const *s, char c)
+{
+	char	**lst;
+	size_t	word_len;
+	int		i;
+
+	lst = (char **)malloc((countword(s, c) + 1) * sizeof(char *));
+	if (!s || !lst)
+		return (0);
+	i = 0;
+	while (*s)
+	{
+		while (*s == c && *s)
+			s++;
+		if (*s)
+		{
+			if (!ft_strchr(s, c))
+				word_len = ft_strlen(s);
+			else
+				word_len = ft_strchr(s, c) - s;
+			lst[i++] = ft_substr(s, 0, word_len);
+			s += word_len;
+		}
+	}
+	lst[i] = NULL;
+	return (lst);
+}
+```
+:::
 
 ### Part3: Bonus part
+
+
+
+### Makefile
+``` make
+CC = cc
+CC_PARAMS = -Wall -Wextra -Werror
+AR = ar
+AR_PARAMS = -rc
+NAME = libft.a
+AR = ar
+AR_PARAMS = rcs
+NON_BONUS = ft_ctype.c ft_stdlib.c \
+			ft_string_1.c ft_string_2.c ft_string_3.c \
+			ft_part2_str1.c ft_part2_str2.c ft_part2_fd.c
+TEST_TARGET = a.out
+
+OBJS = $(NON_BONUS:.c=.o)
+
+$(NAME): $(OBJS) 
+	$(AR) $(AR_PARAMS) $(NAME) $(OBJS)
+
+all: $(NAME)
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME) $(TEST_TARGET)
+
+re: fclean all
+
+.PHONY: all clean fclean re
+```
 
 
 
