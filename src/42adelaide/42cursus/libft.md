@@ -149,10 +149,7 @@ There are three parts for the projects, the three parts will be split into three
 ```cpp
 int	ft_isalpha(int c)
 {
-	unsigned char	ch;
-
-	ch = (unsigned char)c;
-	if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'))
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
 	return (0);
 }
@@ -161,10 +158,7 @@ int	ft_isalpha(int c)
 ```cpp
 int	ft_isdigit(int c)
 {
-	unsigned char	ch;
-
-	ch = (unsigned char)c;
-	if (ch >= '0' && ch <= '9')
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
@@ -217,7 +211,6 @@ size_t	ft_strlen(const char *s)
 ```
 @tab ft_memset
 ```cpp
-
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t			idx;
@@ -231,7 +224,6 @@ void	*ft_memset(void *b, int c, size_t len)
 		*(dst + (idx ++)) = (unsigned char)c;
 	return (b);
 }
-
 ```
 
 @tab ft_bzero
@@ -245,7 +237,6 @@ void	ft_bzero(void *s, size_t n)
 		return ;
 	ft_memset(s, 0, n);
 }
-
 ```
 @tab ft_memcpy
 ```cpp
@@ -255,6 +246,8 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	unsigned char	*udst;
 	unsigned char	*usrc;
 
+	if (NULL == dst && NULL == src)
+		return (NULL);
 	udst = (unsigned char *)dst;
 	usrc = (unsigned char *)src;
 	idx = 0;
@@ -265,7 +258,6 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	}
 	return (dst);
 }
-
 ```
 @tab ft_memmove
 ```cpp
@@ -276,6 +268,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*cdst;
 	unsigned char	*csrc;
 
+	if (0 == len)
+		return (dst);
+	if (NULL == src && NULL == dst)
+		return (NULL);
 	cdst = (unsigned char *)dst;
 	csrc = (unsigned char *)src;
 	idx = 0;
@@ -357,7 +353,6 @@ int	ft_toupper(int c)
 ```
 @tab ft_tolower
 ```cpp
-
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
@@ -367,20 +362,16 @@ int	ft_tolower(int c)
 ```
 @tab ft_strchr
 ```cpp
-
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	char	ele;
-	char	*rc;
-
-	ele = (char)c;
-	rc = (char *)s;
-	while (*rc)
+	while (*str)
 	{
-		if (*rc == c)
-			return (rc);
-		rc ++;
+		if (*str == (char)c)
+			return ((char *)str);
+		str ++;
 	}
+	if (*str == (char)c)
+		return ((char *)str);
 	return (NULL);
 }
 ```
@@ -393,39 +384,33 @@ char	*ft_strchr(const char *s, int c)
 ```cpp
 char	*ft_strrchr(const char *s, int c)
 {
-	char	ele;
-	char	*rc;
+	char	*str_end;
 
-	rc = NULL;
-	ele = (char) c;
-	while (*s)
-	{
-		if (*s == c)
-			rc = (char *)s;
-		s ++;
-	}
-	return (rc);
+	str_end = (char *)s + ft_strlen(s);
+	while (str_end > s && *str_end != (char)c)
+		str_end--;
+	if (*str_end == (char)c)
+		return (str_end);
+	return (NULL);
 }
 ```
 @tab ft_strncmp
 ```cpp
 
-int	ft_strncmp(const char *s1, const char*s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	idx;
+	size_t	c;
 
-	idx = 0;
-	while (*s1 && *s2 && idx < n)
-	{
-		if (*(s1 + idx) != *(s2 + idx))
-			break ;
-		idx ++;
-	}
-	if (idx == n)
-		idx --;
-	return (*(s1 + idx) - *(s2 + idx));
+	c = 0;
+	if (n == 0)
+		return (0);
+	if (n != 0)
+		while (s1[c] == s2[c] && s1[c] != '\0' && c < n - 1)
+			c++;
+	else
+		return (0);
+	return (((unsigned char)(s1[c]) - (unsigned char)(s2[c])));
 }
-
 ```
 
 @tab ft_memchr
@@ -445,7 +430,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
 ```
 @tab ft_memcmp
 ```cpp
@@ -466,7 +450,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
 ```
 @tab ft_strnstr
 ```cpp
@@ -476,6 +459,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t		len_needle;
 	size_t		idx;
 
+	if (NULL == haystack)//The stupic code just for trigger segmentation fault to keep the same action with strnstr
+		*((char *)haystack) = 10;
+	if (NULL == needle) //The stupic code just for trigger segmentation fault to keep the same action with strnstr
+		*((char *)needle) = 10;
+	if (0 == ft_strlen(haystack) && 0 == ft_strlen(needle))
+		return ((char *)haystack);
 	src = haystack;
 	len_needle = ft_strlen(needle);
 	idx = 0;
@@ -483,7 +472,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return (NULL);
 	while (*(src + idx) && idx <= (len - len_needle))
 	{
-		if (0 == strncmp(src + idx, needle, len_needle))
+		if (0 == ft_strncmp(src + idx, needle, len_needle))
 			return ((char *)(src + idx));
 		idx ++;
 	}
@@ -525,13 +514,17 @@ int	ft_atoi(char *str)
 	}
 	return (ret * factor);
 }
-
 ```
 @tab ft_calloc
 ```cpp
 void	*ft_calloc(size_t count, size_t size)
 {
-	return (malloc(count * size));
+	void	*rc;
+
+	rc = (malloc(count * size));
+	if (rc)
+		ft_bzero(rc, count * size);
+	return (rc);
 }
 ```
 
@@ -542,12 +535,12 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	char	*ret;
 
-	if (NULL == s1)
-		return (NULL);
 	i = 0;
 	while (*(s1 + i))
 		i ++;
 	ret = malloc(i + 1);
+	if (!ret)
+		return (NULL);
 	i = 0;
 	while (*(s1 + i))
 	{
@@ -562,7 +555,7 @@ char	*ft_strdup(const char *s1)
 
 
 #### Test code
-:::details
+:::details Preliminary test code
 ```cpp
 #include "libft.h"
 #include <stdio.h>
@@ -969,6 +962,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	str_len;
+	size_t	real_len;
 
 	if (!s)
 		return (0);
@@ -976,12 +970,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start > str_len)
 		return (ft_strdup(""));
 	if (str_len - start >= len)
-		str = (char *)malloc((len + 1) * sizeof(char));
+		real_len = (len + 1);
 	else
-		str = (char *)malloc((str_len - start + 1) * sizeof(char));
+		real_len = (str_len - start + 1);
+	str = (char *)malloc(real_len * sizeof(char));
 	if (!str)
 		return (0);
-	ft_strlcpy(str, (s + start), (len + 1));
+	ft_strlcpy(str, (s + start), real_len);
 	return (str);
 }
 ```
@@ -1007,15 +1002,17 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	rc = malloc(len1 + len2 + 1);
-	ft_memcpy(rc, s1, len1); 
-	ft_memcpy(rc + len1, s2, len2);
-	rc[len1 + len2] = 0;
+	if (rc)
+	{
+		ft_memcpy(rc, s1, len1); 
+		ft_memcpy(rc + len1, s2, len2);
+		rc[len1 + len2] = 0;
+	}
 	return (rc);
 }
 ```
 @tab ft_strtrim
 ``` cpp
-
 //Parameters 
 //    s1: The string to be trimmed.  
 //    set: The reference set of characters to trim.  
@@ -1070,6 +1067,7 @@ static size_t	countword(char const *s, char c)
 	}
 	return (count);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**lst;
@@ -1098,7 +1096,201 @@ char	**ft_split(char const *s, char c)
 	return (lst);
 }
 ```
+::: 
+
+#### ft_part2_str2.c
+::: code-tabs
+@tab ft_strmapi
+``` cpp
+//Parameters 
+//    s: The string on which to iterate.
+//    f: The function to apply to each character.
+//Return value 
+//    The string created from the successive applications of ’f’.
+//    Returns NULL if the allocation fails.
+//External functs. 
+//    malloc
+//Description 
+//    Applies the function ’f’ to each character of the string ’s’,
+//    and passing its index as first argument to create a new string 
+//    (with malloc(3)) resulting from successive applications of ’f’.
+char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
+{
+	int		idx;
+	char	*rc;
+
+	rc = malloc(ft_strlen(s) + 1);
+	if (NULL == rc)
+		return (NULL);
+	idx = 0;
+	while (*(s + idx))
+	{
+		*(rc + idx) = f(idx, *(s + idx));
+		idx ++;
+	}
+	rc[idx] = 0;
+	return (rc);
+}
+```
+@tab ft_striteri
+``` cpp
+//Parameters 
+//    s: The string on which to iterate.
+//    f: The function to apply to each character.
+//Return value 
+//    None
+//External functs. 
+//    None
+//Description 
+//    Applies the function ’f’ on each character of the string 
+//    passed as argument, passing its index as first argument. 
+//    Each character is passed by address to ’f’ to be modified if necessary.
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	idx;
+
+	idx = 0;
+	while (*(s + idx))
+	{
+		f(idx, (s + idx));
+		idx ++;
+	}
+}
+```
+@tab ft_itoa
+``` cpp
+char	*itoa_part2(long temp, int len, int minus, char *rc)
+{
+	rc[len + minus] = 0;
+	while (len + minus > 0)
+	{
+		len --;
+		rc[len + minus] = temp % 10 + '0';
+		temp /= 10;
+	}
+	if (minus)
+		rc[0] = '-';
+	return (rc);
+}
+
+//Parameters
+//    n: the integer to convert.
+//Return value
+//    The string representing the integer.
+//    NULL if the allocation fails.
+//External functs.
+//    malloc
+//Description
+//    Allocates (with malloc(3)) and returns a string representing the
+//    integer received as an argument. Negative numbers must be handled.
+char	*ft_itoa(int n)
+{
+	long	temp;
+	int		len;
+	int		minus;
+	char	*rc;
+
+	minus = (n < 0);
+	temp = (long)n;
+	if (minus)
+		temp = -temp;
+	rc = (char *)temp;
+	len = 1;
+	while (temp >= 10)
+		temp /= 10 + (len ++) * 0;
+	temp = ((long)rc);
+	rc = malloc(len + 1 + minus);
+	if (NULL == rc)
+		return (rc);
+	return (itoa_part2(temp, len, minus, rc));
+}
+```
 :::
+
+#### ft_part2_fd.c
+::: code-tabs
+@tab ft_strmapi
+``` cpp
+//Parameters 
+//    c: The character to output.
+//    fd: The file descriptor on which to write.
+//Return value 
+//    None
+//External functs. 
+//    write
+//Description 
+//    Outputs the character ’c’ to the given file descriptor.
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+```
+@tab ft_putstr_fd
+``` cpp
+//Parameters 
+//    s: The string to output.
+//    fd: The file descriptor on which to write.
+//Return value 
+//    None
+//External functs. 
+//    write
+//Description 
+//    Outputs the string ’s’ to the given file descriptor.
+void	ft_putstr_fd(char *s, int fd)
+{
+	write(fd, s, ft_strlen(s));
+}
+```
+@tab ft_putendl_fd
+``` cpp
+//Parameters 
+//    s: The string to output.
+//    fd: The file descriptor on which to write.
+//Return value 
+//    None
+//External functs. 
+//    write
+//Description 
+//    Outputs the string ’s’ to the given file descriptor followed by a newline.
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
+}
+```
+@tab ft_putnbr_fd
+``` cpp
+//Parameters 
+//    n: The integer to output.
+//    fd: The file descriptor on which to write.
+//Return value 
+//    None
+//External functs. 
+//    write
+//Description 
+//    Outputs the integer ’n’ to the given file descriptor.
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	num;
+
+	num = n;
+	if (num < 0)
+	{
+		num = -num;
+		ft_putchar_fd('-', fd);
+	}
+	if (num >= 10)
+	{
+		ft_putnbr_fd(num / 10, fd);
+		ft_putnbr_fd(num % 10, fd);
+	}
+	else
+		ft_putchar_fd(num + '0', fd);
+}
+```
+:::
+
+
 
 ### Part3: Bonus part
 
@@ -1136,13 +1328,71 @@ re: fclean all
 .PHONY: all clean fclean re
 ```
 
+### Header: libft.h
+``` cpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hawang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/16 13:44:45 by hawang            #+#    #+#             */
+/*   Updated: 2023/08/10 22:14:39 by hawang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#ifndef LIBFT_H
+# define LIBFT_H
 
+# include <string.h>
 
-## Helper
-strlcpy
-strlcat
-memchr
-ft_strtrim
-ft_split
-ft_strchr
-ft_strncmp
+//part1
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+int		ft_atoi(char *str);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlen(const char *s);
+void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(
+			void *restrict dst, 
+			const void *restrict src, 
+			size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+size_t	ft_strlcpy(
+			char *restrict dst,
+			const char *restrict src,
+			size_t dstsize);
+size_t	ft_strlcat(
+			char *restrict dst,
+			const char *restrict src,
+			size_t dstsize);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+char	*ft_strchr(const char *s, int c);;
+char	*ft_strrchr(const char *s, int c);;
+int		ft_strcmp(const char *s1, const char*s2);
+int		ft_strncmp(const char *s1, const char*s2, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+
+//Part2
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f) (unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+
+#endif
+```
