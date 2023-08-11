@@ -1396,3 +1396,7 @@ void	ft_putnbr_fd(int n, int fd);
 
 #endif
 ```
+
+
+### Francinette Result
+![All passed](/data/42adelaide/libft/result.jpg)

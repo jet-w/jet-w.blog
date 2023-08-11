@@ -52,11 +52,12 @@ category:
 ### 2023-08-11
 - [ ] 01. Do something for c3l project
 - [x] 02. Check emails (unisa, gmail and 126)
-- [ ] 03. Write the blog of libft (42adelaide)
+- [x] 03. Write the blog of libft (42adelaide)
 ::: details Details for each task
 01. Do something for c3l project
 02. Check emails (unisa, gmail and 126)
     unisa: 10:30 Done
     gmail: 10:30 Done
     126: 10:30 Done
+03. Write the blog of libft (42adelaide) [done]
 :::
