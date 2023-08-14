@@ -50,14 +50,46 @@ category:
 :::
 
 ### 2023-08-11
-- [ ] 01. Do something for c3l project
+- [x] 01. Do something for c3l project
 - [x] 02. Check emails (unisa, gmail and 126)
 - [x] 03. Write the blog of libft (42adelaide)
 ::: details Details for each task
 01. Do something for c3l project
+    - The page creation pattern (The max characters is around 6500)
+    - 
 02. Check emails (unisa, gmail and 126)
-    unisa: 10:30 Done
-    gmail: 10:30 Done
-    126: 10:30 Done
+    - unisa: 10:30 Done
+    - gmail: 10:30 Done
+    - 126: 10:30 Done
 03. Write the blog of libft (42adelaide) [done]
+:::
+
+### 2023-08-11
+- [ ] 01. Do something for c3l project
+- [x] 02. Check emails (unisa, gmail and 126)
+- [ ] 03. Process the libft evaluation
+::: details Details for each task
+01. Do something for c3l project
+    - The page creation pattern (The max characters is around 6500)
+    - 
+02. Check emails (unisa, gmail and 126)
+    - unisa: 10:30 Done
+    - gmail: 10:30 Done
+    - 126: 10:30 Done
+03. Process the libft evaluation
+    - Retry again
+    - 
+:::
+
+### 2023-08-13
+- [x] 01. Do something for c3l project
+- [x] 02. Check emails (unisa, gmail and 126)
+::: details Details for each task
+01. Do something for c3l project
+    - The modules creation pattern
+    - The assignments creation pattern
+02. Check emails (unisa, gmail and 126)
+    - unisa: 10:30 Done
+    - gmail: 10:30 Done
+    - 126: 10:30 Done
 :::
