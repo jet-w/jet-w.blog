@@ -30,8 +30,7 @@ The time series data normally consist with multi-components, the most two import
 The time series data normally consist of multi-components, the most two important components are trend and seasonality, the trend could be modeled using linear regression to get, and the seasonality could use trigonometric functions to model. No matter trend or seasonality they are all stationary relationships. The residuals will get after removing the trend and seasonality, which are the main research objects. If could get a stationary relationship from the residuals, it would be easier to predict.
 
 
-## References
-
-[Time Series Analysis](https://www.youtube.com/watch?v=aP05EpN1M58&list=PLYEmLA_7ilZPHis6d-xEGqQ_8Enuv_s32&index=4)
-
 :::
+
+## References
+[Time Series Analysis](https://www.youtube.com/watch?v=aP05EpN1M58&list=PLYEmLA_7ilZPHis6d-xEGqQ_8Enuv_s32&index=4)
