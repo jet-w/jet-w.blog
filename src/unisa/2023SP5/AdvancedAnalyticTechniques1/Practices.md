@@ -13,7 +13,7 @@ tag:
 [How to find Tools in Excel](https://zhuanlan.zhihu.com/p/61531510)
 
 
-## **Excel**: Linear Regression
+## **Practice 1**: Linear Regression
 ### **Part1**: Simple Linear Regression
 ::: details <span style="color:red;font-weight: bold;">Click for</span> Steps of Simple Linear Regression
 #### **Step 1**: View the original data set
@@ -82,7 +82,7 @@ Select tool please refer to Step3 and Step 4 from Part1
 ::: 
 
 
-## **Excel**: Solver
+## **Practice 2**:: Solver
 
 Use Solver to find an optimal (maximum or minimum) value for a formula in one cell — called the objective cell — subject to constraints, or limits, on the values of other formula cells on a worksheet. Solver works with a group of cells, called decision variables or simply variable cells that are used in computing the formulas in the objective and constraint cells. Solver adjusts the values in the decision variable cells to satisfy the limits on constraint cells and produce the result you want for the objective cell.
 
@@ -124,3 +124,7 @@ Drag the formulas on row 5 to fill the rest of cells.
 ## References
 01. The practice instruction from [John](https://people.unisa.edu.au/john.boland) in SP52023.
 02. [Software office website](https://support.microsoft.com/en-gb/office/define-and-solve-a-problem-by-using-solver-5d1a388f-079d-43ac-a7eb-f63e45925040#:~:text=Solver%20adjusts%20the%20values%20in,cell%20by%20changing%20other%20cells.)
+
+
+
+## **Practice 3**: Predict
