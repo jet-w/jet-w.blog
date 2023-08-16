@@ -1,5 +1,5 @@
 ---
-title: Linear Regression And Solver
+title: Practices
 index: true
 icon: timeline
 author: Haiyue
