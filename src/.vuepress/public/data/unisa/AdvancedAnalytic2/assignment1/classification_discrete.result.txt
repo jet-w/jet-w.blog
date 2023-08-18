@@ -1,0 +1,109 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.NaiveBayes 
+Relation:     breast-cancer-wisconsin-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Discretize-F-B3-M-1.0-Rfirst-last-precision6
+Instances:    699
+Attributes:   10
+              Clump Thickness
+              Uniformity of Cell Size
+              Uniformity of Cell Shape
+              Marginal Adhesion
+              Single Epithelial Cell Size
+              Bare Nuclei
+              Bland Chromatin
+              Normal Nucleoli
+              Mitoses
+              Class
+Test mode:    5-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Naive Bayes Classifier
+
+                                  Class
+Attribute                        benign Malignant
+                                 (0.65)    (0.35)
+==================================================
+Clump Thickness
+  '(-inf-2.5]'                     189.0       8.0
+  '(2.5-4.5]'                      165.0      25.0
+  '(4.5-inf)'                      107.0     211.0
+  [total]                          461.0     244.0
+
+Uniformity of Cell Size
+  '(-inf-1.5]'                     381.0       5.0
+  '(1.5-5.5]'                       74.0      95.0
+  '(5.5-inf)'                        6.0     144.0
+  [total]                          461.0     244.0
+
+Uniformity of Cell Shape
+  '(-inf-1.5]'                     352.0       3.0
+  '(1.5-4.5]'                       99.0      62.0
+  '(4.5-inf)'                       10.0     179.0
+  [total]                          461.0     244.0
+
+Marginal Adhesion
+  '(-inf-1.5]'                     376.0      33.0
+  '(1.5-4.5]'                       74.0      77.0
+  '(4.5-inf)'                       11.0     134.0
+  [total]                          461.0     244.0
+
+Single Epithelial Cell Size
+  '(-inf-1.5]'                      47.0       2.0
+  '(1.5-2.5]'                      364.0      24.0
+  '(2.5-inf)'                       50.0     218.0
+  [total]                          461.0     244.0
+
+Bare Nuclei
+  '(-inf-1.5]'                     388.0      16.0
+  '(1.5-8.5]'                       55.0      87.0
+  '(8.5-inf)'                        4.0     139.0
+  [total]                          447.0     242.0
+
+Bland Chromatin
+  '(-inf-1.5]'                     151.0       3.0
+  '(1.5-3.5]'                      289.0      44.0
+  '(3.5-inf)'                       21.0     197.0
+  [total]                          461.0     244.0
+
+Normal Nucleoli
+  '(-inf-1.5]'                     403.0      42.0
+  '(1.5-6.5]'                       50.0      91.0
+  '(6.5-inf)'                        8.0     111.0
+  [total]                          461.0     244.0
+
+Mitoses
+  '(-inf-1.5]'                     446.0     135.0
+  '(1.5-3.5]'                       11.0      59.0
+  '(3.5-inf)'                        4.0      50.0
+  [total]                          461.0     244.0
+
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         677               96.8526 %
+Incorrectly Classified Instances        22                3.1474 %
+Kappa statistic                          0.9313
+Mean absolute error                      0.0349
+Root mean squared error                  0.1744
+Relative absolute error                  7.7298 %
+Root relative squared error             36.7027 %
+Total Number of Instances              699     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.961    0.017    0.991      0.961    0.976      0.932    0.989     0.995     benign
+                 0.983    0.039    0.929      0.983    0.956      0.932    0.989     0.976     Malignant
+Weighted Avg.    0.969    0.024    0.970      0.969    0.969      0.932    0.989     0.988     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 440  18 |   a = benign
+   4 237 |   b = Malignant
+
