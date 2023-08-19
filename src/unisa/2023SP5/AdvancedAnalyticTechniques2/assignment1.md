@@ -11,16 +11,27 @@ category:
 
 ## Requirements
 ### Instructions
+::: details Instructions
 <PDF url="/data/unisa/AdvancedAnalytic2/assignment1/Assignment1.pdf" ratio="1.4" />
 
 ### Marking Guide
 <PDF url="/data/unisa/AdvancedAnalytic2/assignment1/MarkingGuidelines-Assignment1.pdf" ratio="1.4" />
+::: 
 
+
+[The submission file](/data/unisa/AdvancedAnalytic2/assignment1/Assignment-1.docx)
 ## Part 1 
-
+::: info Requirements
+a) Describe a big data application that the company is using and use it to illustrate the 
+characteristics of big data analytics. (4)
+b) Suggest and describe one new big data application that would help the company improve 
+their business performance. (4)
+c) Explain why your suggested application is innovative and useful. Discuss the challenges 
+of implementing the application that you proposed. (4)
+:::
 
 ## Part2
-For this part, the Weka will be selected as the tool to implement NaiveBayes Classifier, the original need to convert into a proper format. The csv file format is selected, please download the data follow the link below.
+For this part, the Weka will be selected as the tool to implement NaiveBayes Classifier, the original data need to convert into a proper format. The csv file format is selected, please download the data follow the link below.
 [Breast cancer wisconsin data (Have been converted into csv)](/data/unisa/AdvancedAnalytic2/assignment1/breast-cancer-wisconsin.csv)
 
 ### Numerical Variables
@@ -147,7 +158,7 @@ $P(Input∣Class=malignant)P(Class=malignant)$ = 1.98167E-12
 
 It's obviously that 
 
-$P(Input∣Class=benign)P(Class=benign) \gt P(Input∣Class=malignant)P(Class=malignant)$
+$\small{P(Input∣Class=benign)P(Class=benign) \gt P(Input∣Class=malignant)P(Class=malignant)}$
 ​
 So, the final result for this record is benign, it has been classifed correctlly.
  
@@ -465,5 +476,6 @@ It's obviously that
 $P(Input∣Class=benign)P(Class=benign) \gt P(Input∣Class=malignant)P(Class=malignant)$
 ​
 So, the final result for this record is benign, it has been classifed correctlly.
-
+::: tip
 [Categorical Variables probability calculator](/data/unisa/AdvancedAnalytic2/assignment1/NaiveBayes_CategoricalVariables.xlsx)
+:::
