@@ -1,6 +1,6 @@
 ---
 title: Assignment1
-index: true
+index: false
 icon: "/assets/icon/common/data-mining.svg"
 icon-size: "4rem"
 author: Haiyue
@@ -29,7 +29,7 @@ For this part, the Weka will be selected as the tool to implement NaiveBayes Cla
 1. <span style="color:orange; font-weight:bold;">Remove the ID attribute</span>. Consider all attributes <span style="color:orange; font-weight:bold;">except the class attribute as numeric attributes</span>.
 :::
 
-![Alt text](/data/unisa/AdvancedAnalytic2/assignment1/numeric_distribution.png)
+![](/data/unisa/AdvancedAnalytic2/assignment1/numeric_distribution.png)
 
 ::: info Requirement
 2. <span style="color:orange; font-weight:bold;">Build a Naïve Bayes model</span> and <span style="color:orange; font-weight:bold;">classify benign and malignant</span>. Show the <span style="color:orange; font-weight:bold;">screenshot of the model</span> when you train the model with <span style="color:orange; font-weight:bold;">all records</span>.
@@ -103,10 +103,71 @@ Mitoses
 ::: info Requirement
 Use one record to explain how the model makes classification.
 :::
+We select one record like the Image below as the test record, and show how the model works
+![Test Record](/data/unisa/AdvancedAnalytic2/assignment1/one_record.png)
+
+According to Image above, we could know the value of each variable. For easily to use, the variables need to rename for short.
+
+
+|New Name | Original Name | Value |
+| -- | -- | -- |
+|A | Clump Thickness             | 5
+|B | Uniformity of Cell Size     | 1
+|C | Uniformity of Cell Shape    | 1
+|D | Marginal Adhesion           | 1
+|E | Single Epithelial Cell Size | 2
+|F | Bare Nuclei                 | 1
+|G | Bland Chromatin             | 3
+|H | Normal Nucleoli             | 1
+|I | Mitoses                     | 1
+
+Now, We assign $Input = (A,B,C,D,E,F,G,H,I)$, we need to calculate $P(Class= benign | Input)$ and $P(Class= malignant | Input)$ , then use MAP rule to select a bigger probability as the final result.
+
+$P(Class= benign | Input)= \LARGE{\frac{P(Input|Class=benign)P(Class=benign)}{P(Input)}}$
+$P(Class= malignant | Input)= \LARGE{\frac{P(Input|Class=malignant)P(Class=malignant)}{P(Input)}}$
+
+Because of $Input = (A,B,C,D,E,F,G,H,I)$, so 
+$P(Input|Class=benign) = P(A|Class=benign)...P(I|Class=benign)$
+$P(Input|Class=malignant) = P(A|Class=malignant)...P(I|Class=malignant)$
+
+Because of the conditional probability for continuous-valued features equals to 
+$\hat{P}(X_j|C=c_i)=\LARGE{\frac{1}{\sqrt{2\pi}\sigma_{ji}}exp(-\frac{(X_j-\mu_{ji})^2}{2\sigma_{ji}^{2}})}$
+
+According to the model, we could know the mean and standard deviation like the picture below.
+
+![Value Table](/data/unisa/AdvancedAnalytic2/assignment1/model_value.png)
+
+P(Class=benign) = 0.65
+P(Class=malignant) = 0.35
+
+Finally, we could calculate that
+
+$P(Input∣Class=benign)P(Class=benign)$ = 1.83001E-08
+$P(Input∣Class=malignant)P(Class=malignant)$ = 1.98167E-12
+
+It's obviously that 
+
+$P(Input∣Class=benign)P(Class=benign) \gt P(Input∣Class=malignant)P(Class=malignant)$
+​
+So, the final result for this record is benign, it has been classifed correctlly.
+ 
+::: tip
+If you want to calculate other record please use the [Probability calculator](/data/unisa/AdvancedAnalytic2/assignment1/NaiveBayes_NumericalVariable.xlsx).
+:::
 #### Part C: 10 fold cross validation (3 marks)
 ::: info Requirement
-Show the <span style="color:orange; font-weight:bold;">accuracy</span> of the model using <span style="color:orange; font-weight:bold;">10-fold cross validation</span> and the <span style="color:orange; font-weight:bold;">confusion matrix</span>. 
+Show the <span style="color:orange; font-weight:bold;">accuracy</span> of the model using <span style="color:orange; font-weight:bold;">10-fold cross validation</span> and the <span style="color:orange; font-weight:bold;">confusion matrix</span>. Show and explain the meaning of the <span style="color:orange; font-weight:bold;">precision</span> and <span style="color:orange; font-weight:bold;">recall</span> for malignant.
 :::
+
+![Results for cross validation](/data/unisa/AdvancedAnalytic2/assignment1/10-fold_confusion_matrix.png)
+
+According to the results for cross validation, it is easy to get the confusion matrix and other indicators.
+The accuracy of the model is about 95.9943%.
+$Precision(benign) = 98.6\%$ means there are 1.4% malignant cases was classified into benign class.
+$Precision(malignant) = 91.4\%$ means there are 8.6% benign cases was classified into malignant class.
+$Recall(benign) = 95.52\%$ means there is 95.52% benign data has been classified correctly.
+$Recall(malignant) = 97.5\%$ means there is 97.5% malignant data has been classified correctly.
+
 ::: details 10 fold cross validation
 ``` txt
 === Run information ===
@@ -227,12 +288,16 @@ Weighted Avg.    0.960    0.033    0.962      0.960    0.960      0.914    0.986
 :::
 The discretizetion should use equal-frequency technique to discretise the numerical data into 3 bins. The configuration file for discrete like the link. [The configuration for equal frequency in Weka](/data/unisa/AdvancedAnalytic2/assignment1/equalFrequency.weka.discrete.conf)
 
-![Alt text](/data/unisa/AdvancedAnalytic2/assignment1/categorical_distribution.png)
+![Categorical variables distribution](/data/unisa/AdvancedAnalytic2/assignment1/categorical_distribution.png)
 #### Part E: Model (3 Marks)
 1. Model and Evaluation
 ::: info Requirement
 Build a Naïve Bayes model and classify benign and malignant using the discretised dataset. Show the accuracy of the model using 5-fold cross validation and the confusion matrix. 
 :::
+
+![5 Fold Result for discretizated data](/data/unisa/AdvancedAnalytic2/assignment1/categorical_5-fold.png)
+According to the result, it is easy to get the accuracy (96.8526%) and the confusion matrix.
+
 ::: details
 ``` txt
 === Run information ===
@@ -347,11 +412,58 @@ Weighted Avg.    0.969    0.024    0.970      0.969    0.969      0.932    0.989
 :::
 2. Explain the meaning of the numbers in the confusion matrix.
 
+According to the confusion matrix, there are four number, which are 440, 18, 4, 237. 440 means that there are 440 real benign cases are classified as benign class correctly. 18 means there are 18 benign cases are classified into malignant class incorrectly. 237 means that there are 237 real malignant cases are classified as malignant class correctly. 4 means there are 4 malignant cases are classified into benign class incorrectly.
+
+
 #### Part F: Explaination (3 Marks)
 ::: info Requirement
 Use one record to explain how the model makes classification using the discretised dataset. 
 :::
+There we select the same record with the numerical part as the data for explanation.
+![Test Record](/data/unisa/AdvancedAnalytic2/assignment1/one_record.png)
 
-[The result using equal frequency binning](/data/unisa/AdvancedAnalytic2/assignment1/classification_discrete.result.txt)
-[The result using Numerical variables](/data/unisa/AdvancedAnalytic2/assignment1/classification_numeric.result.txt)
+The discreted dataset has been split into 3 bins using equal frequency approach. Here we rename the 3 bins as x,y,z, then a table will get like below.  
+![Discreted dataset name range table](/data/unisa/AdvancedAnalytic2/assignment1/name_range_table.png)
 
+
+According to Image above, we could know the value of each variable. For easily to use, the variables need to rename for short.
+
+
+|New Name|	Original Name	            |original Value	|Value |
+| -- |	--            |:--:|:--: |
+|A	     |  Clump Thickness	            |5	            | z    |
+|B	     |  Uniformity of Cell Size	    |1	            | x    |
+|C	     |  Uniformity of Cell Shape    |1	            | x    |
+|D	     |  Marginal Adhesion     	    |1	            | x    |
+|E	     |  Single Epithelial Cell Size |2	            | y    |
+|F	     |  Bare Nuclei              	|1	              | x    |
+|G	     |  Bland Chromatin         	|3	              | y    |
+|H	     |  Normal Nucleoli         	|1	              | x    |
+|I	     |  Mitoses                  	|1	              | x    |
+
+Now, We assign $Input = (A,B,C,D,E,F,G,H,I)$, we need to calculate $P(Class= benign | Input)$ and $P(Class= malignant | Input)$ , then use MAP rule to select a bigger probability as the final result.
+
+$P(Class= benign | Input)= \LARGE{\frac{P(Input|Class=benign)P(Class=benign)}{P(Input)}}$
+$P(Class= malignant | Input)= \LARGE{\frac{P(Input|Class=malignant)P(Class=malignant)}{P(Input)}}$
+
+Because of $Input = (A,B,C,D,E,F,G,H,I)$, so 
+$P(Input|Class=benign) = P(A|Class=benign)...P(I|Class=benign)$
+$P(Input|Class=malignant) = P(A|Class=malignant)...P(I|Class=malignant)$
+
+According to the data above we could get the probability for each variable
+![Probability of categorical variables](/data/unisa/AdvancedAnalytic2/assignment1/probability_categorical_variables.png)
+P(Class=benign) = 0.65
+P(Class=malignant) = 0.35
+
+Finally, we could calculate that
+
+$P(Input∣Class=benign)P(Class=benign)$ = 0.02735994
+$P(Input∣Class=malignant)P(Class=malignant)$ = 1.14239E-09
+
+It's obviously that 
+
+$P(Input∣Class=benign)P(Class=benign) \gt P(Input∣Class=malignant)P(Class=malignant)$
+​
+So, the final result for this record is benign, it has been classifed correctlly.
+
+[Categorical Variables probability calculator](/data/unisa/AdvancedAnalytic2/assignment1/NaiveBayes_CategoricalVariables.xlsx)
