@@ -108,6 +108,7 @@ export default hopeTheme({
   encrypt: {
     config: {
       "/unisa/2023SP5/AdvancedAnalyticTechniques1/Prac": ["#1234"],
+      "/unisa/2023SP5/AdvancedAnalyticTechniques2/assignment1": ["#1234"],
       "/Task/task_details.html": ["#1234"],
       "/demo/*": ["1234"],
       "/demo/encrypt.html": ["1234"],
