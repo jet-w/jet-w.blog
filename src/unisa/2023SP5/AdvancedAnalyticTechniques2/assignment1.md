@@ -22,12 +22,9 @@ category:
 [The submission file](/data/unisa/AdvancedAnalytic2/assignment1/Assignment-1.docx)
 ## Part 1 
 ::: info Requirements
-a) Describe a big data application that the company is using and use it to illustrate the 
-characteristics of big data analytics. (4)
-b) Suggest and describe one new big data application that would help the company improve 
-their business performance. (4)
-c) Explain why your suggested application is innovative and useful. Discuss the challenges 
-of implementing the application that you proposed. (4)
+a) Describe a <span style="color:orange; font-weight:bold;">big data application</span> that the company is using and use it to <span style="color:orange; font-weight:bold;">illustrate the characteristics of big data analytics</span>. (4)
+b) Suggest and describe <span style="color:orange; font-weight:bold;">one new big data application</span> that would help the company <span style="color:orange; font-weight:bold;">improve their business performance</span>. (4)
+c) Explain why your suggested application is <span style="color:orange; font-weight:bold;">innovative and useful</span>. Discuss the <span style="color:orange; font-weight:bold;">challenges</span> of implementing the application that you proposed. (4)
 :::
 
 ## Part2
