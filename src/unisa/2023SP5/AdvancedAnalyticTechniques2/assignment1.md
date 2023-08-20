@@ -27,6 +27,30 @@ b) Suggest and describe <span style="color:orange; font-weight:bold;">one new bi
 c) Explain why your suggested application is <span style="color:orange; font-weight:bold;">innovative and useful</span>. Discuss the <span style="color:orange; font-weight:bold;">challenges</span> of implementing the application that you proposed. (4)
 :::
 
+### 1.1	Big Data Applications in Meituan
+For a company that need to process big data, all they will come across the problems because of characters of big data. There are several ways to describe the characters of big data, such as the most famous V3 and V10. Next, will explore how the Meituan, which is a comprehensive internet company in China, to process big data for their business.
+Here will use the V3 to show the characters that Meituan come across. Firstly, describe the huge volume of data, there are 42P+ volume data exist in company and around 16 thousand tables; for the variety, there are kinds of business data, log, and comments, etc. need to process; for the velocity, there are 150 thousand tasks on MapReduce and Spark per day, the log data with a peak value of one million per second.  There are 2500+ nodes are deployed in 3 computer rooms to process all the tasks (2022).
+It’s obviously that it impossible to process using a normal application. They established application based on Hadoop software to support all the service. The structure of their application like Image 1.1.1.
+ 
+![1.1.1 Structure of Big Data Platform](/data/unisa/AdvancedAnalytic2/assignment1/bigdataplatform.png)
+The applications layer is the business layer, they are all business related, the compute engine layer and basic service layer construct the big data platform, which are what we need to focus on. All the components on the two layers will be described below.
+HDFS stands for Hadoop Distributed File System, which is a distributed file system (HDFS Architecture Guide, no date). Apache Hadoop YARN (Yet Another Resource Negotiator) is a novel resource orchestrator within the Hadoop framework, and a versatile resource governance infrastructure capable of furnishing cohesive resource allocation and scheduling functionalities for superjacent application strata (Apache Hadoop 3.3.6 – Apache Hadoop YARN, no date). The fullname of Hive Meta is Hive Metastore (HMS), which is the paramount depository, it houses the metadata pertaining to Hive tables and partitions within a relational database, affording diverse clients (comprising Hive, Impala, and Spark) the capability to retrieve said information through the utilization of the Metastore service API. (Apache Hive, no date). HBase is Apache HBase™ is the Hadoop database, a distributed, scalable, big data store (Apache HBase – Apache HBaseTM Home, no date). Mapred is a package, which describes how to read and write ORC files from Hadoop’s older org.apache.hadoop.mapred MapReduce APIs (Using in MapRed, no date). Cloud Table is a HBase interface make by Meituan (2022). Apache Kylin stands as an open source, distributed Analytical Data Warehouse; its conception was geared towards furnishing OLAP (Online Analytical Processing) proficiency within the milieu of extensive data landscapes. (Apache Kylin | Analytical Data Warehouse for Big Data, no date). Apache Hive is a distributed and resilient data warehousing system, which empowers extensive-scale analytics, querying, manipulation, and governance of petabytes of data stored across distributed repositories through the SQL. (Apache Hive, no date). Apache Spark is a multi-language engine for executing data engineering, data science, and machine learning on single-node machines or clusters (Apache SparkTM - Unified Engine for large-scale data analytics, no date). Presto is an open-source SQL query engine that's fast, reliable, and efficient at scale (Presto: Free, Open-Source SQL Query Engine for any Data, no date). 
+After having a glace of each component, next step will give some advice on how to optimize the big data platform.
+
+### 1.2	Suggestions
+The platform structure formed around 2012, ten years past, there are lots of components have made a great progress, and there are replacement components emerged. The structure of Meituan’s platform is well organized, but still have several components can be optimized. I will propose one suggestion on the structure, which is using K8 that is an open-source system for automating deployment, scaling, and management of containerized applications, to replace yarn for a more flexible capability (Production-Grade Container Orchestration n.d.). 
+### 1.3	The Advantages
+This part will show the advantages for the suggestions proposed on chapter 1.2. For replacement using K8 for YARN, the first thing is to understand the details of the two components, and the limitations of YARN and advantage of K8.
+For understanding the limitations of YARN, it’s necessary to know how YARN works. A YARN cluster consists of nodes, some of them are Master nodes, and the most Worker nodes. Two resource managers to manage resource at different levels. The ResourceManager handles resources at the cluster level, while NodeManager manages resources at the individual host level. They track vcores and memory at the cluster and localhost level. When an application runs on YARN, the two managers will evaluate the available resources, then assign each container to a host. In this way, the key work of YARN is to manage resources and schedule tasks on the cluster. 
+YARN exhibits limitations like version control, job isolation, and resource allocation. Running diverse workloads mandates separate clusters, escalating complexity and inefficiency. Especially for demanding tasks like real-time processing, YARN's lack of job isolation necessitates frequent cluster setup, causing costs and resource wastage (Kubernetes vs YARN for scheduling Apache Spark n.d.).
+The next is to understand how K8 works and the benefits from using K8.
+Kubernetes could use pod to manage different tasks as an isolated container, a pod is a group of containers, and all the tasks run in an isolated environment, no matter which task failed will not influence the whole cluster (Sensu | How Kubernetes works n.d.).
+After comparation between the YARN and Kubernetes, several benefits will get after using Kubernetes. Such as, containerize applications and dependencies to prevent dependency issues; Kubernetes' Resource Quota and Namespaces enhance control over resource utilization; portable hybrid cloud compatibility achieved with swappable backends for Spark applications; Kubernetes Role and ClusterRole features enable precise permissions based on API groups; Tag container images for version control, aiding auditing and rollback of deployments; flourishing Kubernetes ecosystem offers robust open-source management add-ons like Prometheus, Fluentd, and Grafana.
+All the benefits are the reasons for the suggestion.
+
+### 1.4	Challenges 
+The Kubernetes is a great component for dealing with big data. There still have lots of challenges to overcome. The initial hurdle in adopting Kubernetes lies in the requisite expertise, which often lacking in data teams. Proficiency in Kubernetes, Helm, Docker, and networking basics is essential. Despite Kubernetes' prowess in scaling apps, addressing infrastructure scalability remains a task. Efficient cost management amid the need for adaptable infrastructure supporting dynamic applications is another significant challenge. Given the resource-intensive nature of big data tasks involving research, testing, modeling, and experimentation, costs can escalate if not vigilantly managed (Kubernetes vs YARN for scheduling Apache Spark n.d.).
+
 ## Part2
 For this part, the Weka will be selected as the tool to implement NaiveBayes Classifier, the original data need to convert into a proper format. The csv file format is selected, please download the data follow the link below.
 [Breast cancer wisconsin data (Have been converted into csv)](/data/unisa/AdvancedAnalytic2/assignment1/breast-cancer-wisconsin.csv)
@@ -150,8 +174,8 @@ P(Class=malignant) = 0.35
 
 Finally, we could calculate that
 
-$P(Input∣Class=benign)P(Class=benign)$ = 1.83001E-08
-$P(Input∣Class=malignant)P(Class=malignant)$ = 1.98167E-12
+$P(Input∣Class=benign)P(Class=benign)$ = 4.19E-05
+$P(Input∣Class=malignant)P(Class=malignant)$ = 1.52E-13
 
 It's obviously that 
 
@@ -476,3 +500,19 @@ So, the final result for this record is benign, it has been classifed correctlly
 ::: tip
 [Categorical Variables probability calculator](/data/unisa/AdvancedAnalytic2/assignment1/NaiveBayes_CategoricalVariables.xlsx)
 :::
+
+## References
+
+Apache Flink® — Stateful Computations over Data Streams n.d., viewed 20 August 2023, <https://flink.apache.org/>.
+Apache Hadoop 3.3.6 – Apache Hadoop YARN n.d., viewed 20 August 2023, <https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html>.
+Apache HBase – Apache HBase™ Home n.d., viewed 20 August 2023, <https://hbase.apache.org/>.
+Apache Hive n.d., viewed 20 August 2023, <https://hive.apache.org/>.
+Apache Kylin | Analytical Data Warehouse for Big Data n.d., viewed 20 August 2023, <https://kylin.apache.org/>.
+Apache Spark™ - Unified Engine for large-scale data analytics n.d., viewed 20 August 2023, <https://spark.apache.org/>.
+HDFS Architecture Guide n.d., viewed 20 August 2023, <https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html>.
+Kubernetes vs YARN for scheduling Apache Spark n.d., Spot.io, viewed 20 August 2023, <https://spot.io/blog/kubernetes-vs-yarn-for-scheduling-apache-spark/>.
+miao君 2022, 美团的大数据平台架构实践, 知乎专栏, viewed 20 August 2023, <https://zhuanlan.zhihu.com/p/26359613>.
+Presto: Free, Open-Source SQL Query Engine for any Data n.d., viewed 20 August 2023, <http://prestodb.github.io/>.
+Production-Grade Container Orchestration n.d., Kubernetes, viewed 20 August 2023, <https://kubernetes.io/>.
+Sensu | How Kubernetes works n.d., Sensu, viewed 20 August 2023, <https://sensu.io>.
+Using in MapRed n.d., viewed 20 August 2023, <https://orc.apache.org/docs/mapred.html>.
