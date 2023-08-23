@@ -128,3 +128,9 @@ Drag the formulas on row 5 to fill the rest of cells.
 
 
 ## **Practice 3**: Predict
+
+
+
+
+## Practice Week 5 (Video)
+<YouTube id="l86bk7thYSE" />
