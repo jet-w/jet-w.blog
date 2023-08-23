@@ -1,7 +1,7 @@
 ---
 title: Docker
 index: false
-icon: docker
+icon: /assets/icon/common/docker.svg
 author: Haiyue
 category:
   - readme

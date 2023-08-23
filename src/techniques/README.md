@@ -11,6 +11,8 @@ category:
 
 This category will record all the things related with techniques.
 
+[icon-svg](https://www.svgviewer.dev/s/481125/docker)
+
 [markmap](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode)
 
 [Solving the executable file cannot execute in vscode terminal](https://bobbyhadz.com/blog/yarn-cannot-be-loaded-running-scripts-disabled)

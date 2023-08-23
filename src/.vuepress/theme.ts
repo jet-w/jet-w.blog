@@ -127,11 +127,11 @@ export default hopeTheme({
       ],
     },
 
-    comment: {
-      // You should generate and use your own comment service
-      provider: "Waline",
-      serverURL: "https://m8w2khda.api.lncldglobal.com",
-    },
+    //comment: {
+    //  // You should generate and use your own comment service
+    //  provider: "Waline",
+    //  serverURL: "https://m8w2khda.api.lncldglobal.com",
+    //},
 
     // all features are enabled for demo, only preserve features you need here
     mdEnhance: {
