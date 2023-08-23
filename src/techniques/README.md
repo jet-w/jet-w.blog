@@ -11,6 +11,9 @@ category:
 
 This category will record all the things related with techniques.
 
+
+[vuepress-theme-hope](https://theme-hope.vuejs.press/)
+
 [icon-svg](https://www.svgviewer.dev/s/481125/docker)
 
 [markmap](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode)
