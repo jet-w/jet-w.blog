@@ -14,7 +14,7 @@ tag:
 ---
 
 
-## Week 2: Naive Bayes
+## Week 2: Naive Bayes (Practical 1)
 ### Part1 : Training
 
 ::: details Steps of using Weka
@@ -77,7 +77,7 @@ The performance increase after discretizing.
 
 
 
-## Week 3: Bayesian Network Inference
+## Week 3: Bayesian Network Inference (Practical 2)
 ### Install package
 ``` r
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -160,7 +160,7 @@ Calculate the following probabilities:
 
 
 
-## Week 4: Learning Bayesian network structure from data
+## Week 4: Learning Bayesian network structure from data (Practical 3)
 
 In this section, using the <span style="color:orange">PC algorithm</span> from the pcalg package to learn the <span style="color:orange">Bayesian network structure</span> from data. [Please refer to the user manual of pcalg for more details](https://cran.r-project.org/web/packages/pcalg/pcalg.pdf)
 
@@ -220,7 +220,7 @@ if (require(Rgraphviz)) {
 :::
 
 
-## Week 5: R and data mining
+## Week 5: R and data mining (Practical)
 [Resources](http://www.rdatamining.com/)
 
 ::: tabs
@@ -321,7 +321,7 @@ plot(rules.pruned[1:3], method="paracoord", control=list(reorder=TRUE))
 :::
 
 
-## Week 6: Bayesian Networks
+## Week 6: Bayesian Networks (Practical 4: cont)
 
 ### I. Learning local causal structures from data
 In this section, we use the <span style="color:orange">PC-select function (PC-simple algorithm)</span> from the `pcalg` package to <span style="color:orange">learn the local network structure</span> around one node from data. Please refer to the user manual of pcalg for [more details](https://cran.r-project.org/web/packages/pcalg/pcalg.pdf)
