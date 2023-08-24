@@ -1,6 +1,6 @@
 ---
 title: Fourier Series Models
-index: true
+index: false
 icon: dragon
 author: Haiyue
 date: 2023-07-20
