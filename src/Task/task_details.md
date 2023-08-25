@@ -101,18 +101,12 @@ category:
 - [ ] 02. Review all content for Thuc's course
 - [x] 03. Make a summarization of Thuc's course and post to forum
 - [x] 04. Cook beef
-- [ ] 05. Analysis the assignment which should be submitted.
-
+- [x] 05. Analysis the assignment which should be submitted.
+- [ ] 06. Some work on Project-Initiation-Document
 ::: details Details for each task
-01. Check emails (unisa, gmail and 126)
-    - unisa: 10:30 Done
-    - gmail: 10:30 Done
-    - 126: 10:30 Done
-02. Do something for c3l project
-    - The modules creation pattern
-    - The assignments creation pattern
-03. Post on the forum
+01. Check emails (unisa, gmail and 126) [done]
+02. Review course to week 4
+03. Post on the forum [done]
 04. Done
-05. Done for the project of Thuc's course
-    
+05. Done for the project of Thuc's course and math (John's course) [done]
 :::

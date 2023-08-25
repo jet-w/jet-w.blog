@@ -1,7 +1,7 @@
 ---
 title: Assignment 1
-index: true
-icon: "/assets/icon/common/data-mining.svg"
+index: false
+icon: "/assets/icon/common/assignment.svg"
 icon-size: "4rem"
 author: Haiyue
 date: 2023-08-25
@@ -15,7 +15,15 @@ category:
 <PDF url="/data/unisa/AdvancedAnalytic1/assignment1/Assignment1AAT.pdf" ratio="1" />
 ::: 
 
+
+### Resources
+::: details
+[Access Resources](https://lo.unisa.edu.au/mod/folder/view.php?id=3393720)
+
 ![Assignment Resources](/data/unisa/AdvancedAnalytic1/assignment1/assignment_res.png)
+:::
+
+
 ::: tabs
 @tab Quesion1 <span style="color:red;font-weight:bold;">(15 marks)</span>
 1. For this question you will need the files from the website named
