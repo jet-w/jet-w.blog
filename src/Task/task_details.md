@@ -93,3 +93,25 @@ category:
     - gmail: 10:30 Done
     - 126: 10:30 Done
 :::
+
+
+
+### 2023-08-25
+- [ ] 01. Check emails (unisa, gmail and 126)
+- [ ] 02. Review all content for Thuc's course
+- [ ] 03. Make a summarization of Thuc's course and post to forum
+- [ ] 04. Cook beef
+
+::: details Details for each task
+01. Check emails (unisa, gmail and 126)
+    - unisa: 10:30 Done
+    - gmail: 10:30 Done
+    - 126: 10:30 Done
+01. Do something for c3l project
+    - The modules creation pattern
+    - The assignments creation pattern
+02. Check emails (unisa, gmail and 126)
+    - unisa: 10:30 Done
+    - gmail: 10:30 Done
+    - 126: 10:30 Done
+:::
