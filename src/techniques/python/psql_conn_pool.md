@@ -3,6 +3,7 @@
 title: Connection Pool using psycopg2
 date: 2023-07-19
 author: Haiyue
+icon: /assets/icon/common/pool.svg
 category:
   - python
 tag:

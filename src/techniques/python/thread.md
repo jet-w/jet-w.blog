@@ -1,7 +1,7 @@
 ---
 #cover: /assets/images/unisa.jpg
 title: Thread
-#icon: reel
+icon: /assets/icon/common/thread.svg
 date: 2023-07-10
 category:
   - python

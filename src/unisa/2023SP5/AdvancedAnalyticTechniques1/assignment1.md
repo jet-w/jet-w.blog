@@ -72,3 +72,22 @@ The file on the website `SnowtownWindFarm.xlsx` has a one year of half hour outp
 2. You are now to <span style="color:orange">Compare</span> the best `AR(p)` model with the best `ARMA(p,q)` model that you can find. Use the <span style="color:orange">error metrics</span> for your comparison. 
 3. <span style="color:orange">Is there a difference</span> in the number of parameters to estimate in the two models? If so, <span style="color:orange">is it worth it</span> to use the one with extra parameters?
 :::
+
+
+
+---
+All works below
+::: tabs
+@tab Question 1
+The GHI column is selected as the target variable. Because of the data is half hourly dataset, it's a mess of data and not easy to use for analysis. So I convert it into daily data.
+
+Convert code
+``` python
+```
+
+@tab Question 2
+
+@tab Question 3
+
+
+:::

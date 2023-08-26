@@ -11,3 +11,4 @@ star: false
 sticky: false
 ---
 [Makefile document](https://www.zhaixue.cc/makefile/makefile-intro.html)
+[makefile tutorial](https://makefiletutorial.com/#getting-started)
