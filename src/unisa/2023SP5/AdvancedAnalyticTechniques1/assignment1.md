@@ -5,6 +5,7 @@ icon: "/assets/icon/common/assignment.svg"
 icon-size: "4rem"
 author: Haiyue
 date: 2023-08-25
+sidebar: false
 category:
   - Assignment
 ---
@@ -16,7 +17,7 @@ category:
 ::: 
 
 
-### Resources
+### Requirements Analysis
 ::: details
 [Access Resources](https://lo.unisa.edu.au/mod/folder/view.php?id=3393720)
 
@@ -76,7 +77,7 @@ The file on the website `SnowtownWindFarm.xlsx` has a one year of half hour outp
 
 
 ---
-All works below
+## All works below
 ::: tabs
 @tab Question 1
 The GHI column is selected as the target variable. Because of the data is half hourly dataset, it's a mess of data and not easy to use for analysis. So I convert it into daily data.
