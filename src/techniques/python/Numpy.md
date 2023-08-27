@@ -450,3 +450,8 @@ plt.title(str(nwalks) + " simple random walks with +1/-1 steps")
 plt.hist(walks[:,999], bins=53)  # 
 plt.title("Distribution for the very last step")
 ```
+
+
+
+## References
+[NumPy教程（快速入门版](http://c.biancheng.net/numpy/)

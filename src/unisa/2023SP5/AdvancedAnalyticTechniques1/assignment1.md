@@ -33,15 +33,15 @@ category:
     `d`. SolarTemplate.xlsm
     
     The tasks for this question are listed below. 
-    * Take the solar radiation data from File `a`, and copy it into File `c`, and run the <span style="color:orange">power spectrum tool</span> to find out which <span style="color:orange">frequencies</span> are important.
-    * Use File `c` to find the <span style="color:orange">Fourier series model </span>for the seasonality. 
+    1. Take the solar radiation data from File `a`, and copy it into File `c`, and run the <span style="color:orange">power spectrum tool</span> to find out which <span style="color:orange">frequencies</span> are important.
+    2. Use File `c` to find the <span style="color:orange">Fourier series model </span>for the seasonality. 
         ::: info
         Note that the Template is designed for hourly data. You will have to make some adjustments to use it for half hourly data plus change the relevant frequencies if necessary.
         :::
-    * Take the <span style="color:orange">difference</span> between the data and the Fourier model - the residuals - and take them to <span style="color:orange">Minitab</span> and <span style="color:orange">find the best ARMA(p,q) model</span>.
-    * Use the <span style="color:orange">ARMA model to forecast one step ahead</span> for the residuals and add that to the Fourier series model to get the full one step ahead forecast.
-    * Use the <span style="color:orange">error metrics defined below to evaluate the model</span>.
-    * Use the <span style="color:orange">models you have developed</span> for 2017 to see <span style="color:orange">how they perform for the 2018 data</span>, the out of sample data. Comment on the differences in the error metrics.
+    3. Take the <span style="color:orange">difference</span> between the data and the Fourier model - the residuals - and take them to <span style="color:orange">Minitab</span> and <span style="color:orange">find the best ARMA(p,q) model</span>.
+    4. Use the <span style="color:orange">ARMA model to forecast one step ahead</span> for the residuals and add that to the Fourier series model to get the full one step ahead forecast.
+    5. Use the <span style="color:orange">error metrics defined below to evaluate the model</span>.
+    6. Use the <span style="color:orange">models you have developed</span> for 2017 to see <span style="color:orange">how they perform for the 2018 data</span>, the out of sample data. Comment on the differences in the error metrics.
 
     The <span style="color:orange">Normalised Mean Bias Error (NMBE)</span> is defined by taking the difference between the data $y_i$ and thee model $\hat{y}_i$ for all $i$ and dividing by the number of data values. To normalise it, we divide by the mean of the data. Note that for solar radiation, we only do the calculation for solar elevation greater than or equal to 10 degrees. That is why I included the elevation data.
     $$
@@ -83,8 +83,18 @@ The GHI column is selected as the target variable. Because of the data is half h
 
 Convert code
 ``` python
+import pandas as pd
+import math
+
+hh2017_data = pd.read_csv('halfhourly2017_solar.csv')
+hh2017_data['group'] = hh2017_data.index / 48
+hh2017_data['group'] = hh2017_data['group'].apply(math.floor)
+daily_data = hh2017_data.groupby('group').sum()
+daily_data.to_csv('daily2017_data.csv')
 ```
 
+We will get a daily data with 365 days. Using Power Spectrum method to get the frequencies like below.
+![Daily Frequency](/data/unisa/AdvancedAnalytic1/assignment1/frequencies.png)
 @tab Question 2
 
 @tab Question 3
