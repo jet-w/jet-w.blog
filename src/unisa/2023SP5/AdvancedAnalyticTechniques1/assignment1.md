@@ -94,8 +94,12 @@ daily_data = hh2017_data.groupby('group').sum()
 daily_data.to_csv('daily2017_data.csv')
 ```
 
+
+
+
 We will get a daily data with 365 days. Using Power Spectrum method to get the frequencies like below.
 ![Daily Frequency](/data/unisa/AdvancedAnalytic1/assignment1/frequencies.png)
+
 @tab Question 2
 
 @tab Question 3
