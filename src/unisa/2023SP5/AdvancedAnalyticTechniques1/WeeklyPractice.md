@@ -129,8 +129,6 @@ Drag the formulas on row 5 to fill the rest of cells.
 :::
 
 
-
-
 ## References
 01. The practice instruction from [John](https://people.unisa.edu.au/john.boland) in SP52023.
 02. [Software office website](https://support.microsoft.com/en-gb/office/define-and-solve-a-problem-by-using-solver-5d1a388f-079d-43ac-a7eb-f63e45925040#:~:text=Solver%20adjusts%20the%20values%20in,cell%20by%20changing%20other%20cells.)

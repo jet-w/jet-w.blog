@@ -37,7 +37,7 @@ category:
     1. Take the solar radiation data from File `a`, and copy it into File `c`, and run the <span style="color:orange">power spectrum tool</span> to find out which <span style="color:orange">frequencies</span> are important.
     2. Use File `c` to find the <span style="color:orange">Fourier series model </span>for the seasonality. 
         ::: info
-        Note that the Template is designed for hourly data. You will have to make some adjustments to use it for half hourly data plus change the relevant frequencies if necessary.
+        Note that <span style="color:red;font-weight:bold;">the Template is designed for hourly data</span>. You will have to make some adjustments to use it for half hourly data plus change the relevant frequencies if necessary.
         :::
     3. Take the <span style="color:orange">difference</span> between the data and the Fourier model - the residuals - and take them to <span style="color:orange">Minitab</span> and <span style="color:orange">find the best ARMA(p,q) model</span>.
     4. Use the <span style="color:orange">ARMA model to forecast one step ahead</span> for the residuals and add that to the Fourier series model to get the full one step ahead forecast.
@@ -78,31 +78,75 @@ The file on the website `SnowtownWindFarm.xlsx` has a one year of half hour outp
 
 ---
 ## All works below
-::: tabs
-@tab Question 1
-The GHI column is selected as the target variable. Because of the data is half hourly dataset, it's a mess of data and not easy to use for analysis. So I convert it into daily data.
 
-Convert code
+### Question 1
+The GHI column is selected as the target variable. Because of the data is half hourly dataset, it's a lots of data and not easy to use for analysis. So I convert it into daily data.
+
+All code please read the content on [Power Spectrum](https://colab.research.google.com/drive/1DYajPS1LLACJMo6n8Xe2EflSgX3G0WpQ#scrollTo=ZX9IJDHiedYb)
+
+::: code-tabs
+@tab loading libraries
 ``` python
-import pandas as pd
 import math
-
-hh2017_data = pd.read_csv('halfhourly2017_solar.csv')
-hh2017_data['group'] = hh2017_data.index / 48
-hh2017_data['group'] = hh2017_data['group'].apply(math.floor)
-daily_data = hh2017_data.groupby('group').sum()
-daily_data.to_csv('daily2017_data.csv')
+import pandas as pd
+import requests as req
+import numpy as np
+import matplotlib.pyplot as plt
 ```
 
+@tab DFT & Plot
+``` python
+def DFT_Excel(data, num_frequencies):
+  num_data = len(data)
+  n2 = num_data / 2
+  ret = {'frequency':[], 'ai':[], 'bi':[], 'power':[]}
+  for i in range(num_frequencies):
+    s1 = 0
+    s2 = 0
+    s0 = sum(data)
+    for j in range(1, num_data):
+      cit = math.cos(math.pi * i / n2*(j+1))
+      sit = math.sin(math.pi * i / n2*(j+1))
+      s1 = s1 + cit * data[j]
+      s2 = s2 + sit * data[j]
 
+    s1 /= n2
+    s2 /= n2
 
+    ret['frequency'].append(i)
+    ret['ai'].append(s1)
+    ret['bi'].append(s2)
+    ret['power'].append(s1**2 + s2**2)
+  ret['ai'][0] = sum(data)/len(data)
+  return pd.DataFrame(ret)
 
-We will get a daily data with 365 days. Using Power Spectrum method to get the frequencies like below.
-![Daily Frequency](/data/unisa/AdvancedAnalytic1/assignment1/frequencies.png)
+def dft_plot(power_spectrum, title):
+  plt.bar(daily_power_spectrum['frequency'][1:], daily_power_spectrum['power'][1:],)
+  plt.title(title, fontsize=14)
+  plt.xlabel('Frequency', fontsize=14)
+  plt.ylabel('Power', fontsize=14)
+  #plt.grid(True)
+  plt.show()
+```
+@tab Reading data
+``` python
+response = req.get('https://seamice.github.io/data/unisa/AdvancedAnalytic1/assignment1/HalfHourSolarRadiation2017.xlsx')
+solar_radia2017 = pd.read_excel(response.content)
+```
+@tab PowerSpectrum
+``` python
+# convert half-hourly data to daily data
+solar_radia2017['group'] = solar_radia2017.index / 2
+solar_radia2017['group'] = solar_radia2017['group'].apply(math.floor)
+hourly_data = solar_radia2017.groupby('group').sum()
 
-@tab Question 2
+hourly_power_spectrum = DFT_Excel(hourly_data.GHI, 200)
 
-@tab Question 3
-
-
+dft_plot(hourly_power_spectrum, 'Hourly Power Spectrum')
+```
 :::
+Using Power Spectrum method to get the frequencies graph like below.
+![Daily Frequency](/data/unisa/AdvancedAnalytic1/assignment1/frequencies.png =x300)
+### Question 2
+
+### Question 3
