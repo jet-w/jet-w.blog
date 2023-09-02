@@ -117,7 +117,8 @@ M5 = SUM(H5:L5)+$G$3
 O5 = (G5-M5)^2
 ```
 We should use the solver to minimize the target function in `P3`
-![Alt text](solar_solver.png =400x)
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solar_solver.png =400x)
 
 We could see the seasonality results
 ![Whole fitting results](/data/unisa/AdvancedAnalytic1/assignment1/wholefittingresults.png)
@@ -125,7 +126,7 @@ We could see the seasonality results
 ![Part fitting results](/data/unisa/AdvancedAnalytic1/assignment1/partresult.png)
 
 Now we got residuals
-![Residuals](residuals.png)
+![Residuals](/data/unisa/AdvancedAnalytic1/assignment1/residuals.png)
 The formula of residuals
 ``` VBA
 O5 = G5-M5
