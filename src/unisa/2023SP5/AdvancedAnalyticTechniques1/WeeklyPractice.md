@@ -82,6 +82,20 @@ Select tool please refer to Step3 and Step 4 from Part1
 ::: 
 
 ## Seasonality
+### instructions
+::: details 
+1.	Make sure that you have completed Practical 1 before anything else.
+2.	Deaths
+Open the file `Power_Spectrum.xls`.  Take your detrended series from the deaths data set, and copy it into the file starting at cell `A11`.  Then hit the button labelled Power Spectrum.   You will be asked the number of data values and how many frequencies you want.  
+
+    Then, copy columns `A-B` to columns `M-N`.  In `N4` put the formula `=AVERAGE(N5:N76)` – the mean death number.  In `O1` put `=2*pi()/12`, <span style="color:orange">the frequency of one cycle per year</span>, followed by `=4*pi()/12` and `=6*pi()/12` in `P1` and `Q1`.  We are about to see what cycles contribute to the seasonality.  In `O5` put the formula `=O$2*COS(O$1*$M5)+O$3*SIN(O$1*$M5)` – this will be the contribution at time `t= 1` month with this frequency as soon as we estimate the coefficients that are in `O2` and `O3`.  Copy this formula across to `Q5` – check how it changes.  In `R5` put `=SUM(O5:Q5)+$N$4` – the sum of the contributions at this time from all frequencies plus the mean.  In `S5` we put `=(N5-R5)^2` – the squared deviation of the model from the observed value.  Highlight `O5-S5` and copy down to row 76.  In `S78` put `=SUM(S5:S77)` – the sum of the squared deviations of the model from the observations.  We want to estimate the coefficients `O2-Q3` to miminise this.  Go to the Data menu and select Solver.  Then make selections to minimise `S78` by changing cells `O2:Q3`.  Then plot columns `N` and `R` versus `M`.  How well does it fit?  Now try the regression version I did in class – same results?  What extra information do we get?
+
+3.	We are going to examine the seasonality of the red wine data now.  But, this is after you have removed the trend.  Open the file `Power_Spectrum.xls`.  Take your detrended series from the red wine data set, and copy it into the file starting at cell `A11`.  Then hit the button labelled Power Spectrum.  You will be asked to input the number of data values – 132, and then the number of frequencies you want to graph – 50.  Now inspect the graph and decide which frequencies you will have to include in your Fourier Series model.  Then use a similar structure to that for the Deaths data set to evaluate the Fourier model.  Graph the model and data together.  If you are feeling adventurous, graph the original data and the combination of trend and seasonality together.
+4.	Repeat what you have done in Questions 2,3 for the Jeans data set.
+5.	Now decide how you want to fit seasonal models, using either or both of the other two approaches and try them in `Matlab`, `r` or `Python`.
+
+:::
+
 ### **Practice 2**:: Solver
 Use Solver to find an optimal (maximum or minimum) value for a formula in one cell — called the objective cell — subject to constraints, or limits, on the values of other formula cells on a worksheet. Solver works with a group of cells, called decision variables or simply variable cells that are used in computing the formulas in the objective and constraint cells. Solver adjusts the values in the decision variable cells to satisfy the limits on constraint cells and produce the result you want for the objective cell.
 

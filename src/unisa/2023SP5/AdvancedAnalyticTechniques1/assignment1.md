@@ -80,73 +80,188 @@ The file on the website `SnowtownWindFarm.xlsx` has a one year of half hour outp
 ## All works below
 
 ### Question 1
-The GHI column is selected as the target variable. Because of the data is half hourly dataset, it's a lots of data and not easy to use for analysis. So I convert it into daily data.
+The GHI column is selected as the target variable. Because of the data is half hourly dataset, it's a lots of data and not easy to use for analysis. So I convert it into daily data. 
 
+::: tabs
+@tab Excel
+* DFT
+Using `powerspectrum` excel to get the best frequencies.
+    ::: info
+    <span style="color:orange">Step1</span>: using half-hourly data
+    <span style="color:orange">Step2</span>: Number of data: 17520, Number of frequencies: 2000
+    :::
+![solar radiation 2017 DFT](/data/unisa/AdvancedAnalytic1/assignment1/solar_dft.png)
+It could easily be found that the power of frequencies is greater than 500. Then we could select the value like 
+![best_frequencies](/data/unisa/AdvancedAnalytic1/assignment1/solar_best_frequencies.png)
+1. Results
+    ::: info Results
+    The best frequencies are <span style="color:orange">[1, 364,365, 366, 730]</span>.
+    :::
+
+* Seasonality
+We could calculate the coefficients for the seasonality using fourier model.
+![fourier_model](/data/unisa/AdvancedAnalytic1/assignment1/fourier_model.png)
+The parameters like below:
+``` VBA
+P3 = SUM(O5:O17524)
+G3 = AVERAGE(G5:G17524)
+
+'The formula should be drag down for filling the necessary cells
+H1 = 2*PI()/17520*H$4
+I1 = 2*PI()/17520*I$4
+J1 = 2*PI()/17520*J$4
+K1 = 2*PI()/17520*K$4
+L1 = 2*PI()/17520*L$4
+
+M5 = SUM(H5:L5)+$G$3
+O5 = (G5-M5)^2
+```
+We should use the solver to minimize the target function in `P3`
+![Alt text](solar_solver.png =400x)
+
+We could see the seasonality results
+![Whole fitting results](/data/unisa/AdvancedAnalytic1/assignment1/wholefittingresults.png)
+
+![Part fitting results](/data/unisa/AdvancedAnalytic1/assignment1/partresult.png)
+
+Now we got residuals
+![Residuals](residuals.png)
+The formula of residuals
+``` VBA
+O5 = G5-M5
+```
+Then copy all the residuals to minitab for autocorrelation analysis.
+Auto Corrrelation Result
+![Auto Correlation](/data/unisa/AdvancedAnalytic1/assignment1/autocorrelation.png =400x)
+
+Partial Auto Corrrelation Result
+![Partial Auto Correlation](/data/unisa/AdvancedAnalytic1/assignment1/partialautocorrelation.png =400x)
+
+
+According to the results of Auto correlation and Partial Auto Correlation, it can see the values are correlated with the past values.
+
+
+Now we try to use the ARIMA to find the coefficients of the forcasting model.
+
+The first step we try to set the autoregressive is 5.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/autoregressiveparams.png =400x)
+The results are here.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/autoregressive5-results.png =400x)
+
+We could see the pvalue of AR5 and Constant are more then 0.05, so we need the exclude the constant and decrease the number of lags, now we try to set autoregressive is 4.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/autoregressiveparams4.png =400x)
+According to the results we could see all the pvalues are less than 0.05, so we could use AR(4) model to model the residuals.
+
+Now we copy the coefficients to excel, and try to model the AR(4) like the picture below.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/AR(4).png)
+We could to visualize the fitting result of AR(4)
+Partial Fitting Result
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/AR(4)partialfittingresult.png)
+Whole Data Fitting Result
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/AR(4)wholefittingresult.png)
+
+According to the results above, we could know, the seasonality and AR(4) could fitting very well on our data. Now we need to combine the two components to see the final result.
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/finalmodel.png =400x)
+``` VBA
+AA9 = =M9+S9
+```
+Partial Final Model Fitting Result
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/partialfinalmodelfittingresult.png)
+
+Whole Final Model Fitting Result
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/wholefinalmodelfittingresult.png)
+
+According to the graph, we could know the final model could fit the data very well.
+
+
+
+
+
+
+@tab Python
 All code please read the content on [Power Spectrum](https://colab.research.google.com/drive/1DYajPS1LLACJMo6n8Xe2EflSgX3G0WpQ#scrollTo=ZX9IJDHiedYb)
-
-::: code-tabs
-@tab loading libraries
-``` python
-import math
-import pandas as pd
-import requests as req
-import numpy as np
-import matplotlib.pyplot as plt
-```
-
-@tab DFT & Plot
-``` python
-def DFT_Excel(data, num_frequencies):
-  num_data = len(data)
-  n2 = num_data / 2
-  ret = {'frequency':[], 'ai':[], 'bi':[], 'power':[]}
-  for i in range(num_frequencies):
-    s1 = 0
-    s2 = 0
-    s0 = sum(data)
-    for j in range(1, num_data):
-      cit = math.cos(math.pi * i / n2*(j+1))
-      sit = math.sin(math.pi * i / n2*(j+1))
-      s1 = s1 + cit * data[j]
-      s2 = s2 + sit * data[j]
-
-    s1 /= n2
-    s2 /= n2
-
-    ret['frequency'].append(i)
-    ret['ai'].append(s1)
-    ret['bi'].append(s2)
-    ret['power'].append(s1**2 + s2**2)
-  ret['ai'][0] = sum(data)/len(data)
-  return pd.DataFrame(ret)
-
-def dft_plot(power_spectrum, title):
-  plt.bar(daily_power_spectrum['frequency'][1:], daily_power_spectrum['power'][1:],)
-  plt.title(title, fontsize=14)
-  plt.xlabel('Frequency', fontsize=14)
-  plt.ylabel('Power', fontsize=14)
-  #plt.grid(True)
-  plt.show()
-```
-@tab Reading data
-``` python
-response = req.get('https://seamice.github.io/data/unisa/AdvancedAnalytic1/assignment1/HalfHourSolarRadiation2017.xlsx')
-solar_radia2017 = pd.read_excel(response.content)
-```
-@tab PowerSpectrum
-``` python
-# convert half-hourly data to daily data
-solar_radia2017['group'] = solar_radia2017.index / 2
-solar_radia2017['group'] = solar_radia2017['group'].apply(math.floor)
-hourly_data = solar_radia2017.groupby('group').sum()
-
-hourly_power_spectrum = DFT_Excel(hourly_data.GHI, 200)
-
-dft_plot(hourly_power_spectrum, 'Hourly Power Spectrum')
-```
-:::
+* All python code
+    ::: code-tabs
+    @tab loading libraries
+    ``` python
+    import math
+    import pandas as pd
+    import requests as req
+    import numpy as np
+    import matplotlib.pyplot as plt
+    ```
+    
+    @tab DFT & Plot
+    
+    ``` python
+    def DFT_Excel(data, num_frequencies):
+      num_data = len(data)
+      n2 = num_data / 2
+      ret = {'frequency':[], 'ai':[], 'bi':[], 'power':[]}
+      for i in range(num_frequencies):
+        s1 = 0
+        s2 = 0
+        s0 = sum(data)
+        for j in range(1, num_data):
+          cit = math.cos(math.pi * i / n2*(j+1))
+          sit = math.sin(math.pi * i / n2*(j+1))
+          s1 = s1 + cit * data[j]
+          s2 = s2 + sit * data[j]
+    
+        s1 /= n2
+        s2 /= n2
+    
+        ret['frequency'].append(i)
+        ret['ai'].append(s1)
+        ret['bi'].append(s2)
+        ret['power'].append(s1**2 + s2**2)
+      ret['ai'][0] = sum(data)/len(data)
+      return pd.DataFrame(ret)
+    
+    def dft_plot(power_spectrum, title):
+      plt.bar(daily_power_spectrum['frequency'][1:], daily_power_spectrum['power'][1:],)
+      plt.title(title, fontsize=14)
+      plt.xlabel('Frequency', fontsize=14)
+      plt.ylabel('Power', fontsize=14)
+      #plt.grid(True)
+      plt.show()
+    ```
+    @tab Reading data
+    ``` python
+    response = req.get('https://seamice.github.io/data/unisa/AdvancedAnalytic1/assignment1/        HalfHourSolarRadiation2017.xlsx')
+    solar_radia2017 = pd.read_excel(response.content)
+    ```
+    @tab PowerSpectrum
+    ``` python
+    # convert half-hourly data to daily data
+    solar_radia2017['group'] = solar_radia2017.index / 2
+    solar_radia2017['group'] = solar_radia2017['group'].apply(math.floor)
+    hourly_data = solar_radia2017.groupby('group').sum()
+    
+    hourly_power_spectrum = DFT_Excel(hourly_data.GHI, 200)
+    
+    dft_plot(hourly_power_spectrum, 'Hourly Power Spectrum')
+    ```
+    :::
 Using Power Spectrum method to get the frequencies graph like below.
 ![Daily Frequency](/data/unisa/AdvancedAnalytic1/assignment1/frequencies.png =x300)
+
+According to the frequency graph, it's easy to find the best frequency is 1.
+:::
+
 ### Question 2
 
 ### Question 3
+
+
+
+
+
+
+
+## References
+01. [Seasonality Analysis and Forecast in Time Series](https://medium.com/swlh/seasonality-analysis-and-forecast-in-time-series-b8fbba820327)
+02. [Seasonality: What It Means in Business and Economics, Examples](https://www.investopedia.com/terms/s/seasonality.asp)
+03. [Using Python and Auto ARIMA to Forecast Seasonal Time Series](https://medium.com/@josemarcialportilla/using-python-and-auto-arima-to-forecast-seasonal-time-series-90877adff03c)
+04. [A Guide to Time Series Analysis in Python](https://builtin.com/data-science/time-series-python)
