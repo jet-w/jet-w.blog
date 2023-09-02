@@ -84,6 +84,7 @@ The GHI column is selected as the target variable. Because of the data is half h
 
 ::: tabs
 @tab Excel
+#### Taks1: Getting Frequencies
 * DFT
 Using `powerspectrum` excel to get the best frequencies.
     ::: info
@@ -98,6 +99,7 @@ It could easily be found that the power of frequencies is greater than 500. Then
     The best frequencies are <span style="color:orange">[1, 364,365, 366, 730]</span>.
     :::
 
+#### Task2: Getting the fourier model
 * Seasonality
 We could calculate the coefficients for the seasonality using fourier model.
 ![fourier_model](/data/unisa/AdvancedAnalytic1/assignment1/fourier_model.png)
@@ -125,6 +127,7 @@ We could see the seasonality results
 
 ![Part fitting results](/data/unisa/AdvancedAnalytic1/assignment1/partresult.png)
 
+#### Task 3: Getting the coefficients for AR model
 Now we got residuals
 ![Residuals](/data/unisa/AdvancedAnalytic1/assignment1/residuals.png)
 The formula of residuals
@@ -153,6 +156,8 @@ We could see the pvalue of AR5 and Constant are more then 0.05, so we need the e
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/autoregressiveparams4.png =400x)
 According to the results we could see all the pvalues are less than 0.05, so we could use AR(4) model to model the residuals.
 
+
+#### Task 4: Using the ARMA model to forecast
 Now we copy the coefficients to excel, and try to model the AR(4) like the picture below.
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/AR(4).png)
 We could to visualize the fitting result of AR(4)
@@ -176,7 +181,11 @@ Whole Final Model Fitting Result
 According to the graph, we could know the final model could fit the data very well.
 
 
+#### Task 5: To evaluating the model
 
+
+
+#### Task 6: Testing the ARMA model using 2018 data
 
 
 
