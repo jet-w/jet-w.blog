@@ -211,6 +211,9 @@ Actually, when the data if not possible be zero, so we could reset all negative 
 
 
 
+All the steps above does not use the template file, it's a little ugly, I will redo it in the solar template, the files could download via the like below.
+[Download the solarRadiation](/data/unisa/AdvancedAnalytic1/assignment1/solar_radiation.7z)
+
 @tab Python
 All code please read the content on [Power Spectrum](https://colab.research.google.com/drive/1DYajPS1LLACJMo6n8Xe2EflSgX3G0WpQ#scrollTo=ZX9IJDHiedYb)
 * All python code
