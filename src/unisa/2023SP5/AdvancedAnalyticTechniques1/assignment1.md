@@ -372,13 +372,13 @@ According to the source data, which contains zero value, so the MeAPE is not sui
 
 ### Question 3
 
-#### No significant seasonality
+#### Task 1: Find frequencies
 When we use the power spectrum, the result should get like 
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_dftResult.png)
 
 According to the graph above, it not easy to find the few frequencies that holds the important position. It seems there is lots of frequencies that are important. So, we could say there is no significant seasonality in the data.
 
-#### Compare AR(p) and ARMA(p,q)
+#### Task 2: Compare AR(p) and ARMA(p,q)
 
 According to the previous results, we just need to find the coefficients for AR(p) and ARMA(p,q) model on the original dataset.
 
@@ -395,11 +395,8 @@ After searching, the best AR model should be AR(4), and ARMA model should be ARM
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_ErrorMetric.png)
 
 
-
-
-
 [Download the solarRadiation Process](/data/unisa/AdvancedAnalytic1/assignment1/solar_radiation.7z)
-[The final Excel](/data/unisa/AdvancedAnalytic1/assignment1/SolarTemplate_Finalwork)
+[The final Excel](/data/unisa/AdvancedAnalytic1/assignment1/SolarTemplate_Finalwork.xlsm)
 
 
 ## References
