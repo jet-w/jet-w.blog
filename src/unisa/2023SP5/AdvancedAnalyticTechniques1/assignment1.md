@@ -326,6 +326,38 @@ According to the frequency graph, it's easy to find the best frequency is 1.
 
 ### Question 2
 
+#### Task 1: Find frequencies
+Copy data from `solarfarm` to `powerspectrum`, using Number of objects: 105120, number of frequencies: 10000. We could see the power barchart like below.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmfrequencies.png =400x)
+According to the graph above, we could know the best frequencies is around 10, here we regards the frequencies that the value of power are greater than 2, the best frequencies could get like the picture below.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmfrequencies_number.png)
+
+#### Task 2: Make seasonality
+
+![Alt text](solarframsolverparams.png)
+![Alt text](solarfarmPartialFittingresult.png)
+![Alt text](solarfarmWholeFittingresult.png)
+
+![Alt text](solarfarmautocorrelation.png)
+![Alt text](solarfarmpartialautocorrelation.png)
+
+
+![Alt text](solarfarmErrorMsgWithConstant.png)
+
+
+![Alt text](solarfarmParamsForARMA.png)
+
+![Alt text](solarfarmPartialAR(4)MA(1)FittingResult.png)
+
+![Alt text](solarfarmWholeAR(4)MA(1)FittingResult.png)
+
+
+![Alt text](solarfarmWholeFinalModelFittingResult.png)
+![Alt text](solarfarmPartialFinalModelFittingResult.png)
+
+
+
+
 ### Question 3
 
 
