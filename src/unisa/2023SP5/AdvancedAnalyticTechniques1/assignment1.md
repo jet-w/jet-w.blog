@@ -251,7 +251,6 @@ Actually, when the data if not possible be zero, so we could reset all negative 
     ::: warning <span style="color:red;font-weight:bold">Important</span>
     Some steps above does not use the template file, it's a little ugly and unclear. I will redo it in the solar template, the files could download via the like below.
     :::
-[Download the solarRadiation](/data/unisa/AdvancedAnalytic1/assignment1/solar_radiation.7z)
 
 @tab Python
 All code please read the content on [Power Spectrum](https://colab.research.google.com/drive/1DYajPS1LLACJMo6n8Xe2EflSgX3G0WpQ#scrollTo=ZX9IJDHiedYb)
@@ -333,37 +332,74 @@ According to the graph above, we could know the best frequencies is around 10, h
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmfrequencies_number.png)
 
 #### Task 2: Make seasonality
+After getting the best frequencies, we could using solver to minimize the SSE(Sum square of error), to find the best coefficients to our model.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarframsolverparams.png =400x)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarframseasonalityResult.png =x150)
+We could visualize the seasonality model fitting resutls.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmPartialFittingresult.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmPartialFittingresult.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmWholeFittingresult.png)
+According to the graph, we could see the seasonality could fit the data well, but still have a large gap in the middle of the data.
 
-![Alt text](solarframsolverparams.png)
-![Alt text](solarfarmPartialFittingresult.png)
-![Alt text](solarfarmWholeFittingresult.png)
+#### Task 3: ARIMA coefficients
+After getting the seasonality model, then could get the residuals to find the cofficients for ARIMA model.
+The autocorrelation result
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmautocorrelation.png =400x)
+The partial autocorrelation result
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmpartialautocorrelation.png =400x)
+According to the data graph, we could find the data the correlated with the past data. Next we try to find the best coefficients for the forecasting model.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmErrorMsgWithConstant.png =400x)
+According to the graph above, we could know the constant is no significant with the model, so we should remove it during searching the coefficients.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmParamsForARMA.png =400x)
 
-![Alt text](solarfarmautocorrelation.png)
-![Alt text](solarfarmpartialautocorrelation.png)
+After getting the coefficients, we could using the model to forecast the data, the pictures below show the forecasting results.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmPartialAR(4)MA(1)FittingResult.png)
 
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmWholeAR(4)MA(1)FittingResult.png)
 
-![Alt text](solarfarmErrorMsgWithConstant.png)
+#### Task 4: Final model
+The previous has been split the data analysis into two components, in this step, combine the two components to form the final model.
 
+The picture below will show the final results.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmPartialFinalModelFittingResult.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarfarmWholeFinalModelFittingResult.png)
 
-![Alt text](solarfarmParamsForARMA.png)
-
-![Alt text](solarfarmPartialAR(4)MA(1)FittingResult.png)
-
-![Alt text](solarfarmWholeAR(4)MA(1)FittingResult.png)
-
-
-![Alt text](solarfarmWholeFinalModelFittingResult.png)
-![Alt text](solarfarmPartialFinalModelFittingResult.png)
-
+#### Task 5: Error Metric
+According to the source data, which contains zero value, so the MeAPE is not suit for evaluating the forecasting model.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/solarframErrorMetric.png)
 
 
 
 ### Question 3
 
+#### No significant seasonality
+When we use the power spectrum, the result should get like 
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_dftResult.png)
+
+According to the graph above, it not easy to find the few frequencies that holds the important position. It seems there is lots of frequencies that are important. So, we could say there is no significant seasonality in the data.
+
+#### Compare AR(p) and ARMA(p,q)
+
+According to the previous results, we just need to find the coefficients for AR(p) and ARMA(p,q) model on the original dataset.
+
+After searching, the best AR model should be AR(4), and ARMA model should be ARMA(2,1).
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_coefficients_ARMA.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_coefficients_AR.png)
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_AR4WholeFittingResult.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_AR4PartialFittingResult.png)
+
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_ARMA(2,1)WholeFittingResult.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_ARMA(2,1)PartialFittingResult.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/sonwtown_ErrorMetric.png)
 
 
 
 
+
+[Download the solarRadiation Process](/data/unisa/AdvancedAnalytic1/assignment1/solar_radiation.7z)
+[The final Excel](/data/unisa/AdvancedAnalytic1/assignment1/SolarTemplate_Finalwork)
 
 
 ## References
