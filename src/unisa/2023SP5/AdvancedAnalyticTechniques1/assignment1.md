@@ -44,7 +44,10 @@ category:
     5. Use the <span style="color:orange">error metrics defined below to evaluate the model</span>.
     6. Use the <span style="color:orange">models you have developed</span> for 2017 to see <span style="color:orange">how they perform for the 2018 data</span>, the out of sample data. Comment on the differences in the error metrics.
 
-    The <span style="color:orange">Normalised Mean Bias Error (NMBE)</span> is defined by taking the difference between the data $y_i$ and thee model $\hat{y}_i$ for all $i$ and dividing by the number of data values. To normalise it, we divide by the mean of the data. Note that for solar radiation, we only do the calculation for solar elevation greater than or equal to 10 degrees. That is why I included the elevation data.
+    The <span style="color:orange">Normalised Mean Bias Error (NMBE)</span> is defined by taking the difference between the data $y_i$ and thee model $\hat{y}_i$ for all $i$ and dividing by the number of data values. To normalise it, we divide by the mean of the data. 
+    ::: tip
+    Note that for solar radiation, we only do the calculation for solar elevation greater than or equal to 10 degrees. That is why I included the elevation data.
+    :::
     $$
     NMBE=\frac{\sum_{i=1}^{n}y_i-\hat{y}_i}{n\bar{y}}
     $$
@@ -108,12 +111,18 @@ The parameters like below:
 P3 = SUM(O5:O17524)
 G3 = AVERAGE(G5:G17524)
 
-'The formula should be drag down for filling the necessary cells
 H1 = 2*PI()/17520*H$4
 I1 = 2*PI()/17520*I$4
 J1 = 2*PI()/17520*J$4
 K1 = 2*PI()/17520*K$4
 L1 = 2*PI()/17520*L$4
+
+'The formula should be drag down for filling the necessary cells
+H5 = H$2*COS(H$1*$F5)+H$3*SIN(H$1*$F5)
+I5 = I$2*COS(I$1*$F5)+I$3*SIN(I$1*$F5)
+J5 = J$2*COS(J$1*$F5)+J$3*SIN(J$1*$F5)
+K5 = K$2*COS(K$1*$F5)+K$3*SIN(K$1*$F5)
+L5 = L$2*COS(L$1*$F5)+L$3*SIN(L$1*$F5)
 
 M5 = SUM(H5:L5)+$G$3
 O5 = (G5-M5)^2
@@ -160,6 +169,12 @@ According to the results we could see all the pvalues are less than 0.05, so we 
 #### Task 4: Using the ARMA model to forecast
 Now we copy the coefficients to excel, and try to model the AR(4) like the picture below.
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/AR(4).png)
+``` VBA
+S9 = Q8*$V$5 + Q7*$V$6 + Q6*$V$7 + Q5*$V$8
+```
+
+
+
 We could to visualize the fitting result of AR(4)
 Partial Fitting Result
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/AR(4)partialfittingresult.png)
@@ -170,7 +185,7 @@ According to the results above, we could know, the seasonality and AR(4) could f
 
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/finalmodel.png =400x)
 ``` VBA
-AA9 = =M9+S9
+AA9 = M9+S9
 ```
 Partial Final Model Fitting Result
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/partialfinalmodelfittingresult.png)
@@ -275,3 +290,4 @@ According to the frequency graph, it's easy to find the best frequency is 1.
 02. [Seasonality: What It Means in Business and Economics, Examples](https://www.investopedia.com/terms/s/seasonality.asp)
 03. [Using Python and Auto ARIMA to Forecast Seasonal Time Series](https://medium.com/@josemarcialportilla/using-python-and-auto-arima-to-forecast-seasonal-time-series-90877adff03c)
 04. [A Guide to Time Series Analysis in Python](https://builtin.com/data-science/time-series-python)
+04. [Error Metrics: How to Evaluate Your Forecasts](https://www.jedox.com/en/blog/error-metrics-how-to-evaluate-forecasts/)
