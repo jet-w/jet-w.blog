@@ -197,6 +197,42 @@ According to the graph, we could know the final model could fit the data very we
 
 
 #### Task 5: To evaluating the model
+<span style="color:red;font-weight:bold;"> I switch to template excel to implement all the steps. So, the postion for cells will totally change.</span> You could change all values above to the correct position.
+
+
+We could know the error metric include several indicators.
+* indicators
+    ::: info Formulas
+    $MeAPE = MEDIAN(|\frac{\hat{y_i}-y_i}{y_i}|*100)$
+    $MBE = \frac{1}{n}\displaystyle\sum_{i=1}^n(\hat{y_i}-y_i)$
+    $NRMSE = \frac{\sqrt{\frac{\sum_{i=1}^n(\hat{y_i}-y_i)^2}{n}}}    {\bar{y}}$
+    $NMBE=\frac{\sum_{i=1}^{n}y_i-\hat{y}_i}{n\bar{y}}$
+    $NMAE=\frac{\sum_{i=1}^{n}|y_i-\hat{y}_i|}{n\bar{y}}$
+    :::
+
+![Solar2017](/data/unisa/AdvancedAnalytic1/assignment1/error_metric_solar_2017.png)
+
+``` vba
+L7 = SUBTOTAL(2,K15:K17530)
+T7 = SUBTOTAL(1,N15:N17530)
+V1 = AGGREGATE(12,1,R15:R17530)
+V2 = SUBTOTAL(109, O15:O17530)/L7
+V3 = SQRT(SUBTOTAL(109,Q15:Q17530)/L7)/T7
+V4 = SUBTOTAL(109, P15:P17530)/(L7*T7)
+V5 = SUBTOTAL(109, O15:O17530)/(L7*T7)
+
+# H column are the data of elevations
+K1  = IF(H11>=10,1,0)
+
+O15 = (A15-N15)
+P15 = ABS(O15)
+Q15 = O15^2
+R15 = IF(A15=0,0,ABS(K15*P15/A15)*100)
+```
+
+If we want to select the valid metric according to our data, should filter all the data where `K` column equals 1.
+Then we get.
+
 
 
 
@@ -208,10 +244,13 @@ The part fitting result
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/partfittingresult.png)
 Actually, when the data if not possible be zero, so we could reset all negative number to 0. so we could get.
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/partfittingresultwithoutnegativeresult.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/error_metric_solar_2018.png)
 
 
-
-All the steps above does not use the template file, it's a little ugly, I will redo it in the solar template, the files could download via the like below.
+* Important Node
+    ::: warning <span style="color:red;font-weight:bold">Important</span>
+    Some steps above does not use the template file, it's a little ugly and unclear. I will redo it in the solar template, the files could download via the like below.
+    :::
 [Download the solarRadiation](/data/unisa/AdvancedAnalytic1/assignment1/solar_radiation.7z)
 
 @tab Python
