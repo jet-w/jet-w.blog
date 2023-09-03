@@ -201,6 +201,13 @@ According to the graph, we could know the final model could fit the data very we
 
 
 #### Task 6: Testing the ARMA model using 2018 data
+Using the model get from the 2017 dataset, to predict the data in 2018.
+The whole fitting result
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/wholefittingresult.png)
+The part fitting result
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/partfittingresult.png)
+Actually, when the data if not possible be zero, so we could reset all negative number to 0. so we could get.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment1/partfittingresultwithoutnegativeresult.png)
 
 
 
