@@ -397,6 +397,9 @@ After searching, the best AR model should be AR(4), and ARMA model should be ARM
 
 [Download the solarRadiation Process](/data/unisa/AdvancedAnalytic1/assignment1/solar_radiation.7z)
 [The final Excel](/data/unisa/AdvancedAnalytic1/assignment1/SolarTemplate_Finalwork.xlsm)
+[final Report](/data/unisa/AdvancedAnalytic1/assignment1/Assignment1-Math[5045](Haiyue).docx)
+
+
 
 
 ## References
