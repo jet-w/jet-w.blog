@@ -1,6 +1,6 @@
 ---
-title: Project
-index: false
+title: Requirements of Project
+index: true
 icon: "/assets/icon/common/data-mining.svg"
 icon-size: "4rem"
 author: Haiyue
