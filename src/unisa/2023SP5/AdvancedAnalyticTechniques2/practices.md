@@ -68,15 +68,6 @@ The performance increase after discretizing.
 :::
 
 
-
-
-
-
-
-
-
-
-
 ## Week 3: Bayesian Network Inference (Practical 2)
 ### Install package
 ``` r
@@ -202,6 +193,9 @@ if (require(Rgraphviz)) {
     plot(pc.D, main = "Estimated graph")
     plot(gmD$g, main = "True DAG")
 }
+```
+@tab Binary
+``` R
 ## Load binary data
 data(gmB)
 gmB$x[1:5,]

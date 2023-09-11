@@ -12,10 +12,10 @@ category:
 ## Requirements
 ### Instructions
 ::: details Instructions
-<PDF url="/data/unisa/AdvancedAnalytic2/project/Marking Guidelines - Project.pdf" ratio="1.4" />
+<PDF url="/data/unisa/AdvancedAnalytic2/project/project.pdf" ratio="1.4" />
 
 ### Marking Guide
-<PDF url="/data/unisa/AdvancedAnalytic2/project/project.pdf" ratio="1.4" />
+<PDF url="/data/unisa/AdvancedAnalytic2/project/Marking Guidelines - Project.pdf" ratio="1.4" />
 ::: 
 
 ### Dataset
@@ -25,17 +25,50 @@ category:
 3. <span style="color:orange">1100 samples</span> are of <span style="color:orange">cancer patients (class = C)</span>.
 
 ### Tasks
-1. Use a <span style="color:orange">causal structure learning algorithm</span> to <span style="color:orange">find the gene regulatory network</span>, i.e. the network showing the interactions between genes, using the gene expression data. <span style="color:orange">Explain how the algorithm works.</span> <span style="color:red;font-weight:bold">(4)</span>
+#### Load library
+``` R
+library(tidyverse)
+library(gRain)
+library(pcalg)
+library(bnlearn)
+```
+
+#### Load data
+``` R
+data <- read_csv("https://seamice.github.io/data/unisa/AdvancedAnalytic2/project/BRCA_RNASeqv2_top50.csv", col_names = TRUE)
+data_no_class <- data %>% select(-class)
+```
+
+1. Use a <span style="color:orange">causal structure learning algorithm</span> to <span style="color:orange">find the gene regulatory network</span>, i.e. the network showing the interactions between genes, using the gene expression data. <span style="color:orange">
+    Explain how the algorithm works.</span> <span style="color:red;font-weight:bold">(4)</span>
     ::: info Hints
     Hints: Please exclude the class variable in building the network
     :::
+    ---
+    * 1.1 **Learn the structure**
+    Select the `PC` algorithm to learn the `CPTAG`
+    ``` R
+    pc.fit <- pc(
+      suffStat = list(C = cor(data_no_class), n = nrow(data_no_class)), 
+      indepTest = gaussCItest, 
+      alpha=0.05, 
+      labels = colnames(data_no_class)  #label node names
+    )
+    plot(pc.fit, main = "Estimated graph")
+    ```
+    * 1.2 **Explain how the algorithm works**
+    The algorithm could be split into two parts, the first part is to learn the skeleton or the graph, the second part is to orienting the edges of the skeleton.
+
 2. `EBF1` is an important gene that is involved in many biological processes leading to cancer. <span style="color:orange">Find the top 10 other genes</span> that have strong causal effects on `EBF1` using a <span style="color:orange">causal inference algorithm</span>. <span style="color:red;font-weight:bold">(4)</span>
     ::: info Hints
     * Exclude the class variable in building the network
     * If there are multiple possible causal effects between the cause and the effect, we can use the minimum of the absolute values (of the causal effects) as the final result
     * The causal effects are normally ranked based on their absolute values.
     :::
-
+    ---
+    using `ida` to calculate the causal effect of `EBF1` on other variables
+    ``` r
+    ```
 3. Use a <span style="color:orange">local causal structure learning algorithm</span> to <span style="color:orange">find genes in the Markov blanket of `ABCA9` from data</span>. <span style="color:orange">Explain how the algorithm works</span>. <span style="color:red;font-weight:bold">(4)</span>
 
 
