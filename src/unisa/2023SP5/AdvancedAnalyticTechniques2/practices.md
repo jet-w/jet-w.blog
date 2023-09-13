@@ -315,7 +315,7 @@ plot(rules.pruned[1:3], method="paracoord", control=list(reorder=TRUE))
 :::
 
 
-## Week 6: Bayesian Networks (Practical 4: cont)
+## Week 6: Bayesian Networks (Practical 5: cont)
 
 ### I. Learning local causal structures from data
 In this section, we use the <span style="color:orange">PC-select function (PC-simple algorithm)</span> from the `pcalg` package to <span style="color:orange">learn the local network structure</span> around one node from data. Please refer to the user manual of pcalg for [more details](https://cran.r-project.org/web/packages/pcalg/pcalg.pdf)
@@ -340,16 +340,40 @@ d.mat <- rmvDAG(n, myDAG, errDist = "normal")
 ```
 4. Learn the causal structure around node 10th, i.e. which of the first 9 variables "cause" the tenth variable?
 ``` r
+#Learn the causal structure around node 10th
+#i.e. which of the first 9 variables "cause" the 10th variable?
 pcS <- pcSelect(d.mat[,10], d.mat[,-10], alpha=0.05)
 pcS 
 ```
+![Alt text](/data/unisa/AdvancedAnalytic2/prac5/pcselect_ret.png)
+You can see from the result that variables <span style="color:orange">1,2,3,4 are the causes of the target</span> (the variable 10).
+By inspecting `zMin`, you can also see that the <span style="color:orange">influence of variable 1 is the most evident from the data</span> (The larger the number, the more consistent is the edge with the data.)
+
 5. Apply PC algorithm to the **d.mat** dataset you just create (recall [Practical 3](#week-4-learning-bayesian-network-structure-from-data)). What are the causes of the node 10 based on PC algorithm? 
 
 ::: tip 
 You can see from the result that variables 1,2,3,4 are the causes of the target (the variable 10).
 By inspecting `zMin`, you can also see that the influence of variable 1 is the most evident from the data (The larger the number, the more consistent is the edge with the data.) 
 :::
-
+``` R
+# Apply PC algorithm to the d.mat dataset (recall Practical 3)
+# What are the causes of the node 10th based on PC algorithm?
+n <- nrow(d.mat)
+V <- colnames(d.mat)
+pc.fit = pc(
+    suffStat = list(C = cor(d.mat), n=n),
+    indepTest = gaussCItest,
+    alpha = 0.01, 
+    labels = V, 
+    verbose = T
+)
+if (require(Rgraphviz)) {
+    ## show estimated graph
+    par(mfrow=c(1,2))
+    plot(pc.fit, main = "Estimated graph")
+    plot(myDAG, main = "True DAG")
+}
+```
 ### II. Finding Parent and Children Set of a Node with HITON-PC 
 The function `learn.nbr` in `bnlearn` is implemented to learn the local causal structure around a target node. This function can be used with different local causal structure learning algorithms, including `HITON-PC`.
 In this example, we use the built-in asia data set from the `bnlearn` package to demonstrate the usage of `HITON-PC` in local causal discovery. The asia data set contains eight binary variables, 
@@ -365,6 +389,7 @@ In this example, we use the built-in asia data set from the `bnlearn` package to
 We firstly use the function `si.hiton.pc` for learning the global causal structure from the data set. The following codes show how to learn the global causal structure from the asia data set. 
 
 ``` r
+####------II. Finding Parent and Children Set of a Node with HITON-PC--####
 library(bnlearn)
 data(asia)
 global.network = si.hiton.pc(asia, alpha=0.01)
@@ -373,9 +398,13 @@ plot(global.network)
 We now assume that node <span style="color:orange;font-weight:bold">E</span> is the target variable, and we apply `HITON-PC` to learn the parents and children set of <span style="color:orange;font-weight:bold">E</span>. 
 ``` r
 HITON.PC.E = learn.nbr(asia, "E", method="si.hiton.pc", alpha=0.01)
+HITON.PC.E
 ```
+![HiTON Result of E](/data/unisa/AdvancedAnalytic2/prac5/hiton.pc.ret.png)
+
 ::: warning Question
 Is the parent and children set of E consistent with that in the global network? 
+**Answer**: <span style="color:red">**Yes**</span>, nodes `T` and `L` are linked to `E` in the graph
 :::
 In the `bnlearn` package, mutual information test is set as the default conditional independence test for binary variables. However, we can specify a different type of conditional independence test for `HITONPC`, e.g. Chi-square (denoted as “x2” in bnlearn) as follows: 
 ``` r
@@ -385,14 +414,22 @@ HITON.PC.E
 
 ### III. Finding Markov Blanket of a Node 
 ![DAG](/data/unisa/AdvancedAnalytic2/prac5/dag.png)
-1. Given a Bayesian network as in the following figure, what is the Markov Blanket (MB) of node Z? (Hint: Let’s google it) 
+1. Given a Bayesian network as in the following figure, what is the Markov Blanket (MB) of node Z? 
+::: info 
+**Hint**: Let’s google it
+
+<span style="color:red;font-weight:bold;">A node’s Markov blanket includes all its parents, children, and children’s parents.</span>
+
+:::
 2. Download “[Example21](/data/unisa/AdvancedAnalytic2/prac5/Example21.csv)” dataset. It has the same dependence relationships as the above network
+``` R
+####------III. Finding Markov Blanket of a Node--#####
+#Assuming the Example21.csv has been placed in the working directory
+data=read.csv("Example21.csv", header=TRUE, sep=",")
+head(data)
+```
 3. Learn the MB of Z from data using the IAMB algorithm from bnlearn
 ``` r
-library(bnlearn)
-data=read.csv("Example21.csv", header=TRUE, sep=",")
-data[1:5,]
-
 # bnlearn requires numeric or factor data types. Convert data of the nine variables (nine columns) in the
 # data set to factor data types. 
 nvar <- ncol(data)
@@ -407,8 +444,15 @@ MB.Z
 Given a Bayesian network, we can estimate the causal effect that a node has on another. In this example, we re-use the dataset **d.mat** from Section II, and apply `ida` and `idaFast` functions from `pcalg` package to estimate the causal effects. 
 1. Learn the causal structure from data.
 ``` r
+#------IV. Estimating causal effect of a variable on another with IDA
+# 1. Learn the causal structure from data.
 suffStat <- list(C = cor(d.mat), n = nrow(d.mat))
-pc.fit <- pc(suffStat, indepTest = gaussCItest , p=ncol(d.mat), alpha = 0.01)
+pc.fit <- pc(
+    suffStat, 
+    indepTest = gaussCItest, 
+    p=ncol(d.mat), 
+    alpha = 0.01
+)
 plot(pc.fit@graph)
 ```
 2. Estimate the causal effect of node 2 on node 10.
@@ -427,8 +471,14 @@ ida(5,7, cov(d.mat), pc.fit@graph)
 idaFast(5,7, cov(d.mat), pc.fit@graph)
 ```
 5. Calculate the causal effect of node 3 on nodes 6, 10.
+``` R
+idaFast(3, c(6,10), cov(d.mat), pc.fit@graph)
+```
 6. Calculate the causal effect of node 2 on node 10 and node 8 on nodes 7, 9. 
-
+``` R
+idaFast(2, 10, cov(d.mat), pc.fit@graph)
+idaFast(8, c(7,9), cov(d.mat), pc.fit@graph)
+```
 
 
 ### V. Summary of Bayesian Networks 
@@ -447,10 +497,45 @@ n <- 10000
 mydataset <- rmvDAG(n, myDAG, errDist = "normal")
 ```
 3. Use PC algorithm to learn the causal structure of the dataset.
+``` R
+#3. Use PC algorithm to learn the causal structure of the dataset.
+suffStat <- list(C = cor(mydataset), n = nrow(mydataset))
+my.pc.fit <- pc(
+    suffStat, 
+    indepTest = gaussCItest, 
+    p=ncol(mydataset), 
+    alpha = 0.01
+)
+plot(my.pc.fit@graph)
+```
 4. Estimate the causal effects of node 2 on nodes 5,9.
+``` R
+#4. Estimate the causal effects of node 2 on nodes 5,9.
+idaFast(2, c(5,9), cov(mydataset), my.pc.fit@graph)
+```
 5. Find the parent and children set of node 7 using pcSelect (the PC-Simple algorithm) 
+``` R
+#5. Find the parent and children set of node 7 using
+# pcSelect (the PC-Simple algorithm)
+pcS <- pcSelect(dataset[,7],dataset[,-7], alpha = 0.05)
+pcS
+```
 6. Find the parent and children set of node 7 using HITON-PC
+``` R
+#6. Find the parent and children set of node 7 using HITON-PC
+HITON.PC.7 <- learn.nbr(data.frame(mydataset),"X7", method = "si.hiton.pc", alpha = 0.01)
+HITON.PC.7
+```
 7. Learn the Markov blanket of node 7 from data 
-
+``` R
+#7. Learn the Markov blanket of node 7 from data
+MB.X7 <- learn.mb(
+    data.frame(mydataset),
+    "X7",
+    method = "iamb", 
+    alpha = 0.01
+)
+MB.X7
+```
 
 Note: `bnlearn` requires the input dataset in **dataframe** format. Use `dataset=data.frame(mydataset)` to convert the **dataset** to **dataframe** format. Also, check variables names returned after use `data.frame`
