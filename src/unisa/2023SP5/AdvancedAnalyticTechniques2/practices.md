@@ -316,7 +316,7 @@ plot(rules.pruned[1:3], method="paracoord", control=list(reorder=TRUE))
 
 
 ## Week 6: Bayesian Networks (Practical 5: cont)
-
+[Implementation on Google Colaboratory](https://colab.research.google.com/drive/19oPHv6nkKwgNVUHdQ-sLusUzPHevEJop?usp=sharing)
 ### I. Learning local causal structures from data
 In this section, we use the <span style="color:orange">PC-select function (PC-simple algorithm)</span> from the `pcalg` package to <span style="color:orange">learn the local network structure</span> around one node from data. Please refer to the user manual of pcalg for [more details](https://cran.r-project.org/web/packages/pcalg/pcalg.pdf)
 Following example is performed with `pcalg` version 2.7.3. <span style="color:orange">A different version</span> can <span style="color:orange">cause randomly generated graph to change</span>, please install this version of `pcalg` or interpret your results accordingly to the graph.
