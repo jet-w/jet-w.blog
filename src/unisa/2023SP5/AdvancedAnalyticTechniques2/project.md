@@ -18,14 +18,14 @@ category:
 <PDF url="/data/unisa/AdvancedAnalytic2/project/Marking Guidelines - Project.pdf" ratio="1.4" />
 ::: 
 
-### Dataset
+## Dataset
 `BRCA-50` is a Breast cancer dataset, including the expression levels of 50 important genes in Breast cancer. 
 1. The dataset includes <span style="color:orange">1212 samples</span> with 
 2. <span style="color:orange">112 samples</span> are of <span style="color:orange">normal cases (class = N)</span> and 
 3. <span style="color:orange">1100 samples</span> are of <span style="color:orange">cancer patients (class = C)</span>.
 
-### Tasks
-#### Load library
+## Tasks
+### Load library
 ``` R
 library(tidyverse)
 library(gRain)
@@ -33,78 +33,73 @@ library(pcalg)
 library(bnlearn)
 ```
 
-#### Load data
+### Load data
 ``` R
 data <- read_csv("https://seamice.github.io/data/unisa/AdvancedAnalytic2/project/BRCA_RNASeqv2_top50.csv", col_names = TRUE)
 data_no_class <- data %>% select(-class)
 ```
-#### Task 1: Causal Structure (CPDAG)
-1. Use a <span style="color:orange">causal structure learning algorithm</span> to <span style="color:orange">find the gene regulatory network</span>, i.e. the network showing the interactions between genes, using the gene expression data. <span style="color:orange">
-    Explain how the algorithm works.</span> <span style="color:red;font-weight:bold">(4)</span>
-    ::: info Hints
-    Hints: Please exclude the class variable in building the network
-    :::
-    ---
-    * 1.1 **Learn the structure**
-    Select the `PC` algorithm to learn the `CPTAG`
-    ``` R
-    pc.fit <- pc(
-      suffStat = list(C = cor(data.no.class), n = nrow(data.no.class)), 
-      indepTest = gaussCItest, 
-      alpha=0.01, 
-      labels = colnames(data.no.class)
-      #labels = as.character(1:50)  #label node names
-    )
-    
-    #data.frame(NUM=1:50, NAME=colnames(data.no.class))
-    plot(pc.fit, main = "CPDAG")
-    ```
-    * 1.2 **Explain how the algorithm works**
+### Task 1: Causal Structure (CPDAG)
+Use a <span style="color:orange">causal structure learning algorithm</span> to <span style="color:orange">find the gene regulatory network</span>, i.e. the network showing the interactions between genes, using the gene expression data. <span style="color:orange">Explain how the algorithm works.</span> <span style="color:red;font-weight:bold">(4)</span>
+::: info Hints
+Hints: Please exclude the class variable in building the network
+:::
+---
+#### 1.1 **Learn the structure**
+Select the `PC` algorithm to learn the `CPTAG`
+``` R
+pc.fit <- pc(
+  suffStat = list(C = cor(data.no.class), n = nrow(data.no.class)), 
+  indepTest = gaussCItest, 
+  alpha=0.01, 
+  labels = colnames(data.no.class)
+  #labels = as.character(1:50)  #label node names
+)
 
-    `PC algorithm` is an approach to learn the graph from a data set. The algorithm could be split     into two parts. The first part is to learn the correlation among variables, which is also called     learning skeleton. The second part is to find the direction of the relationship, which is also     called as orientating the edges.
-    
-    For this case,
-    
-    ------------------------------------------------------------------------
-    
-    **Learning skeleton**
-    
-    **Input:** Data set ***D***, significant level ***alpha***
-    
-    **Output:** The undirected graph ***G*** with a set of edges ***E***
-    
-    The first part, the alpha has been set ***alpha = 0.01***, ***depth = 0***, ***D*** is the data of     all variables. Assume that all variables are correlated, the correlation set is ***E***.    
-    
-    1. **Repeat**
-        * If number of nodes in ***E*** is less then ***depth + 2*** jump to **NextLevel**, else continue.
-        * Test the independence of all nodes pairs from ***E*** given condition ***depth*** count combination of other variables from ***E***. If the independence exist, remove the correlation from the ***E***.
+#data.frame(NUM=1:50, NAME=colnames(data.no.class))
+plot(pc.fit, main = "CPDAG")
+```
+#### 1.2 **Explain how the algorithm works**
+`PC algorithm` is an approach to learn the graph from a data set. The algorithm could be plit     into two parts. The first part is to learn the correlation among variables, which is lso called     learning skeleton. The second part is to find the direction of the elationship, which is also     called as orientating the edges.
 
-        **NextLevel** : <span style="color:red">set ***depth = depth + 1***</span>
-    2.  If number of Node in ***E*** is less then ***depth + 2*** stop, else continue Repeat.
-    3.  **Finally**, get the skeleton of the graph ***G***.
-    
-    ------------------------------------------------------------------------
-    
-    **Orientating the edges**
-    
-    **Input:** Skeleton ***G***, seperation sets ***S***
-    **Output:** CPDAG ***G\****
+<span style="font-weight:bold;color:red">For this case</span>,
 
-    ---
-    * **for** all nonadjacent variables ***X***, ***Y*** with a common neighbor ***K*** do
-        * **If** ***K*** does not belongs to separation set of the two nodes ***S(X,Y)*** then
-            Replace ***X-K-J*** in ***G*** by ***X-\>K\<-Y***
-        * **end**
+------------------------------------------------------------------------
+**Learning skeleton**
+
+**Input:** Data set ***D***, significant level ***alpha***
+**Output:** The undirected graph ***G*** with a set of edges ***E***
+
+The first part, the alpha has been set ***alpha = 0.01***, ***depth = 0***, ***D*** is the ata of     all variables. Assume that all variables are correlated, the correlation set is **E***.    
+
+1. **Repeat**
+    * If number of nodes in ***E*** is less then ***depth + 2*** jump to **NextLevel**, else continue.
+    * Test the independence of all nodes pairs from ***E*** given condition ***depth*** count combination of other variables from ***E***. If the independence exist, remove the correlation from the ***E***.
+    **NextLevel** : <span style="color:red">set ***depth = depth + 1***</span>
+2.  If number of Node in ***E*** is less then ***depth + 2*** stop, else continue Repeat.
+3.  **Finally**, get the skeleton of the graph ***G***.
+
+------------------------------------------------------------------------
+
+**Orientating the edges**
+
+**Input:** Skeleton ***G***, seperation sets ***S***
+**Output:** CPDAG ***G\****
+
+---
+* **for** all nonadjacent variables ***X***, ***Y*** with a common neighbor ***K*** do
+    * **If** ***K*** does not belongs to separation set of the two nodes ***S(X,Y)*** then
+        Replace ***X-K-J*** in ***G*** by ***X-\>K\<-Y***
     * **end**
-    
-    Next, orient as many other undirected edges as possible using the following rules:    
-    1.  Orient ***X-Y*** into ***X-\>Y*** if exists ***Z-\>X***, ***Z*** and ***K*** are nonadjacent.
-    2.  Orient ***X-Y*** into ***X-\>Y***, if exists a chain ***X-\>Z-\>Y***.
-    3.  Orient ***X-Y*** into ***X-\>Y***, if exists two chains ***X-Z-\>Y*** and ***X-A-\>Y***, and ***Z*** and ***A*** are nonadjacent.
-    
-    Finally, get a CPDAG ***G\****
+* **end**
 
-#### Task 2: Causal Effects (IDA)
+Next, orient as many other undirected edges as possible using the following rules:    
+1.  Orient ***X-Y*** into ***X-\>Y*** if exists ***Z-\>X***, ***Z*** and ***K*** are onadjacent.
+2.  Orient ***X-Y*** into ***X-\>Y***, if exists a chain ***X-\>Z-\>Y***.
+3.  Orient ***X-Y*** into ***X-\>Y***, if exists two chains ***X-Z-\>Y*** and ***X-A-\>Y***, nd ***Z*** and ***A*** are nonadjacent.
+
+Finally, get a CPDAG ***G\****
+
+### Task 2: Causal Effects (IDA)
 2. `EBF1` is an important gene that is involved in many biological processes leading to cancer. <span style="color:orange">Find the top 10 other genes</span> that have strong causal effects on `EBF1` using a <span style="color:orange">causal inference algorithm</span>. <span style="color:red;font-weight:bold">(4)</span>
     ::: info Hints
     * <span style="color:red">Exclude the class variable</span> in building the network
@@ -142,12 +137,12 @@ data_no_class <- data %>% select(-class)
       arrange(across(causality, desc)))$variable[1:10]
     ```
     According to the result, it could easily get the top 10 genes have strongest causal effects on `EBF1` are `FXYD1`, `ABCA10`, `TMEM220`, `ARHGAP20`, `FIGF`, `KLHL29`, `GPIHBP1`, `TMEM132C`, `RDH5`, `ABCA9`.
-#### Task 3: Local Causal Structure & Markov blanket
+### Task 3: Local Causal Structure & Markov blanket
 3. Use a <span style="color:orange">local causal structure learning algorithm</span> to <span style="color:orange">find genes in the Markov blanket of `ABCA9` from data</span>. <span style="color:orange">Explain how the algorithm works</span>. <span style="color:red;font-weight:bold">(4)</span>
 
 ---
 **Solution:** We could use local structure learning algorithm `IAMB` to get the Markov blanket of `ABCA9` from the data
-##### 3.1 Calculating the Markov Blanket
+#### 3.1 Calculating the Markov Blanket
 ``` R
 data.num <- data %>% select(-class)
 data.num$class <- ifelse(data$class == 'C', 1, 0)
@@ -160,7 +155,7 @@ ABCA9.mb <- learn.mb(
 ABCA9.mb
 ```
 According to the result above, the Markov Blanket of `ABCA9` has 23 nodes.
-##### 3.2 Explanation
+#### 3.2 Explanation
 
 The **IAMB** is an abbreviation for ***Incremental Association Markov Blanket***, the algorithm could be separated into two phases, the ***Growing pahse*** and ***Shrinking phase***. Details for the two phases are below:
 **CMI:** Conditional mutual information
@@ -189,7 +184,7 @@ Finally, get the final ***MB(T)***.
 
 
 
-#### Task 4: Discrete the dataset
+### Task 4: Discrete the dataset
 4. <span style="color:orange">Discretise</span> the dataset to binary using the <span style="color:orange">average expression of ALL genes as the threshold</span>. The discretised dataset will be used in the following questions.
 
 **Solution:**
@@ -222,7 +217,7 @@ data.binary$class <- ifelse(data$class == 'C', 1, 0)
 ```
 
 
-#### Task 5: PC-Simple
+### Task 5: PC-Simple
 5. Use <span style="color:orange">PC-simple algorithm (pcSelect)</span> to <span style="color:orange">find the parent and children</span> set of the class variable. <span style="color:orange">Explain how PC-simple works</span>.
     * Evaluate the accuracy of the Naïve Bayes classification on the dataset in the following cases:
         1. Use all features (genes) in the dataset
@@ -232,7 +227,7 @@ data.binary$class <- ifelse(data$class == 'C', 1, 0)
 **References:**
 1. [An Improved IAMB Algorithm for Markov Blanket Discovery](http://www.jcomputers.us/vol5/jcp0511-18.pdf)
 2. [Discovering Markov Blankets: Finding Independencies Among Variables](https://cseweb.ucsd.edu//~elkan/254/Verma.pdf)
-##### 5.1 Find the parents and children
+#### 5.1 Find the parents and children
 
 ```{r}
 class.pc <- pcSelect(
@@ -247,7 +242,7 @@ rownames(class.pc[class.pc$ispc == TRUE,])
 ```
 According to the result above, it could easily found that the parents and children of `class` variable are `FIGF`, `ARHGAP20`, `CD300LG`, `KLHL29`, `CXCL2`, `ATP1A2`, `MAMDC2`, `TMEM220`, `SCARA5`, `ATOH8`.
 
-##### 5.2 Explanation of PC-Simple
+#### 5.2 Explanation of PC-Simple
 
 PC-Simple is an algorithm to find the parents and children of a target node via conditional independence tests base on a threshold ***alpha***,
 
@@ -268,12 +263,12 @@ PC-Simple is an algorithm to find the parents and children of a target node via 
 
 The ***PC*** is the final result.
 
-##### 5.3 Naïve Bayes classification
+#### 5.3 Naïve Bayes classification
 
 ```{r}
 library(caret)
 ```
-###### 5.3.1 Naive Bayes classification with all features
+##### 5.3.1 Naive Bayes classification with all features
 
 ```{r}
 set.seed(100)
@@ -287,7 +282,7 @@ nb_all <- train(
 )
 nb_all
 ```
-###### 5.3.1 Naive Bayes classification with all features
+##### 5.3.2 Naive Bayes classification with related features
 
 ```{r}
 data.binary.related <- data.binary[,append(rownames(class.pc[class.pc$ispc == TRUE,]), "class")]
@@ -300,7 +295,7 @@ nb_pc <- train(
 )
 nb_pc
 ```
-###### 5.3.4 Comparision between the two models
+##### 5.3.3 Comparision between the two models
 
 ``` R
 confusionMatrix(nb_all)
@@ -308,12 +303,12 @@ confusionMatrix(nb_pc)
 ```
 
 
-#### Task 6: Calculating based on specified DAG
+### Task 6: Calculating based on specified DAG
 6. Given a Bayesian network as in the below figure
 ![](/data/unisa/AdvancedAnalytic2/project/BayesianNetwork.png)
-##### 6.1 a) <span style="color:orange">Construct the conditional probability tables</span> for the Bayesian network based on data. <span style="color:red;font-weight:bold">(3)</span>
+#### 6.1 a) <span style="color:orange">Construct the conditional probability tables</span> for the Bayesian network based on data. <span style="color:red;font-weight:bold">(3)</span>
 
-###### 6.1.1 Construct using `cptable`
+##### 6.1.1 Construct using `cptable`
 For constructing the net, using the ***T*** instead of ***1*** and using ***F*** instead of ***0***.
 
 ``` R
@@ -372,7 +367,7 @@ net=grain(plist)
 plot(net$dag)
 ```
 
-###### 6.1.2 Construct using `bnlearn`
+##### 6.1.2 Construct using `bnlearn`
 
 ```{r}
 bn.dag = model2network("[BTNL9][CD300LG|BTNL9][ABCA9|BTNL9:IGSF10][class|CD300LG][IGSF10|class]")
@@ -385,12 +380,12 @@ bn.fitted <- bn.fit(
   data.binary %>% select(BTNL9, CD300LG, class, IGSF10, ABCA9)
 ) 
 ```
-##### 6.2 b) <span style="color:orange">Estimate the probability of the four genes</span> in the network having high expression levels. <span style="color:red;font-weight:bold">(2)</span>
+#### 6.2 b) <span style="color:orange">Estimate the probability of the four genes</span> in the network having high expression levels. <span style="color:red;font-weight:bold">(2)</span>
 
 
 This question aims to calculate the ***joint probability*** of the four genes in the network for each value of the four variables equal ***T***. It could be expressed with the formula ***P(BTNL9=T, CD300LG=T, IGSF10=T, ABCA9=T)***.
 
-###### 6.2.1 Method 1
+##### 6.2.1 Method 1
 
 ```{r}
 querygrain(net, nodes=c("BTNL9", "CD300LG", "IGSF10", "ABCA9"), type="joint")
@@ -398,7 +393,7 @@ querygrain(net, nodes=c("BTNL9", "CD300LG", "IGSF10", "ABCA9"), type="joint")
 
 According to the table above, it could get the ***P(BTNL9=T, CD300LG=T, IGSF10=T, ABCA9=T)=<span style="color:red">0.073736</span>***
 
-###### 6.2.2 Method 2
+##### 6.2.2 Method 2
 
 ```{r}
 joint_pb <- setEvidence(
@@ -409,7 +404,7 @@ pEvidence(joint_pb)
 ```
 According to the table above, it could get the same result with method 1.
 
-##### 6.3 c) <span style="color:orange">Estimate the probability of having cancer</span> when the expression level of `CD300LG` is high and the expression level of `BTNL9` is low. <span style="color:red;font-weight:bold">(2)</span>
+#### 6.3 c) <span style="color:orange">Estimate the probability of having cancer</span> when the expression level of `CD300LG` is high and the expression level of `BTNL9` is low. <span style="color:red;font-weight:bold">(2)</span>
 
 > This question actually ask us to calculate the conditional probability ***P(class=T\| CD300LG=T, BTNL9=F)***, here I will use `cpquery` method for get the conditional probability.
 
@@ -418,11 +413,11 @@ querygrain(net, nodes=c("class","CD300LG","BTNL9"), type="conditional")
 ```
 So the final result ***P(class=T\|CD300LG=T,BTNL9=F)*** = <span style="color:red">***0.2585034***</span>
 
-##### 6.4 d) <span style="color:orange">Prove the result in c) mathematically</span>. <span style="color:red;font-weight:bold">(2)</span>
+#### 6.4 d) <span style="color:orange">Prove the result in c) mathematically</span>. <span style="color:red;font-weight:bold">(2)</span>
 
 empty
 
-##### 6.5 e) Given we know the value of `CD300LG`, is the “class” <span style="color:orange">conditionally independent</span> of `ABCA9`? And why? <span style="color:red;font-weight:bold">(3)</span>
+#### 6.5 e) Given we know the value of `CD300LG`, is the “class” <span style="color:orange">conditionally independent</span> of `ABCA9`? And why? <span style="color:red;font-weight:bold">(3)</span>
 
 
 **Anwser:** <span style="color:red">**No**</span>
