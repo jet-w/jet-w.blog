@@ -10,7 +10,7 @@ category:
 ---
 
 ## Requirements
-### Instructions
+## Instructions
 ::: details Instructions
 <PDF url="/data/unisa/AdvancedAnalytic2/project/project.pdf" ratio="1.4" />
 
@@ -182,6 +182,10 @@ Finally, get the final ***MB(T)***.
 
 ------------------------------------------------------------------------
 
+#### References
+[01]. [An Improved IAMB Algorithm for Markov Blanket Discovery](http://www.jcomputers.us/vol5/jcp0511-18.pdf)
+
+[02]. [Discovering Markov Blankets: Finding Independencies Among Variables](https://cseweb.ucsd.edu//~elkan/254/Verma.pdf)
 
 
 ### Task 4: Discrete the dataset
