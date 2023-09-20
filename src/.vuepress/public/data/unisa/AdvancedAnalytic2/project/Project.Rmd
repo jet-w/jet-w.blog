@@ -172,7 +172,9 @@ ABCA9.mb <- learn.mb(
 )
 ABCA9.mb
 ```
+
 According to the result above, the Markov Blanket of `ABCA9` has 23 nodes.
+
 ### 3.2 Explanation of IAMB
 
 The **IAMB** is an abbreviation for ***Incremental Association Markov Blanket***, the algorithm could be separated into two phases, the ***Growing pahse*** and ***Shrinking phase***. Details for the two phases are below:
@@ -336,14 +338,14 @@ library(caret)
 ```{r warning=FALSE}
 set.seed(100)
 trctrl <- trainControl(method = "cv", number = 10, savePredictions=TRUE)
-nb_all <- train(
+ma <- train(
   factor(class) ~., 
   data = data.binary, 
   method = "naive_bayes", 
   trControl=trctrl, 
   tuneLength = 0
 )
-nb_all
+ma
 ```
 
 #### 5.3.2 Naive Bayes classification with PC set
@@ -351,27 +353,42 @@ nb_all
 ```{r warning=FALSE}
 data.binary.related <- data.binary[,append(rownames(class.pc[class.pc$ispc == TRUE,]), "class")]
 
-nb_pc <- train(
+mr <- train(
   factor(class) ~., 
   data = data.binary.related, 
   method = "naive_bayes", 
   trControl=trctrl, 
   tuneLength = 0
 )
-nb_pc
+mr
 ```
 
 #### 5.3.4 Comparasion between the two models
 
-To compare the two models using several models,
+To compare the two models using several indicators, for this model we just using ***accuracy***, ***precision*** and ***recall*** to compare the two models. For easy compare the two model, we name the model trained with all features as ***ma***, name another one as ***mr***.
 
-```{r warning=FALSE}
-confusionMatrix(nb_all)
+```{r}
+#confusionMatrix(ma)
+predicted.ma <- predict(ma, data.binary)
+confusionMatrix(as.factor(data.binary$class), as.factor(predicted.ma))
 ```
 
 ```{r warning=FALSE}
-confusionMatrix(nb_pc)
+predicted.mr <- predict(mr, data.binary)
+confusionMatrix(as.factor(data.binary$class), as.factor(predicted.mr))
 ```
+
+According to the confusion matrix, we could get indicators table like below.
+
+| indicators                | ***ma***                    | ***mr***                    |
+|---------------------|----------------------|-----------------------------|
+| **accuracy**              | 0.9761                      | [0.9843]{style="color:red"} |
+| **precision(1)** : cancer | [0.9982]{style="color:red"} | 0.9809                      |
+| **precision(0)**: normal  | 0.7589                      | [1]{style="color:red"}      |
+| **recall(1)**: cancer     | 0.9760                      | [1]{style="color:red"}      |
+| **recall(0)**: normal     | [0.9770]{style="color:red"} | 0.8421                      |
+
+The precision stands for the accuracy of prediction cases, the recall represents the accuracy of actual cases that has been recognized. According to the table above, the overall accuracy of ***mr*** is better than ***ma***. For cancer cases, the ***ma*** perform better than ***mr*** on prediction, but for recall value of ***mr*** is better than ***ma***. For normal cases, the ***mr*** works better than ***ma*** on precision, but the ***ma*** perform better on recall than ***mr***.
 
 ## Task 6: **Calculating based on specified DAG**
 

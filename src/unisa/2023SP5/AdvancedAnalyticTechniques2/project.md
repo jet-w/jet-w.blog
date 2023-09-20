@@ -305,7 +305,17 @@ nb_pc
 confusionMatrix(nb_all)
 confusionMatrix(nb_pc)
 ```
+According to the confusion matrix, we could get indicators table like below.
 
+| indicators                | ***ma***                    | ***mr***                    |
+|---------------------|----------------------|-----------------------------|
+| **accuracy**              | 0.9761                      | <span style="color:red">0.9843</span> |
+| **precision(1)** : cancer | <span style="color:red">0.9982</span> | 0.9809                      |
+| **precision(0)**: normal  | 0.7589                      | <span style="color:red">1</span> |
+| **recall(1)**: cancer     | 0.9760                      | <span style="color:red">1</span>|
+| **recall(0)**: normal     | <span style="color:red">0.9770</span> | 0.8421                      |
+
+The precision stands for the accuracy of prediction cases, the recall represents the accuracy of actual cases that has been recognized. According to the table above, the overall accuracy of ***mr*** is better than ***ma***. For cancer cases, the ***ma*** perform better than ***mr*** on prediction, but for recall value of ***mr*** is better than ***ma***. For normal cases, the ***mr*** works better than ***ma*** on precision, but the ***ma*** perform better on recall than ***mr***.
 
 ### Task 6: Calculating based on specified DAG
 6. Given a Bayesian network as in the below figure
@@ -432,7 +442,7 @@ empty
 ----
 
 [Download RMD](/data/unisa/AdvancedAnalytic2/project/Project.Rmd)
-
+[online code](https://colab.research.google.com/drive/13V7I9g8k69c61NJzuwc80PwrOwM-Dz-0?usp=sharing)
 ## References
 Algorithm:
 <http://www.sci-princess.info/wp-content/uploads/Causal-Graphs-and-the-PC-Algorithm.pdf>
