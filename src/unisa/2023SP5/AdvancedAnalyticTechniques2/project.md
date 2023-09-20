@@ -429,7 +429,12 @@ So the final result ***P(class=T\|CD300LG=T,BTNL9=F)*** = <span style="color:red
 
 #### 6.4 d) <span style="color:orange">Prove the result in c) mathematically</span>. <span style="color:red;font-weight:bold">(2)</span>
 
-empty
+According to the graph, `BTNL9` is the parent of `CD300LG`, so
+
+***P(class=T\| BTNL9=F,CD300LG=T)***
+***= P(class=T\|CD300LG=T)***
+***= (32+6)/(32+107+6+2)***
+= <span style="color:red">***0.2585034***</span>
 
 #### 6.5 e) Given we know the value of `CD300LG`, is the “class” <span style="color:orange">conditionally independent</span> of `ABCA9`? And why? <span style="color:red;font-weight:bold">(3)</span>
 

@@ -1,6 +1,14 @@
 ---
-title: "R Notebook"
-output: html_notebook
+title: "Project"
+output:
+  pdf_document: default
+  bookdown::pdf_document2:
+    latex_engine: lualatex
+  tufte::tufte_handout:
+    latex_engine: xelatex
+  html_notebook: default
+  html_document:
+    df_print: paged
 ---
 
 ```{r warning=FALSE}
@@ -521,37 +529,16 @@ data.graph %>%
 
 ```
 
-```{r}
-querygrain(net, nodes=c("CD300LG", "class"), type="conditional")[1,1]
-```
-
-```{r}
-
-querygrain(net, nodes=c("CD300LG", "class"), type="conditional")
-querygrain(net, nodes=c("BTNL9", "class"), type="conditional")
-querygrain(net, nodes=c("class"), type="marginal")
-#querygrain(net, nodes=c("class"), type="joint")
-querygrain(net, nodes=c("CD300LG", "BTNL9"), type="joint")
-```
-
-According to the graph,
+According to the graph, BTNL9 is the parent of CD300LG, so
 
 ***P(class=T\| BTNL9=F,CD300LG=T)***
 
-**=P(CD300LG=T\|class=T)*P(BTNL9=F\|class=T)P(class=T)/P(CD300LG=T,BTNL9=F)***
+***= P(class=T\|CD300LG=T) =***
 
-**P(CD300LG=T\|class=T) = 0.03454545**
+=**(32+6)/(32+107+6+2)**
 
-***P(BTNL9=F\|class=T)= 0.8966252***
+= [***0.2585034***]{style="color:red"}
 
-***P(class=T) = 0.90759076***
-
-***P(CD300LG=T,BTNL9=F) = 0.00660066***
-
-```{r}
-querygrain(net, nodes=c("CD300LG","BTNL9"), type="conditional")
-querygrain(net, nodes=c("class","CD300LG"), type="conditional")
-```
 
 ### 6.5 Given we know the value of `CD300LG`, is the "class" conditionally independent of `ABCA9` and why? [**(3)**]{style="color:red"}
 
@@ -602,28 +589,3 @@ Graphviz
 Chinese Sample:
 
 <https://www.cnblogs.com/payton/articles/4608383.html>
-
-```{r}
-yn <- c("yes","no")
-a <- cptable(~asia, values=c(1,99),levels=yn)
-t.a <- cptable(~tub|asia, values=c(5,95,1,99),levels=yn)
-s <- cptable(~smoke, values=c(5,5), levels=yn)
-l.s <- cptable(~lung|smoke, values=c(1,9,1,99), levels=yn)
-b.s <- cptable(~bronc|smoke, values=c(6,4,3,7), levels=yn)
-e.lt <- cptable(~either|lung:tub,values=c(1,0,1,0,1,0,0,1),levels=yn)
-x.e <- cptable(~xray|either, values=c(98,2,5,95), levels=yn)
-d.be <- cptable(~dysp|bronc:either, values=c(9,1,7,3,8,2,1,9), levels=yn)
-plist <- compileCPT(list(a, t.a, s, l.s, b.s, e.lt, x.e, d.be))
-plist
-#Checking the (conditional) probability of some nodes
-plist$tub
-plist$either
-#Another way to visualize tables
-plist$tub %>% as.data.frame.table
-
-net1=grain(plist)
-```
-
-```{r}
-
-```
