@@ -46,12 +46,13 @@ jobs:
 
       - uses: cpina/github-action-push-to-another-repository@main
         env:
-          SSH_DEPLOY_KEY: ${{ secrets.TEST_SECRET_KEY }}
+          #SSH_DEPLOY_KEY: ${{ secrets.TEST_SECRET_KEY }}
+          API_TOKEN_GITHUB: ${{secrets.API_TOKEN_KEY}}
         with:
           source-directory: 'src/.vuepress/dist'
           destination-github-username: 'seamice'
           destination-repository-name: 'seamice.github.com'
           user-email: unisa.dady@gmail.com
-          #target-branch: gh-pages
-          target-branch: master
+          target-branch: gh-pages
+          #target-branch: master
           target-directory: /
