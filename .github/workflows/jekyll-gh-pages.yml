@@ -52,5 +52,6 @@ jobs:
           destination-github-username: 'seamice'
           destination-repository-name: 'seamice.github.com'
           user-email: unisa.dady@gmail.com
-          target-branch: gh-pages
+          #target-branch: gh-pages
+          target-branch: master
           target-directory: /
