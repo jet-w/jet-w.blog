@@ -22,7 +22,7 @@ The following code define to post all content in `src/.vuepress/dist` to git@git
         with:
           source-directory: 'src/.vuepress/dist'
           destination-github-username: 'seamice'
-          destination-repository-name: 'seamice.github.io'
+          destination-repository-name: 'seamice.github.com'
           user-email: unisa.dady@gmail.com
           target-branch: gh-pages
           target-directory: /
