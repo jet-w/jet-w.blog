@@ -46,7 +46,7 @@ jobs:
 
       - uses: cpina/github-action-push-to-another-repository@main
         env:
-          SSH_DEPLOY_KEY: ${{ test_secret_key }}
+          SSH_DEPLOY_KEY: ${{ secrets.TEST_SECRET_KEY }}
         with:
           source-directory: 'src/.vuepress/dist'
           destination-github-username: 'seamice'
