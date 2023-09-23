@@ -1,5 +1,6 @@
 ---
 title: "Project"
+author: "Haiyue Wang"
 output:
   pdf_document: default
   bookdown::pdf_document2:
@@ -11,7 +12,11 @@ output:
     df_print: paged
 ---
 
-```{r warning=FALSE}
+[Project on my blog](https://seamice.github.io/unisa/2023SP5/AdvancedAnalyticTechniques2/project.html) \>Password: #Thuc
+
+[Project on google collaboration](https://colab.research.google.com/drive/13V7I9g8k69c61NJzuwc80PwrOwM-Dz-0?usp=sharing)
+
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(gRain)
 library(pcalg)
@@ -20,8 +25,11 @@ library(bnlearn)
 
 ## Read data
 
-```{r warning=FALSE}
-data <- read_csv("https://seamice.github.io/data/unisa/AdvancedAnalytic2/project/BRCA_RNASeqv2_top50.csv", col_names = TRUE)
+```{r message=FALSE, warning=FALSE}
+data <- read_csv(
+  "https://seamice.github.io/data/unisa/AdvancedAnalytic2/project/BRCA_RNASeqv2_top50.csv", 
+  col_names = TRUE
+)
 data.no.class <- data %>% select(-class)
 ```
 
@@ -337,11 +345,15 @@ The ***PC*** is the final result.
 
 ### 5.3 Naïve Bayes classification
 
-```{r warning=FALSE}
+The Naive Bayes classifier is using `caret` package to train model.
+
+```{r message=FALSE, warning=FALSE}
 library(caret)
 ```
 
 #### 5.3.1 Naive Bayes classification with all features
+
+The code below using all features as input features for training.
 
 ```{r warning=FALSE}
 set.seed(100)
@@ -358,6 +370,8 @@ ma
 
 #### 5.3.2 Naive Bayes classification with PC set
 
+The code below using parents and children features of `class` feature as input features for training.
+
 ```{r warning=FALSE}
 data.binary.related <- data.binary[,append(rownames(class.pc[class.pc$ispc == TRUE,]), "class")]
 
@@ -371,7 +385,7 @@ mr <- train(
 mr
 ```
 
-#### 5.3.4 Comparasion between the two models
+#### 5.3.3 Comparasion between the two models
 
 To compare the two models using several indicators, for this model we just using ***accuracy***, ***precision*** and ***recall*** to compare the two models. For easy compare the two model, we name the model trained with all features as ***ma***, name another one as ***mr***.
 
@@ -407,6 +421,7 @@ The precision stands for the accuracy of prediction cases, the recall represents
 For constructing the net, using the ***T*** instead of ***1*** and using ***F*** instead of ***0***.
 
 ```{r warning=FALSE}
+
 data.graph <- data.binary %>% select(BTNL9,CD300LG,class,IGSF10,ABCA9)
 
 yn <- c('T','F')
@@ -478,6 +493,7 @@ bn.fitted <- bn.fit(
   bn.dag,
   data.binary %>% select(BTNL9, CD300LG, class, IGSF10, ABCA9)
 ) 
+bn.fitted
 ```
 
 ### 6.2 b) Estimate the probability of the four genes in the network having high expression levels. [**(2)**]{style="color:red"}
@@ -539,7 +555,6 @@ According to the graph, BTNL9 is the parent of CD300LG, so
 
 = [***0.2585034***]{style="color:red"}
 
-
 ### 6.5 Given we know the value of `CD300LG`, is the "class" conditionally independent of `ABCA9` and why? [**(3)**]{style="color:red"}
 
 ```{r}
@@ -556,7 +571,7 @@ Algorithm:
 
 <http://www.sci-princess.info/wp-content/uploads/Causal-Graphs-and-the-PC-Algorithm.pdf>
 
-[https://pooyanjamshidi.github.io/csce580/lectures/CSCE580-GuestLecture--BNLearning.pdf](https://pooyanjamshidi.github.io/csce580/lectures/CSCE580-GuestLecture–BNLearning.pdf)
+<https://pooyanjamshidi.github.io/csce580/lectures/CSCE580-GuestLecture--BNLearning.pdf>
 
 <https://arxiv.org/pdf/0908.3817.pdf>
 

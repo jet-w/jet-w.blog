@@ -428,6 +428,17 @@ querygrain(net, nodes=c("class","CD300LG","BTNL9"), type="conditional")
 So the final result ***P(class=T\|CD300LG=T,BTNL9=F)*** = <span style="color:red">***0.2585034***</span>
 
 #### 6.4 d) <span style="color:orange">Prove the result in c) mathematically</span>. <span style="color:red;font-weight:bold">(2)</span>
+``` R
+data.graph %>% 
+  select(class, CD300LG,BTNL9) %>%
+  group_by(class, CD300LG,BTNL9) %>%
+  count() %>%
+  arrange( 
+    across(class, desc), 
+    across(CD300LG, desc),
+    across(BTNL9, desc))
+#plot(net$dag)
+```
 
 According to the graph, `BTNL9` is the parent of `CD300LG`, so
 

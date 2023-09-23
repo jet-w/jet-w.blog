@@ -5,7 +5,7 @@ icon: "/assets/icon/common/assignment.svg"
 icon-size: "4rem"
 author: Haiyue
 date: 2023-08-25
-sidebar: false
+sidebar: true
 category:
   - Assignment
 ---
