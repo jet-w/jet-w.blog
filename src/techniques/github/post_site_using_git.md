@@ -12,14 +12,20 @@ tag:
 ## Pre-requirement
 You should know how to use git. And how to push your project on github.
 
-
 ## How to post your own website
-
 Here is the content for how to use github to post your personal static website.
 
-## Different deployment methods
 
+
+
+## Different deployment methods
 Here is the content on different way to deploty your website.
+
+
+
+## How to setup Secrects Key
+
+
 
 
 ## Github Action
