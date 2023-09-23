@@ -74,19 +74,19 @@ For this case,
 
 The first part, the alpha has been set ***alpha = 0.01***, ***depth = 0***, ***D*** is the data of all variables. Assume that all variables are correlated, the correlation set is ***E***.
 
-1.  **Repeat**
-
-    <div>
-
-    1.  If number of nodes in ***E*** is less then ***depth + 2*** jump to **NextLevel**, else continue.
-
-    2.  Test the independence of all nodes pairs from ***E*** given condition ***depth*** count combination of other variables from ***E***. If the independence exist, remove the correlation from the ***E***.
-
-    </div>
-
-    **NextLevel** : [set ***depth = depth + 1***]{style="color:red"}
-
-2.  If number of Node in ***E*** is less then ***depth + 2*** stop, else continue Repeat.
+-   **Repeat**
+    -   **For** each edges in Graph ***G***, test the
+        -   **If** number of nodes in ***E*** is greater or equal ***depth + 2*** jump to **NextLevel**, else continue.
+            -   Test the independence of all nodes pairs from ***E*** given condition ***depth*** count combination of other variables from ***E***.
+            -   **If** the independence exist,
+                1.  remove the correlation from the ***E***.
+                2.  Save the condition as the separation of the two nodes of the edge.
+                3.  Update ***E***
+            -   **End If**
+        -   **End IF**
+    -   **End For**
+    -   **NextLevel** : [set ***depth = depth + 1***]{style="color:red"}
+-   **Until**, the number of Node in ***E*** is less then ***depth + 2***.
 
 3.  **Finally**, get the skeleton of the graph ***G***.
 
@@ -353,7 +353,7 @@ library(caret)
 
 #### 5.3.1 Naive Bayes classification with all features
 
-The code below using all features as input features for training.
+-   The code below using all features as input features for training.
 
 ```{r warning=FALSE}
 set.seed(100)
@@ -370,7 +370,7 @@ ma
 
 #### 5.3.2 Naive Bayes classification with PC set
 
-The code below using parents and children features of `class` feature as input features for training.
+-   The code below using parents and children features of `class` feature as input features for training.
 
 ```{r warning=FALSE}
 data.binary.related <- data.binary[,append(rownames(class.pc[class.pc$ispc == TRUE,]), "class")]
@@ -403,7 +403,7 @@ confusionMatrix(as.factor(data.binary$class), as.factor(predicted.mr))
 According to the confusion matrix, we could get indicators table like below.
 
 | indicators                | ***ma***                    | ***mr***                    |
-|---------------------|----------------------|-----------------------------|
+|-----------------------|-------------------------|-------------------------|
 | **accuracy**              | 0.9761                      | [0.9843]{style="color:red"} |
 | **precision(1)** : cancer | [0.9982]{style="color:red"} | 0.9809                      |
 | **precision(0)**: normal  | 0.7589                      | [1]{style="color:red"}      |
@@ -481,6 +481,8 @@ plot(net$dag)
 
 #### 6.1.2 Construct using `bnlearn`
 
+-   constructing the net structure
+
 ```{r}
 bn.dag = model2network("[BTNL9][CD300LG|BTNL9][ABCA9|BTNL9:IGSF10][class|CD300LG][IGSF10|class]")
 graphviz.plot(bn.dag)
@@ -502,6 +504,8 @@ This question aims to calculate the ***joint probability*** of the four genes in
 
 #### 6.2.1 Method 1
 
+-   method 1 to query the probability
+
 ```{r}
 querygrain(net, nodes=c("BTNL9", "CD300LG", "IGSF10", "ABCA9"), type="joint")
 ```
@@ -509,6 +513,8 @@ querygrain(net, nodes=c("BTNL9", "CD300LG", "IGSF10", "ABCA9"), type="joint")
 According to the table above, it could get the ***P(BTNL9=T, CD300LG=T, IGSF10=T, ABCA9=T)=[0.073736]{style="color:red"}***
 
 #### 6.2.2 Method 2
+
+-   method 2 to query the probability
 
 ```{r}
 joint_pb <- setEvidence(

@@ -13,7 +13,7 @@ tag:
 Secret key is related to repository for CI/CD using.
 ![SSH Private KEY](/data/techniques/github/CI-CD/repository_secret.png)
 
-### How to use
+### How to use the Key
 The following code define to post all content in `src/.vuepress/dist` to git@github.com:seamice/
 ``` YML
       - uses: cpina/github-action-push-to-another-repository@main
@@ -27,6 +27,7 @@ The following code define to post all content in `src/.vuepress/dist` to git@git
           target-branch: gh-pages
           target-directory: /
 ```
+
 ## How to setup SSH key for github Account
 ![SSH Public KEY](/data/techniques/github/CI-CD/account_sshpub.png)
 
@@ -38,9 +39,6 @@ You should know how to use git. And how to push your project on github.
 
 ## How to post your own website
 Here is the content for how to use github to post your personal static website.
-
-
-
 
 ## Different deployment methods
 Here is the content on different way to deploty your website.

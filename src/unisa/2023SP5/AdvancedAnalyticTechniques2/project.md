@@ -69,13 +69,19 @@ plot(pc.fit, main = "CPDAG")
 **Input:** Data set ***D***, significant level ***alpha***
 **Output:** The undirected graph ***G*** with a set of edges ***E***
 
-The first part, the alpha has been set ***alpha = 0.01***, ***depth = 0***, ***D*** is the ata of     all variables. Assume that all variables are correlated, the correlation set is **E***.    
+The first part, the alpha has been set ***alpha = 0.01***, ***depth = 0***, ***D*** is the data consist of all variables. Assume that all variables are correlated, the correlation set is **E***.    
 
-1. **Repeat**
-    * If number of nodes in ***E*** is less then ***depth + 2*** jump to **NextLevel**, else continue.
-    * Test the independence of all nodes pairs from ***E*** given condition ***depth*** count combination of other variables from ***E***. If the independence exist, remove the correlation from the ***E***.
-    **NextLevel** : <span style="color:red">set ***depth = depth + 1***</span>
-2.  If number of Node in ***E*** is less then ***depth + 2*** stop, else continue Repeat.
+* **Repeat**
+    * **for** each edges in Graph ***G***, test the 
+        * **If** number of nodes in ***E*** is greater or equal ***depth + 2*** jump to **NextLevel**, else continue.
+            * Test the independence of all nodes pairs from ***E*** given condition ***depth*** count combination of other variables from ***E***. 
+            * **If** the independence exist, 
+                1. remove the correlation from the ***E***.
+                2. Save the condition as the seperation of the two nodes of the edge.
+            * **End If**
+        * **End IF**
+    * **NextLevel** : <span style="color:red">set ***depth = depth + 1***</span>
+* Until, If number of Node in ***E*** is less then ***depth + 2*** stop, else continue Repeat.
 3.  **Finally**, get the skeleton of the graph ***G***.
 
 ------------------------------------------------------------------------
@@ -322,7 +328,7 @@ The precision stands for the accuracy of prediction cases, the recall represents
 ![](/data/unisa/AdvancedAnalytic2/project/BayesianNetwork.png)
 #### 6.1 a) <span style="color:orange">Construct the conditional probability tables</span> for the Bayesian network based on data. <span style="color:red;font-weight:bold">(3)</span>
 
-##### 6.1.1 Construct using `cptable`
+##### 6.1.1 Construct using `gRain`
 For constructing the net, using the ***T*** instead of ***1*** and using ***F*** instead of ***0***.
 
 ``` R
@@ -382,6 +388,7 @@ plot(net$dag)
 ```
 
 ##### 6.1.2 Construct using `bnlearn`
+>
 
 ```{r}
 bn.dag = model2network("[BTNL9][CD300LG|BTNL9][ABCA9|BTNL9:IGSF10][class|CD300LG][IGSF10|class]")
