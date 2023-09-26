@@ -32,8 +32,6 @@ The following code define to post all content in `src/.vuepress/dist` to git@git
 ![SSH Public KEY](/data/techniques/github/CI-CD/account_sshpub.png)
 
 
-
-
 ## Pre-requirement
 You should know how to use git. And how to push your project on github.
 
@@ -42,6 +40,10 @@ Here is the content for how to use github to post your personal static website.
 
 ## Different deployment methods
 Here is the content on different way to deploty your website.
+
+
+https://docs.github.com/en/actions
+
 
 
 

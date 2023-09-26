@@ -57,6 +57,9 @@ A package named [`dpkg_1.18.2.tar.xz`](http://ftp.ubk.hu/src/debian/dpkg/dpkg_1.
 // ip: repeater 中继器服务器 IP
 // port: 中继器 UltraVNC Server 监听端口
 winvnc.exe -autoreconnect ID:[id number]-connect [repeater ip]:[server listen port] -run
+
+// Example
+winvnc -autoreconnect ID:1001 -connect 101.43.21.21:5500 -run
 ```
 
 ### Viewer connect to repeater
@@ -68,8 +71,13 @@ winvnc.exe -autoreconnect ID:[id number]-connect [repeater ip]:[server listen po
 vncviewer.exe -proxy [repeater ip]:[viewer listen port] ID:[id number]
 
 // 示例如下
-vncviewer.exe -proxy 192.168.1.2:5901 ID:10001
+vncviewer.exe -proxy 101.43.21.21:5901 ID:10001
 ```
+
+
+## Other related project
+https://github.com/rustdesk/rustdesk
+https://guacamole.apache.org/
 
 ## References
 [远程桌面中转，基于 UltraVNC Repeater（中继器）的远程桌面服务搭建，用于复杂网络环境](https://blog.csdn.net/WTUDAN/article/details/100214799)
