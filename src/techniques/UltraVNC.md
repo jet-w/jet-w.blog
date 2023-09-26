@@ -1,7 +1,7 @@
 ---
 title: UltraVNC
 date: 2023-09-22
-icon: /assets/icon/common/hammer.svg
+icon: /assets/icon/techniques/vnc.svg
 author: Haiyue
 category:
   - make
@@ -31,7 +31,7 @@ make & make install
 useradd uvncrep
 ```
 
-### 05.Start the service
+### 05.Start the repeater service
 ``` bash {2}
 # Please config according to your needs before start.
 # Configuration file: /etc/uvnc/uvncrepeater.ini
@@ -51,6 +51,7 @@ A package named [`dpkg_1.18.2.tar.xz`](http://ftp.ubk.hu/src/debian/dpkg/dpkg_1.
 ## How to use
 
 ### Server connect to repeater
+The approach below use a user(not system) to run the service, when the user's screen has been locked, which will lead to black screen, thus, it's better to use system account to run, in other words run as service.
 ``` bash
 // 命令行参数如下
 // id number: 被控制端编号（只能是数字，唯一，且至少三位，即最小是 100，最大是 2147483647，源码中此为 int 类型）
@@ -61,6 +62,11 @@ winvnc.exe -autoreconnect ID:[id number]-connect [repeater ip]:[server listen po
 // Example
 winvnc -autoreconnect ID:1001 -connect 101.43.21.21:5500 -run
 ```
+
+* How to connect server via service
+**Step 1:** Open config file `ultravnc.ini`, 
+**Step 2:** Add content line to `service_commandline=-autoreconnect ID:1001 -connect 101.43.21.21:5500`
+**Step 3:** Restart the service.
 
 ### Viewer connect to repeater
 ``` bash
@@ -74,6 +80,14 @@ vncviewer.exe -proxy [repeater ip]:[viewer listen port] ID:[id number]
 vncviewer.exe -proxy 101.43.21.21:5901 ID:10001
 ```
 
+
+## How to use ultra repeater in windows
+### 01. Run `repeater.exe`
+### 02. Open config page
+    http://localhost
+    The default user and password: admin:adminadmi2
+
+### 03. Use it as the same in linux
 
 ## Other related project
 https://github.com/rustdesk/rustdesk
