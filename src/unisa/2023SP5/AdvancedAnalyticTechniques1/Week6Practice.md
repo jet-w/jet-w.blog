@@ -13,8 +13,7 @@ tag:
 
 
 ## Rainfall Modelling (W6)
-::: tabs
-@tab Part1: Getting Gamma model parameters
+### Part1: Getting Gamma model parameters
 * The instructions
     ::: info instructions
     1.	Take the file called `PoorakaMonthlyFit.xls`.  It contains a sheet that shows the fitting procedure <span style="color:orange">using Likelihood to fit a Gamma Distribution</span> to data for the 87 years for June for Pooraka.  Try matching moments to see what you get for the parameters as well. 
@@ -28,36 +27,21 @@ B3 = (D$1-1)*LN(A3)-A3/$D$2-$D$1*LN($D$2)-$D$3
 
 'initialize the α and β
 D1 = 1
-D2 = 1
-
-'The GAMMALN function returns the natural logarithm of the gamma function
-D3 = GAMMALN(D1)
-
-'The sum of likelihood: it's the target function for optimizing
-D5 = SUM(B3:B148)
-
-D7 = D1*D2
-D8 = D1*D2^2
-D9 = sqrt(D8)
-
-' The real average value
-G7 = AVERAGE(A3:A89)
-' The real standard deviation
-G9 = STDEV(A3:A89)
-'
-G10 = G9^2/G7
-'
-G11 = =G7/G10
-
+D2 = 2
 ```
-![data visualization](/data/unisa/AdvancedAnalytic1/w6/rainfall-1.png =400x)
-We regard the `D5` as the target for optimizing, now we use the solver to optimize using max approach. Please note, it is necessary add a constraint that $\alpha, \beta > 0$.
+Other cells please refer to the picture below to fill.
+![The formula before maximizing](/data/unisa/AdvancedAnalytic1/w6/rainfall_beformaximizing.png =700x)
 
-![Solver parameters](/data/unisa/AdvancedAnalytic1/w6/solver.png =400x)
-Finally, we get results like the picture below.
-![likelihood result](/data/unisa/AdvancedAnalytic1/w6/results.png =400x)
+Using the solver to maximize the sum of likelihood. Please set the parameter follow the picture below.
+![Using solver to maximize](/data/unisa/AdvancedAnalytic1/w6/rainfall_solver.png =500x)
+* Note:
+    ::: info
+    Please note, it is necessary add a constraint that $\alpha, \beta > 0$.
+    :::
+After maximizing, the result will be like the picture below.
+![The formula](/data/unisa/AdvancedAnalytic1/w6/rainfall.png =700x)
 
-@tab Part2: Getting gamma distribution data
+### Part2: Getting gamma distribution data
 * The instructions
     ::: info instructions
     3.	For synthetic generation, it is a little more complicated but not much.  I have gone to Data Analysis and then Random Number Generation.  Pick 1 variable, and 3000 values (I did 200 just to make sure the file was small), Uniform Distribution, and then the range is [0.0001,0.9999] so we don’t get any odd values in the synthetic generation.  The Output Range starts in `A5`.  In `B5`, you will see I have the formula `=GAMMAINV(A5,$D$1,$D$2)`.  That selects the rainfall total from the `Gamma Distribution` with our parameter estimates that corresponds to the probability in `A5`.  Copy that down for all the values in column A.  Repeat for all months.  Then, put the synthetic monthly totals in adjoining columns in a new sheet.  Find the seasonal totals for all 3000 cases.  Put the columns of historical data side by side in the same sheet.  Once again find the totals.  Then using the Histogram menu item on Data Analysis, compare the two sets of totals – you will need to use the cumulative probability option.
