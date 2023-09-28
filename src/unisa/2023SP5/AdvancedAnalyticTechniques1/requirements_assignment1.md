@@ -1,5 +1,5 @@
 ---
-title: Assignment 1 Requirements
+title: Requirements of Assign1 
 index: true
 icon: "/assets/icon/common/assignment.svg"
 icon-size: "4rem"

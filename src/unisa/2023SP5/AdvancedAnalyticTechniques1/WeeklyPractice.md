@@ -1,7 +1,7 @@
 ---
 title: Practices
 index: true
-icon: timeline
+icon: "/assets/icon/common/practices.svg"
 author: Haiyue
 date: 2023-08-02
 category:

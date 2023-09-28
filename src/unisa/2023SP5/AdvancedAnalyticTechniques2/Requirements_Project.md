@@ -1,7 +1,7 @@
 ---
 title: Requirements of Project
 index: true
-icon: "/assets/icon/common/data-mining.svg"
+icon: "/assets/icon/common/assignment.svg"
 icon-size: "4rem"
 author: Haiyue
 date: 2023-08-25

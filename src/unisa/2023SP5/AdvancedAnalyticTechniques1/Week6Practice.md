@@ -1,7 +1,7 @@
 ---
-title: "Practices(W6: Rainfall Modelling)"
+title: "Practices: Rainfall"
 index: true
-icon: timeline
+icon: "/assets/icon/common/practices.svg"
 author: Haiyue
 date: 2023-08-31
 category:
@@ -10,7 +10,6 @@ tag:
   - Rain 
   - excel
 ---
-
 
 ## Rainfall Modelling (W6)
 ### Part1: Getting Gamma model parameters
@@ -49,24 +48,27 @@ After maximizing, the result will be like the picture below.
     :::
 
 ### Getting histogram
-Step 1. Get max and min of the data.
-Step 2. Construct the bins data of the data.
-![Step1&2](/data/unisa/AdvancedAnalytic1/w6/step1&2.png =100x)
-Step 3. Using the histogram tool to generate frequencies.
+**Step 1：** Get max and min of the data.
+**Step 2：** Construct the bins data of the data.
+    ![Histogram Bins](/data/unisa/AdvancedAnalytic1/w6/histogram_bins.png)
+
+**Step 3：** Using the histogram tool to generate frequencies.
 ![histogram tool](/data/unisa/AdvancedAnalytic1/w6/histogram_tool.png =300x)
-![histogram tool parameters](/data/unisa/AdvancedAnalytic1/w6/histogram_tool_parameters.png =300x)
-![histogram result](/data/unisa/AdvancedAnalytic1/w6/histogram_result.png =300x)
+
+![Alt text](/data/unisa/AdvancedAnalytic1/w6/histogram_tool_parameters.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/w6/histogram_result.png)
+
 
 ### Geting GAMMA.DATA
-Step 1: Constructing data
+**Step 1:** Constructing data
 ``` VBA
-S2 = Q2/2
-S3 = S2+5
-T2 = GAMMA.DIST(AJ2,$D$1,$D$2,FALSE())
-U2 = T2*SUM(R:R)*5
+Q2 = O2/2
+Q3 = Q2+5
+R2 = GAMMA.DIST(Q2,$E$2,$E$3,FALSE())
+S2 = R2*$H$26*5
 ```
-
-Step 2: Visualize the frequency and Gamma frequency
+**Step 2:** Visualize the frequency and Gamma frequency
 ![Final Result](/data/unisa/AdvancedAnalytic1/w6/FrequencyAndGammaFrequency.png)
 
-:::
+
+## [Download Sample Dataset](/data/unisa/AdvancedAnalytic1/w6/PoorakaMonthlyFit.xlsx)

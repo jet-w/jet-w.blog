@@ -1,7 +1,7 @@
 ---
 title: Term1(2022SP5)
 index: false
-icon: calendar-week
+icon: "/assets/icon/common/semester.svg"
 author: Haiyue
 category:
   - Guide

@@ -1,7 +1,7 @@
 ---
 title: Project
 index: false
-icon: "/assets/icon/common/data-mining.svg"
+icon: "/assets/icon/common/flags.svg"
 icon-size: "4rem"
 author: Haiyue
 date: 2023-08-25

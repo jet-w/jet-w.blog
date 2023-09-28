@@ -186,7 +186,15 @@ git merge origin/master
 
 :::
 
+### Create new branch
+``` bash
+# --orphan creates a new branch, but it starts without any commit. After running the above command you are on a new branch "NEWBRANCH", and the first commit you create from this state will start a new history without any ancestry.
 
+#You can then start adding files and commit them and they will live in their own branch. If you take a look at the log, you will see that it is isolated from the original log.
+
+git checkout --orphan NEWBRANCH
+git rm -rf .
+```
 
 ## References
 01. [尚学堂教程](https://www.youtube.com/watch?v=iR8CbeZktoA)
