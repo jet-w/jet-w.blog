@@ -82,4 +82,8 @@ G2 = B2+F2
 
 
 
-## [Download Data](/data/unisa/AdvancedAnalytic1/SyntheticPractical/Daily DataAnslec.xlsx)
+## [Download Data](/data/unisa/AdvancedAnalytic1/SyntheticPractical/Daily%20DataAnslec.xlsx)
+
+
+## References
+[01 What is a z-score? What is a p-value?](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/what-is-a-z-score-what-is-a-p-value.htm)

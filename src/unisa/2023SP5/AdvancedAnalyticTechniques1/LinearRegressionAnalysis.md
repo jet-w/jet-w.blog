@@ -1,7 +1,7 @@
 ---
-title: Regression
+title: 00.Linear Regression
 index: true
-icon: timeline
+icon: "/assets/icon/common/slides.svg"
 author: Haiyue
 date: 2023-08-02
 category:

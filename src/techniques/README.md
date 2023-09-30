@@ -11,6 +11,8 @@ category:
 
 This category will record all the things related with techniques.
 
+AI generate Image
+[TensorArt](https://tensor.art/)
 
 [vuepress-theme-hope](https://theme-hope.vuejs.press/)
 
