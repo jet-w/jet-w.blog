@@ -54,7 +54,7 @@ I2 = IF(H2=TRUE,1,0)
 ## Uniform to resample
 
 **Step 1:** Using Random generation to generate a series Uniform distributed data as the probability to resample data from noises.
-![Alt text](/data/unisa/AdvancedAnalytic1/LowerUpperbounds/RandomUniform.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/LowerUpperbounds/RandomUniform.png =300x)
 
 **Step 2:** Resample the noises using the probabilities
 ``` VBA
