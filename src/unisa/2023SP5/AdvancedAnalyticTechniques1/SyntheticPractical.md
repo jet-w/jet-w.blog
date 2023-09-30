@@ -79,3 +79,7 @@ G2 = B2+F2
 1. generate multi uniform data as the probabilities
 2. Store the final models.
 3. Comapre the statistical information of the final models.
+
+
+
+## [Download Data](/data/unisa/AdvancedAnalytic1/SyntheticPractical/Daily DataAnslec.xlsx)
