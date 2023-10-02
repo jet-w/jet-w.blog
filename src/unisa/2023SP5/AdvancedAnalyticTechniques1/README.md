@@ -19,3 +19,5 @@ Reference
 - [Seasonal component (for time-series data)](https://nzmaths.co.nz/category/glossary/seasonal-component-time-series-data)
 - [时间序列数据分析](https://zhuanlan.zhihu.com/p/379486476)
 - [时间序列数据分析(github)](https://skywateryang.gitbook.io/)
+
+- [a2](#math#john@assign2) -> #math#john@assign2

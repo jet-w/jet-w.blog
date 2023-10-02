@@ -1,5 +1,5 @@
 ---
-title: "Practices: Rainfall"
+title: "Prac: Rainfall"
 index: true
 icon: "/assets/icon/common/practices.svg"
 author: Haiyue

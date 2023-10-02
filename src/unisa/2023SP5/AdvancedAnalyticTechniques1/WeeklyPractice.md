@@ -1,5 +1,5 @@
 ---
-title: Practices
+title: "Prac: Trend & Seasonality"
 index: true
 icon: "/assets/icon/common/practices.svg"
 author: Haiyue

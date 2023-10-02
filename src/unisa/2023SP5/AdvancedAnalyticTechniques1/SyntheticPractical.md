@@ -1,5 +1,5 @@
 ---
-title: "Practices: Synthetic Generation"
+title: "Prac: Synthetic Generation"
 index: true
 icon: "/assets/icon/common/practices.svg"
 author: Haiyue
@@ -31,7 +31,7 @@ B7 = $D$1*B6+A7
 ```
 Fill other cells follow the fomula of `B7`
 ## Part 2: Lower and Upper Bounds
-The whole solar dataset need to seperate into two parts for forecasting. The first part is the `FS Model` that has been given in column `B`, then using `AR(1)` model to forecast the residuals that store in column `C`. The parameter of AR(1) is given in `L1`.
+The whole solar dataset need to seperate into two parts for forecasting. The first part is the `FS Model` that has been given in column `B`, then using `AR(1)` model to forecast the residuals that store in column `C`. The parameter of ***AR(1)*** is given in `L1`.
 ![Lower And Upper Bounds](/data/unisa/AdvancedAnalytic1/LowerUpperbounds/LowerAndUpperBounds.png)
 
 The sum of the two models form the final model. The next step is to construct the lower and upper bounds to estimate the final model. The lower bound equals final model  substract a `specified value`, and the upper bound equals final model add `the same value`. Then to using the bounds to estimate whether the real value been `covered` by the final model.
@@ -50,6 +50,19 @@ G2 = E2+$L$5*$L$6
 H2 = AND(A2>F2,A2<G2)
 I2 = IF(H2=TRUE,1,0)
 ```
+***A:*** is the solar original dataset.
+***B:*** is the forcasting from FS Model component
+***C:*** is the residuals.
+***D:*** is the result from ***AR(1)*** model.
+***E:*** is the combination of tow models.
+***F:*** is the lower bound based on the final result.
+***G:*** is the upper bound based on the final bounds.
+***H:*** whether the original data locates the range of the bounds.
+***I:*** 1 IF `H` equals TRUE, else 0.
+
+***L1:*** the coefficient of AR(1) model.
+***L5:*** is the score of confidence.
+***L6:*** is the standard deviation from training test.
 
 ## Uniform to resample
 
@@ -80,10 +93,7 @@ G2 = B2+F2
 2. Store the final models.
 3. Comapre the statistical information of the final models.
 
-
-
 ## [Download Data](/data/unisa/AdvancedAnalytic1/SyntheticPractical/Daily%20DataAnslec.xlsx)
-
 
 ## References
 [01 What is a z-score? What is a p-value?](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/what-is-a-z-score-what-is-a-p-value.htm)
