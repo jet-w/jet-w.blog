@@ -1,5 +1,5 @@
 ---
-title: "Prac: Rainfall"
+title: "Prac: Rainfall (GAMMA)"
 index: true
 icon: "/assets/icon/common/practices.svg"
 author: Haiyue
@@ -22,7 +22,7 @@ tag:
 * Setting Parameters
 ``` VBA
 'The likelihood fomula
-B3 = (D$1-1)*LN(A3)-A3/$D$2-$D$1*LN($D$2)-$D$3
+B3 = (E$2-1)*LN(A3)-A3/$E$3-$E$2*LN($E$3)-$E$4
 
 'initialize the α and β
 D1 = 1
