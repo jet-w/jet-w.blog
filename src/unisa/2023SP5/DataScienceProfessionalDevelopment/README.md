@@ -12,3 +12,9 @@ category:
 ## Dataset link
 01. https://opendata.cityofnewyork.us/
 02. https://data.world/datasets/singapore
+
+
+
+
+[melb_house_withnum.csv](/data/unisa/DataProfessionDev/data/melb_house_withnum.csv)
+[melb_house_withnum(shapefiles).zip](/data/unisa/DataProfessionDev/data/melb_house_withnum(shapefiles).zip)
