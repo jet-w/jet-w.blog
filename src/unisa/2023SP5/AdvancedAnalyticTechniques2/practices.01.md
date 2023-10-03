@@ -1,5 +1,5 @@
 ---
-title: 01. Practices
+title: Practices Part1
 index: true
 icon: "/assets/icon/common/flags.svg"
 icon-size: "4rem"
