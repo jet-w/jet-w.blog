@@ -86,8 +86,8 @@ According to the mean of square error, the best model should be ***AR(4)***.
 ![ARCH SPACF](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.arch_effect_pacf.png =400x)
 According to the SACF above, there is no ARCH effect.
 
-![GARCH SACF](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.output_zt^2_acf.png =400x)
-![GARCH PSACF](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.output_zt^2_pacf.png =400x)
+![GARCH SACF](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.output_zt_squared_acf.png =400x)
+![GARCH PSACF](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.output_zt_squared_pacf.png =400x)
 According to the SACF above, there is GARCH effect.
 #### 4. Find the best <span style="color:orange;font-weight:bold;">*ARCH*</span> or <span style="color:orange;font-weight:bold;">*GARCH*</span> model for it.
 
