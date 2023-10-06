@@ -5,10 +5,11 @@ icon: "/assets/icon/common/assignment.svg"
 icon-size: "4rem"
 author: Haiyue
 date: 2023-09-22
-sidebar: true
 category:
   - Assignment
 ---
+
+math#john@assign2
 
 ## Requirements
 ::: details Instructions
