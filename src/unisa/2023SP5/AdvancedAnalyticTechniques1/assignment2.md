@@ -145,7 +145,29 @@ Correlations matrix
 The ***tasks*** for this question are listed below.
 
 #### 1. Take the monthly rainfall data from `MtGambierRainfall.xlsx` and <span style="color:orange;font-weight:bold;">model the seasonality</span>. Then <span style="color:orange;font-weight:bold;">subtract</span> this from the data.
+
+![Seasonality Parameters](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.seasonality.png)
+
+![Seasonality Visualization](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.seasonality_visualization.png)
+
 #### 2. Use <span style="color:orange;font-weight:bold;">exponential smoothing</span> to see <span style="color:orange;font-weight:bold;">the overall trend</span> in the series - <span style="color:orange;font-weight:bold;">try various values of `α` below 0.2</span>.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_alpha_0.02.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_alpha_0.002.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_alpha_0.1.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_alpha_0.2.png)
+
 #### 3. <span style="color:orange;font-weight:bold;">Find the trend</span> for the whole series for <span style="color:orange;font-weight:bold;">the smoothed data</span>, and then <span style="color:orange;font-weight:bold;">find the trends for any sections that you think display differing characteristics</span>.
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_trend.png)
+
+I dont's understand the second part.
+<span style="color:red;font-weight:bold;">`then find the trends for any sections that you think display differing characteristics`</span>
+
 #### 4. Take the data for the <span style="color:orange;font-weight:bold;">month of December</span> and the <span style="color:orange;font-weight:bold;">Annual mean temperature</span> from `MtGambierByMonthsTemperature.xlsx` and <span style="color:orange;font-weight:bold;">find the trend over time</span>.
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.temperature-trend.png)
+
 #### 5. How much has <span style="color:orange;font-weight:bold;">the mean temperature changed</span> over time in each case?
+
+
+I dont's understand the meaning
