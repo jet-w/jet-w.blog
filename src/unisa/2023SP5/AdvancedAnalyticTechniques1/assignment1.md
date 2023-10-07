@@ -30,7 +30,7 @@ category:
 1. For this question you will need the files from the website named
     `a`. HalfHourSolarRadiation2017.xlsx
     `b`. HalfHourSolarRadiation2018.xlsx
-    `c`. PowerSpectrumGeneric.xlsm
+    `c`. [PowerSpectrumGeneric.xlsm](/data/unisa/AdvancedAnalytic1/assignment1/Power_SpectrumGeneric.xlsm)
     `d`. SolarTemplate.xlsm
     
     The tasks for this question are listed below. 
