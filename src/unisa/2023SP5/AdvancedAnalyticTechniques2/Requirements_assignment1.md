@@ -63,3 +63,6 @@ Build a Naïve Bayes model and classify benign and malignant using the discreti
 ::: info Requirement
 Use one record to explain how the model makes classification using the discretised dataset. 
 :::
+
+
+[Details of Assignment1](assignment1)

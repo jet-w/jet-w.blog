@@ -76,3 +76,4 @@ The file on the website `SnowtownWindFarm.xlsx` has a one year of half hour outp
 3. <span style="color:orange">Is there a difference</span> in the number of parameters to estimate in the two models? If so, <span style="color:orange">is it worth it</span> to use the one with extra parameters?
 :::
 
+## [Details of assignment](assignment1)

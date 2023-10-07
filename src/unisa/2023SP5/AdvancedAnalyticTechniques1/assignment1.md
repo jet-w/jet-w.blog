@@ -1,11 +1,11 @@
 ---
 title: Assignment 1
-index: true
+index: false
 icon: "/assets/icon/common/assignment.svg"
 icon-size: "4rem"
 author: Haiyue
 date: 2023-08-25
-sidebar: true
+sidebar: false
 category:
   - Assignment
 ---

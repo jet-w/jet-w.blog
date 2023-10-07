@@ -21,7 +21,7 @@ math#john@assign2
 
 ::: tabs
 @tab Quesion 1 <span style="color:red;font-weight:bold;">(15 marks)</span>
-01.[Files Required: <span style="color:orange;font-weight:bold;">ClementsGapWindFarmOutput.xlsx</span>](/data/unisa/AdvancedAnalytic1/assignment2/ClementsGapWindFarmOutput.xlsx)
+01. Files Required: <span style="color:orange;font-weight:bold;">ClementsGapWindFarmOutput.xlsx</span>
 
 The ***tasks*** for this question are listed below.
 
@@ -34,7 +34,7 @@ The ***tasks*** for this question are listed below.
 1. <span style="color:orange;font-weight:bold;">Compare the results</span> with <span style="color:orange;font-weight:bold;">constructing the prediction intervals by using the appropriate quantiles</span>.
 
 @tab Question 2 <span style="color:red;font-weight:bold;">(15 marks)</span>
-01.[Files Required: <span style="color:orange;font-weight:bold;">MelbourneAirportRain.xlsx</span>](/data/unisa/AdvancedAnalytic1/assignment2/MelbourneAirportRain.xlsx)
+01. Files Required: <span style="color:orange;font-weight:bold;">MelbourneAirportRain.xlsx</span>
 
 The ***tasks*** for this question are listed below.
 
@@ -45,8 +45,8 @@ The ***tasks*** for this question are listed below.
 1. <span style="color:orange;font-weight:bold;">Do the same</span> for July, August.
 
 @tab Question 3 <span style="color:red;font-weight:bold;">(10 marks)</span>
-01.[Files Required: <span style="color:orange;font-weight:bold;">MtGambierByMonthsTemperature.xlsx</span>](/data/unisa/AdvancedAnalytic1/assignment2/MelbourneAirportRain.xlsx)
-02.[Files Required: <span style="color:orange;font-weight:bold;">MtGambierRainfall.xlsx</span>](/data/unisa/AdvancedAnalytic1/assignment2/MelbourneAirportRain.xlsx)
+01. Files Required: <span style="color:orange;font-weight:bold;">MtGambierByMonthsTemperature.xlsx</span>
+02. Files Required: <span style="color:orange;font-weight:bold;">MtGambierRainfall.xlsx</span>
 
 The ***tasks*** for this question are listed below.
 
@@ -58,15 +58,3 @@ The ***tasks*** for this question are listed below.
 
 :::
 
-
-
----
-## All works below
-### Question 1
-
-
-
-
-### Question 2
-
-### Question 3

@@ -109,7 +109,6 @@ export default hopeTheme({
     config: {
       "/unisa/2023SP5/AdvancedAnalyticTechniques1/assignment1": ["#John"],
       "/unisa/2023SP5/AdvancedAnalyticTechniques1/assignment2": ["#John"],
-      "/unisa/2023SP5/AdvancedAnalyticTechniques1/assign2": ["#math#john@assign2"],
       "/unisa/2023SP5/AdvancedAnalyticTechniques1/ContinueAssessments": ["#1234"],
       "/unisa/2023SP5/AdvancedAnalyticTechniques2/assignment1": ["#Thuc"],
       "/unisa/2023SP5/AdvancedAnalyticTechniques2/project": ["#Thuc"],

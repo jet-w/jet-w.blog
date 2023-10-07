@@ -55,3 +55,6 @@ category:
     1. d) <span style="color:orange">Prove the result in c) mathematically</span>. <span style="color:red;font-weight:bold">(2)</span>
     1. e) Given we know the value of `CD300LG`, is the “class” <span style="color:orange">conditionally independent</span> of `ABCA9`? And why? <span style="color:red;font-weight:bold">(3)</span>
 
+
+
+## [Details of Project](project)

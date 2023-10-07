@@ -66,7 +66,9 @@ The ***tasks*** for this question are listed below.
 #### 1. Take the 2011 output (the training set) and find the best <span style="color:orange;font-weight:bold;">*ARMA(p,q)*</span> model for the data.
 
 ![Question 1 - Output ACF](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.output_acf.png =400x)
+
 ![Question 1 - Output PACF](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.output_pacf.png =400x)
+
 ![Possible ARMA Parameters](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.ARMA_Params.png)
 
 According to the parameters we got. We should compare the mean of squared error (MSE) and p-value of the parameters for each model to select a proper model, the smaller the better. The table below lists all the MSEs.
@@ -187,7 +189,7 @@ The ***tasks*** for this question are listed below.
 There are three steps for this question. The first step is to find the best frequencies, the second step is to find the proper parameters for seasonalities, and the last step is to visualize the seasonality result.
 
 The picture below is the frequencies for the dataset. The 50 and 550 is the best for the dataset.
-![Alt text](q3.DFT_power.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.DFT_power.png)
 
 The picture below is the seasonality parameters using the frequencies got from step1. And also we got the final model and the residuals.
 ![Seasonality Parameters](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.seasonality.png)
@@ -216,11 +218,11 @@ I use the univariate linear regression to model the trend. The result like the p
 
 3.2 Split whole dataset into multiple sections.
 Accoriding the visualization of the dataset, the dataset could be split into two sections, the first section(from the begining to 40) rise rapidly, and the second section oscillate around a variable. So the dataset could be split into two sections like the pciture below.
-![Alt text](q3.TheParametersOfTrends.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.TheParametersOfTrends.png)
 
 3.3 find the trends for the two sections
 The trends of the two sections like the picture belowl
-![Alt text](q3.VisualizationOfTrends.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.VisualizationOfTrends.png)
 
 
 #### 4. Take the data for the <span style="color:orange;font-weight:bold;">month of December</span> and the <span style="color:orange;font-weight:bold;">Annual mean temperature</span> from `MtGambierByMonthsTemperature.xlsx` and <span style="color:orange;font-weight:bold;">find the trend over time</span>.
