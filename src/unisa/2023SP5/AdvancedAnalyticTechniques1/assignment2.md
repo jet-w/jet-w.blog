@@ -143,7 +143,7 @@ The results suggest that the model is quiet well for the dataset.
 
 #### 7. <span style="color:orange;font-weight:bold;">Compare the results</span> with <span style="color:orange;font-weight:bold;">constructing the prediction intervals by using the appropriate quantiles</span>.
 
-
+[A simple technique to estimate prediction intervals for any regression model](https://medium.com/@qucit/a-simple-technique-to-estimate-prediction-intervals-for-any-regression-model-2dd73f630bcb)
 
 ### Question 2
 
