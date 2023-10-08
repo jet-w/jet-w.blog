@@ -16,8 +16,10 @@ category:
 ::: 
 
 ## Requirements Analysis
+::: details 
 [Access Resources](https://lo.unisa.edu.au/mod/folder/view.php?id=3409063)
-
+[Access Resources-FR](/data/unisa/AdvancedAnalytic1/assignment2/assign2_report.docx)
+:::
 ::: tabs
 @tab Quesion 1 <span style="color:red;font-weight:bold;">(15 marks)</span>
 01.[Files Required: <span style="color:orange;font-weight:bold;">ClementsGapWindFarmOutput.xlsx</span>](/data/unisa/AdvancedAnalytic1/assignment2/ClementsGapWindFarmOutput.xlsx)
@@ -180,7 +182,25 @@ Correlations matrix
 |**Dec**	|0.053	|-0.196	|-0.023	| 0.118 |
 
 #### 4. Generate 1000 years of <span style="color:orange;font-weight:bold;">synthetic</span> December, January, February, add the months to <span style="color:orange;font-weight:bold;">get seasonal totals</span>, and <span style="color:orange;font-weight:bold;">generate empirical <span style="color:red;">CDFs</span> for the totals versus the <span style="color:red;">CDFs</span> for the real data</span>.
+
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.generate_data_JanFebDec.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.maxmin_JanFebDec.png)
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.freq_JanFebDec.png)
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Jan.png =600x)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Feb.png =600x)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Dec.png =600x)
+
 #### 5. <span style="color:orange;font-weight:bold;">Do the same</span> for July, August.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.generate_data_JulAug.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.maxmin_JulAug.png)
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.freq_JulAug.png)
+
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Jul.png =600x)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Aug.png =600x)
 
 ### Question 3
 The ***tasks*** for this question are listed below.
@@ -234,7 +254,3 @@ The trends of the two sections like the picture belowl
 
 I dont's understand the meaning
 
-
-
-
-[Final Report](/data/unisa/AdvancedAnalytic1/assignment2/assign2_report.docx)

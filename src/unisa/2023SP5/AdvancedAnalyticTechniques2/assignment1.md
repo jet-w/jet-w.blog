@@ -1,6 +1,6 @@
 ---
 title: Assignment1
-index: false
+index: true
 icon: "/assets/icon/common/data-mining.svg"
 icon-size: "4rem"
 author: Haiyue
