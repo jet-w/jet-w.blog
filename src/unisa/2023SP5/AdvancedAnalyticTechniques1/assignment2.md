@@ -251,6 +251,10 @@ The trends of the two sections like the picture belowl
 
 #### 5. How much has <span style="color:orange;font-weight:bold;">the mean temperature changed</span> over time in each case?
 
+According to the result from the last step, the mean temperature changed over time should be calculated via the linear regression parameters with the whole 73 years on this dataset. 
+The temperature changed over time for December should be, 
+a*year = 0.028117 * 73 = <span style="color:red">2.05</span>
+The temperature changed over time for December should be, 
+a*year = 0.018201 * 73 = <span style="color:red">1.32</span>
 
-I dont's understand the meaning
 
