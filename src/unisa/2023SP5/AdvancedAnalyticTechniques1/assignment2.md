@@ -185,7 +185,7 @@ The parameters $\alpha$ and $\beta$ are calculated like the picture below.
 @tab Minitab
 2.1 Get the parameters for gamma
 
-![PP-Plot for Gamma](q2.minitab.gammatest.png)
+![PP-Plot for Gamma](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.gammatest.png)
 
 2.2 Visualization
 
