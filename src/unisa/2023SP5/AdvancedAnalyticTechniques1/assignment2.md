@@ -189,11 +189,11 @@ The parameters $\alpha$ and $\beta$ are calculated like the picture below.
 
 2.2 Visualization
 
-![Gamma Distribution Fitting of Janurary](q2.minitab.gamma-Jan.png =400x)
+![Gamma Distribution Fitting of Janurary](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.gamma-Jan.png =400x)
 
-![Gamma Distribution Fitting of February](q2.minitab.gamma-Feb.png =400x)
+![Gamma Distribution Fitting of February](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.gamma-Feb.png =400x)
 
-![Gamma Distribution Fitting of December](q2.minitab.gamma-Dec.png =400x)
+![Gamma Distribution Fitting of December](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.gamma-Dec.png =400x)
 
 :::
 
