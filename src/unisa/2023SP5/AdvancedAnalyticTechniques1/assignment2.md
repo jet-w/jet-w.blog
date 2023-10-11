@@ -146,10 +146,10 @@ The results suggest that the model is quiet well for the dataset.
 
 #### 7. <span style="color:orange;font-weight:bold;">Compare the results</span> with <span style="color:orange;font-weight:bold;">constructing the prediction intervals by using the appropriate quantiles</span>.
 The picture below is the prediction interval using GARCH and quantile method.
-![Quantile Error Bounds](q1.quantile.png)
+![Quantile Error Bounds](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.quantile.png)
 
 The picture below is the result of quantile approach and GARCH.
-![Quantile Error Bounds and GARCH Error Bounds](q1.quantile_ret.png)
+![Quantile Error Bounds and GARCH Error Bounds](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.quantile_ret.png)
 
 According to the result ...
 
