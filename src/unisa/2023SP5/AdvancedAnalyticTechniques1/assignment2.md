@@ -155,7 +155,8 @@ For normality test, the ppplot and histogram could be used for testing.
 ![Histogram](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.histogram.png)
 According to the histogram all the distribution of the months are right skewed.
 ![PP-Plot](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.pp-plot.png)
-According to the ppplot result, we reject January and February dataset have follow normal distribution.
+
+According to the ppplot result, the p-value of July and August is greater than 0.05, we can not reject they follow the normal distribution, on the other hand the p-value of January February and December is less than 0.05, we reject the datasets of the three months follow normal distribution.
 
 #### 2. For the months that <span style="color:orange;font-weight:bold;">do not follow a <span style="color:red;">normal distribution</span>, test for a <span style="color:red;">Gamma fit</span></span>.
 There are two steps for this question. The first step is to calculate the $\alpha$ and $\beta$ parameters. Another step is to get the distribution and visulize them. According to previous step, the datasets of Janarary and February will be processed.
