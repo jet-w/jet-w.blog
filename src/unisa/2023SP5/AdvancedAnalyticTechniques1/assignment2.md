@@ -139,9 +139,21 @@ According to the statistical summary, the standard deviation is about 5.05. The 
  $91.57\% \gt 90\%$
  $5.05*1.96*2 = 19.8  \gt 18.87$
  $5.05*1.65*2 = 16.665  \gt 15.89$
+
+The mean of prediction interval for 90% coverage is 15.88931, and 18.87457 for 90% coverage.
+
 The results suggest that the model is quiet well for the dataset.
 
 #### 7. <span style="color:orange;font-weight:bold;">Compare the results</span> with <span style="color:orange;font-weight:bold;">constructing the prediction intervals by using the appropriate quantiles</span>.
+The picture below is the prediction interval using GARCH and quantile method.
+![Quantile Error Bounds](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.quantile.png)
+
+The picture below is the result of quantile approach and GARCH.
+![Quantile Error Bounds and GARCH Error Bounds](/data/unisa/AdvancedAnalytic1/assignment2/img/q1.quantile_ret.png)
+
+According to the result ...
+
+
 
 [A simple technique to estimate prediction intervals for any regression model](https://medium.com/@qucit/a-simple-technique-to-estimate-prediction-intervals-for-any-regression-model-2dd73f630bcb)
 
@@ -161,14 +173,29 @@ According to the ppplot result, the p-value of July and August is greater than 0
 #### 2. For the months that <span style="color:orange;font-weight:bold;">do not follow a <span style="color:red;">normal distribution</span>, test for a <span style="color:red;">Gamma fit</span></span>.
 There are two steps for this question. The first step is to calculate the $\alpha$ and $\beta$ parameters. Another step is to get the distribution and visulize them. According to previous step, the datasets of Janarary and February will be processed.
 
+::: tabs
+@tab Excel
 2.1 Get the parameters for gamma
 The parameters $\alpha$ and $\beta$ are calculated like the picture below.
 ![Parameters For Gamma](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.ParametersForGamma.png)
 
 2.2 Visulize the distribution
-
 ![Gamma distribution for Jan and Feb](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.gammadistribution.png)
 
+@tab Minitab
+2.1 Get the parameters for gamma
+
+![PP-Plot for Gamma](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.gammatest.png)
+
+2.2 Visualization
+
+![Gamma Distribution Fitting of Janurary](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.gamma-Jan.png =400x)
+
+![Gamma Distribution Fitting of February](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.gamma-Feb.png =400x)
+
+![Gamma Distribution Fitting of December](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.gamma-Dec.png =400x)
+
+:::
 
 #### 3. Test December, January, February for <span style="color:orange;font-weight:bold;">correlation</span>, and July, August separately.
 
@@ -182,9 +209,12 @@ Correlations matrix
 |**Aug**	|-0.132	|-0.000	|-0.009	 | |
 |**Dec**	|0.053	|-0.196	|-0.023	| 0.118 |
 
+According to the correlation matrix, there is almost no correlation among the months.
+
 #### 4. Generate 1000 years of <span style="color:orange;font-weight:bold;">synthetic</span> December, January, February, add the months to <span style="color:orange;font-weight:bold;">get seasonal totals</span>, and <span style="color:orange;font-weight:bold;">generate empirical <span style="color:red;">CDFs</span> for the totals versus the <span style="color:red;">CDFs</span> for the real data</span>.
 
-
+::: tabs 
+@tab Excel
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.generate_data_JanFebDec.png)
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.maxmin_JanFebDec.png)
 
@@ -193,8 +223,20 @@ Correlations matrix
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Jan.png =600x)
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Feb.png =600x)
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Dec.png =600x)
+@tab Minitab
 
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.pp-plot_JanFebDec.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.ECDF_Jan.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.ECDF_Feb.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.ECDF_Dec.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.ECDF_JanFebDec.png)
+
+:::
 #### 5. <span style="color:orange;font-weight:bold;">Do the same</span> for July, August.
+Because of July, August perhaps follow normal distribution, here we should generate normal distribution synthetic data.
+
+::: tabs
+@tab Excel<span style="color:red">(error)</span>
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.generate_data_JulAug.png)
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.maxmin_JulAug.png)
 
@@ -202,6 +244,15 @@ Correlations matrix
 
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Jul.png =600x)
 ![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.accfreq_Aug.png =600x)
+
+@tab Minitab
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.ppplot_JulyAug.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.ECDF_JulyAug.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.ECDF_Jul.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q2.minitab.ECDF_Aug.png)
+
+:::
+
 
 ### Question 3
 The ***tasks*** for this question are listed below.
@@ -219,31 +270,43 @@ The picture is the visualization for the final model of seasonality.
 ![Seasonality Visualization](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.seasonality_visualization.png)
 
 #### 2. Use <span style="color:orange;font-weight:bold;">exponential smoothing</span> to see <span style="color:orange;font-weight:bold;">the overall trend</span> in the series - <span style="color:orange;font-weight:bold;">try various values of `α` below 0.2</span>.
+
+::: tabs
+@tab Excel
 For this question, I will show the results of four values for the $\alpha$. Details for the pictures below.
 
-![$\alpha = 0.002$](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_alpha_0.002.png =400x)
+<!--![$\alpha = 0.002$](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_data.png =400x)smoothing_data-->
 
-![$\alpha = 0.02$](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_alpha_0.02.png =400x)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_data.png)
 
-![$\alpha = 0.1$](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_alpha_0.1.png =400x)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_alpha_0.02.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_alpha_0.05.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_alpha_0.1.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_alpha_0.15.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_alpha_0.2.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.total_trends.png)
 
-![$\alpha = 0.2$](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_alpha_0.2.png =400x)
-
+[Reference](https://www.wallstreetmojo.com/exponential-smoothing-in-excel/)
+@tab Minitab
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.minitab.smoothing_alpha_0.02.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.minitab.smoothing_alpha_0.05.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.minitab.smoothing_alpha_0.1.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.minitab.smoothing_alpha_0.15.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.minitab.smoothing_alpha_0.2.png)
+:::
 #### 3. <span style="color:orange;font-weight:bold;">Find the trend</span> for the whole series for <span style="color:orange;font-weight:bold;">the smoothed data</span>, and then <span style="color:orange;font-weight:bold;">find the trends for any sections that you think display differing characteristics</span>.
 
-I will set the parameter $\alpha$ equals 0.05 of smoothed data. And then to process the smoothed data. There are 3 steps to do. The first step is to find the trend of the whole dataset. The second step is to split the dataset into multiple sections, and the last step is to find the trends for each section.
+I will set the parameter $\alpha$ equals 0.02 of smoothed data. And then to process the smoothed data. There are 3 steps to do. The first step is to find the trend of the whole dataset. The second step is to split the dataset into multiple sections, and the last step is to find the trends for each section.
 
 3.1 Find the trend of whole dataset.
 I use the univariate linear regression to model the trend. The result like the picture below.
-![Trend of whole dataset](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.smoothing_trend.png)
-
+![Trend of whole dataset](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_total_trend.png)
 3.2 Split whole dataset into multiple sections.
-Accoriding the visualization of the dataset, the dataset could be split into two sections, the first section(from the begining to 40) rise rapidly, and the second section oscillate around a variable. So the dataset could be split into two sections like the pciture below.
-![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.TheParametersOfTrends.png)
-
+Accoriding the visualization of the dataset, the dataset could be split into two sections, the first section(from the begining to 60) rise rapidly, and the second section oscillate around a variable. So the dataset could be split into two sections like the pciture below.
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.smoothing_multisection.png)
 3.3 find the trends for the two sections
 The trends of the two sections like the picture belowl
-![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.VisualizationOfTrends.png)
+![Alt text](/data/unisa/AdvancedAnalytic1/assignment2/img/q3.excel.VisualizationOfTrends.png)
 
 
 #### 4. Take the data for the <span style="color:orange;font-weight:bold;">month of December</span> and the <span style="color:orange;font-weight:bold;">Annual mean temperature</span> from `MtGambierByMonthsTemperature.xlsx` and <span style="color:orange;font-weight:bold;">find the trend over time</span>.
@@ -254,8 +317,8 @@ The trends of the two sections like the picture belowl
 
 According to the result from the last step, the mean temperature changed over time should be calculated via the linear regression parameters with the whole 73 years on this dataset. 
 The temperature changed over time for December should be, 
-a*year = 0.028117 * 73 = <span style="color:red">2.05</span>
+<span style="font-weight:bold">a * year = 0.028117 * 73 = <span style="color:red">2.05</span></span>
 The temperature changed over time for December should be, 
-a*year = 0.018201 * 73 = <span style="color:red">1.32</span>
+<span style="font-weight:bold">a * year = 0.018201 * 73 = <span style="color:red">1.32</span></span>
 
 
