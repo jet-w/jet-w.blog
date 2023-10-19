@@ -33,6 +33,12 @@ export const enSidebar = sidebar({
       prefix: "Task/",
       children: "structure",
     },
+    {
+      text: "Work",
+      icon: "/assets/icon/common/work.svg",
+      prefix: "work/",
+      children: "structure",
+    },
     "intro"
   ],
 });
