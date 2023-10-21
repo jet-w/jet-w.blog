@@ -10,7 +10,7 @@ category:
 ---
 
 ## Week 11: Geospatial data analysis
-Spatial objects are typically represented using vector data, which includes information about the `shape` or geometry of the objects, along with `additional variables`. For instance, a vector dataset may describe the boundaries of countries (geometry) and also store attributes like country names and population size. Similarly, it can include the geometry of roads in an area, along with attributes such as road type and names.
+Spatial objects are typically represented using vector data, which includes information about the `shape` or `geometry` of the objects, along with `additional variables`. For instance, a vector dataset may describe the boundaries of countries (geometry) and also store attributes like country names and population size. Similarly, it can include the geometry of roads in an area, along with attributes such as road type and names.
 
 ### I. Vector data
 **A simple representation of spatial data**
@@ -89,7 +89,7 @@ ptv <- vect(lonlat, atts=df, crs=crdref)
 ptv
 ```
 
-- You can also create a SpatVector from a data frame. The following code creates a vector (geometry: points) with the coordinates of cities in Ontario ‐ Canada. We use the maps package that has useful information about cities and maps of the world (see https://cran.r‐project.org/web/packages/maps/maps.pdf).
+- You can also create a SpatVector from a data frame. The following code creates a vector (geometry: points) with the coordinates of cities in Ontario ‐ Canada. We use the maps package that has useful information about cities and maps of the world (see [https://cran.r‐project.org/web/packages/maps/maps.pdf](https://cran.r‐project.org/web/packages/maps/maps.pdf)).
 
 ``` R
 require(maps)
