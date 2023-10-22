@@ -1,11 +1,21 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
 ---
 
 Use `Rmarkdown` to do the following tasks(2). Please note that the presentation of the document and the range of `Rmarkdown` features/functions used are matter.
 
 ## 1. Describe a [**real-world application**]{style="color:orange;font-weight:bold"} that uses [topic modelling]{style="color:orange;font-weight:bold"} and [explain how the topic model works]{style="color:orange;font-weight:bold"}. [(4)]{style="color:red;font-weight:bold"}
+
+The [**recommendation system**]{style="color:orange;font-weight:bold"} could use topic modelling to work. The key work is to calculate the similarity. All the works could be processed with three steps.
+
+1.  Calculating the distribution of topics for two items.
+2.  Calculating the similarity (Kullback-Leibler divergence could be used) between two items based on the distribution of topics.
+3.  The item with higher similarity will get a higher chance for recommendation.
 
 ## 2. Download the Twitter dataset (rdmTweets-201306.RData) from the course website and do the following. [(8)]{style="color:red;font-weight:bold"}
 
@@ -48,7 +58,7 @@ tweet_texts
 
 ***method 1***
 
-```{r}
+```{r warning=FALSE}
 freq.words <- data.frame(
   "data" = unlist(lapply(tweet_texts, function(x){
       words <- unlist(strsplit(x, "\\s+"))
@@ -140,9 +150,19 @@ top_words
 
 ## 3. Provide a [**real-world example**]{style="color:orange;font-weight:bold"} of a system or an application that [utilises stream-data]{style="color:orange;font-weight:bold"}. In your example, [explain the challenges]{style="color:orange;font-weight:bold"} faced by algorithms in analysing stream data and [suggest some ideas to address those challenges]{style="color:orange;font-weight:bold"} [(6)]{style="color:red;font-weight:bold"}
 
+[[StockSight]()]{style="color:orange"} is an application that has been used for many organization. It uses the dataset from Twitter and news headlines data for stocks to analysis the sentiment of the author. Normally, Twitter and other news platforms owns a huge amount of data; more even, the data will be posted rapidly, especially on Twitter; some people also will add some slang, emojis, etc. that will make more challenging for analyzing; Lots of unrelated data exist, etc. All the problems are the challenges for implementation. The items listed below are some of my ideas for dealing with all the challenges.
+
+1.  Using stream sampling algorithm to deal with huge amount of data and rapid posting data.
+2.  Using NLP techniques to deal with the text, such as slang, emojis, etc.
+3.  Using classification method to deal with unrelated data.
+
+**References**
+
+<https://github.com/shirosaidev/stocksight>
+
 ## 4. Create a [**data stream**]{style="color:orange;font-weight:bold"} of [two dimensions data points]{style="color:orange;font-weight:bold"}. The data points will [follow Gaussian distribution]{style="color:orange;font-weight:bold"} with [5% noise]{style="color:orange;font-weight:bold"} and [belong to 4 clusters]{style="color:orange;font-weight:bold"}. [Compare the performance]{style="color:orange;font-weight:bold"} of the following clustering methods in terms of precision, recall, and F1. [(6)]{style="color:red;font-weight:bold"}
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 if(!require(stream))
   install.packages("stream")  
 library(stream)
@@ -215,11 +235,19 @@ evaluate_static(
 
 ## 5. explain a [**real-world application of geographical information system**]{style="color:orange;font-weight:bold"}. [(4)]{style="color:red;font-weight:bold"}
 
+QGIS (Quantum GIS) is a powerful and open-source Geographical Information System (GIS) software that provides a comprehensive set of tools for managing, analyzing, and visualizing geographic and spatial data.
+
+It is widely used for a variety of applications, from mapping and cartography to spatial analysis and data management.
+
+Qgis allows users to import and manage kinds of data, and also provides a wide range of geospatial analysis tools for spatial queries, buffer analysis, spatial joins, proximity analysis, etc. Users can also create high-quality maps with symbols, labels and styling options. Besides, Qgis is also high customizable that allow users to adapt it to their specific needs.
+
+The most important is that the Qgis is also an open source and community-driven software. It is freely available for everyone. Another important point is that it's a cross-platform that is available for multiple operating system.
+
 ## 6. Use spatial data analysis packages in R do the following tasks. [**(10)**]{style="color:red;font-weight:bold"}
 
 ### **a.** [**Draw a map**]{style="color:orange;font-weight:bold"} of Australia where each [city is represented as a dot]{style="color:orange;font-weight:bold"}. [Highlight cities]{style="color:orange;font-weight:bold"} with [population more than one million people]{style="color:orange;font-weight:bold"}. Map should have only the [borders at country and state levels]{style="color:orange;font-weight:bold"}.
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 if(!require(terra))
   install.packages("terra")
 library(terra)
@@ -310,14 +338,13 @@ data.frame(
 -   [**Create a spatial raster**]{style="color:orange;font-weight:bold"} to [display the crimeCounts]{style="color:orange;font-weight:bold"} in Salisbury. Select a colour palette so that [high crimeCounts]{style="color:orange;font-weight:bold"} are represented [in red colour]{style="color:orange;font-weight:bold"}.
 
 ```{r}
-terra::plot(saliburyAgg, c('name'))
+plot(salibury, c('SA2_NAME21'))
 ```
 
 -   Show [**Salisbury**]{style="color:orange;font-weight:bold"} suburb [names]{style="color:orange;font-weight:bold"} and [borders]{style="color:orange;font-weight:bold"} in the map.
 
 ```{r}
-(crime_count %>% 
-  filter(suburb == 'SALISBURY'))$count
+plot(salibury, c('SA2_NAME21'))
 ```
 
 ### **e.** Create a [**html page**]{style="color:orange;font-weight:bold"} with an [interactive map]{style="color:orange;font-weight:bold"} containing the [markers]{style="color:orange;font-weight:bold"} of your [top 5 restaurants in Adelaide]{style="color:orange;font-weight:bold"}. Include in your [report a screenshot of the interactive map]{style="color:orange;font-weight:bold"}. [Upload the html]{style="color:orange;font-weight:bold"} as additional file in your submission.
