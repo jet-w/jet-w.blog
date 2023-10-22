@@ -10,6 +10,7 @@ category:
 ---
 
 ## Requirements
+[Assignment 2 - Student Portal](https://lo.unisa.edu.au/mod/assign/view.php?id=3365817)
 ### Instructions
 ::: details Instructions
 <PDF url="/data/unisa/AdvancedAnalytic2/assignment2/Assignment 2_Oct2023.pdf" ratio="1.4" />

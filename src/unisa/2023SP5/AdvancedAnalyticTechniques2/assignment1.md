@@ -1,7 +1,7 @@
 ---
 title: Assignment1
-index: true
-icon: "/assets/icon/common/data-mining.svg"
+index: false
+icon: "/assets/icon/common/assignment.svg"
 icon-size: "4rem"
 author: Haiyue
 date: 2023-08-18
