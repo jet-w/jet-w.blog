@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="*" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="*"></script>
+  </head>
+  
+  <body>
+    <div id="map" style="height: 100%;"></div>
+	<script type="text/javascript">
+	var map = L.map('map').setView([-34.932289053377616, 138.6006364073467], 13);
+	
+	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+	  attribution: '<a href="http://seamice.github.io">Assignment 2 of Haiyue</a>'
+	  }).addTo(map);
+
+    L.marker([-34.92074609311045 , 138.60956081250663]).addTo(map).bindPopup("<b>Schnithouse Rundle St</b>").openPopup();
+    L.marker([-34.924407169226825, 138.59883250622383]).addTo(map).bindPopup("<b>GEORGES</b>").openPopup();
+    L.marker([-34.92806706283753 , 138.5941120067306 ]).addTo(map).bindPopup("<b>Nu Thai Restaurant</b>").openPopup();
+    L.marker([-34.932289053377616, 138.6006364073467 ]).addTo(map).bindPopup("<b>La Trattoria Restaurant & Pizza Bar</b>").openPopup();
+    L.marker([-34.93249827609448 , 138.61282628115364]).addTo(map).bindPopup("<b>Ballaboosta</b>").openPopup();
+    L.marker([-34.944179031545026, 138.62167389866696]).addTo(map).bindPopup("<b>Fumo Restaurant</b>").openPopup();
+	</script>
+  </body>
+  
+</html>
+
+
+
+
+
+
+
