@@ -49,3 +49,6 @@ The task will involve, but will not be limited to: literature review, data clean
 Please contact Dr Neil Bretana
 Neil.Bretana@unisa.edu.au
 :::
+
+
+[The draft words.](/data/unisa/DataProfessionDev/report_draft.docx)
