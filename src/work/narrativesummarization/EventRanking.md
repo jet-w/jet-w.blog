@@ -7,3 +7,5 @@ date: 2023-10-27
 category:
   - work
 ---
+
+***Initial thoughts***: The ranking perhaps could be done using the embedding vector.

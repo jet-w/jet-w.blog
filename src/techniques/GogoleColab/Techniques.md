@@ -1,10 +1,10 @@
 ---
 title: Google Colab Techniques
-index: false
+index: true
 icon: laptop-code
 author: Haiyue
 category:
-  - readme
+  - google
 ---
 
 
