@@ -31,4 +31,5 @@ category:
 
 6. [KeyBERT Github official site](https://github.com/MaartenGr/KeyBERT)
 7. [KerBERT Github offical documentation](https://maartengr.github.io/KeyBERT/#about-the-project)
+8. [Github of entity-recognition-datasets](https://github.com/juand-r/entity-recognition-datasets)
 

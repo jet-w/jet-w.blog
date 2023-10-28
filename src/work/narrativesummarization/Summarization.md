@@ -16,7 +16,7 @@ category:
     ::: info
     Very general text to describe summarization.
 
-    Other options are given: <span style="color:orange;font-weight:bold;">GPT2, XLNet</span>
+    Other options are given: <span style="color:orange;font-weight:bold;">[GPT2](https://jalammar.github.io/illustrated-gpt2/), [XLNet](https://towardsdatascience.com/xlnet-a-clever-language-modeling-solution-ab41e87798b0)</span>
     :::
 
 02. [BERT Extractive Summarizer vs Word2Vec Extractive Summarizer: Which one is better and faster?](https://utomorezadwi.medium.com/bert-extractive-summarizer-vs-word2vec-extractive-summarizer-which-one-is-better-and-faster-c6d6d172cb91)
