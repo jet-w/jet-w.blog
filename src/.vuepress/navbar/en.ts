@@ -81,10 +81,10 @@ export const enNavbar = navbar([
       "strawberry",
     ],
   }
-  */
   {
     text: "Github",
     icon: "/github.svg",
     link: "https://github.com/seamice/",
   },
+  */
 ]);
