@@ -467,18 +467,31 @@ library(neuralnet)
 train_index <- sample(1:nrow(model.data), 0.8*nrow(model.data))
 neu_train_data <- model.data[train_index,]
 neu_test_data <- model.data[-train_index,]
+
+neu_train_data$PRICE_LEVEL <- unlist(
+  lapply(
+    neu_train_data$PRICE_LEVEL, 
+    function(x) ifelse(x=='H', 1, 0))
+  )
+neu_test_data$PRICE_LEVEL <- unlist(
+  lapply(
+    neu_test_data$PRICE_LEVEL, 
+    function(x) ifelse(x=='H', 1, 0))
+  )
+
 head(neu_train_data)
 ```
 
 ```{r}
+Sys.time()
 model = neuralnet(
     PRICE_LEVEL~.,
     data=neu_train_data,
-    hidden=c(13, 8, 5, 3, 2),
+    hidden=c(13, 8, 5, 2),
     linear.output = T,
 )
-
-plot(model, rep = "best")
+Sys.time()
+#plot(model, rep = "best")
 ```
 
 ```{r}
