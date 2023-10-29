@@ -9,7 +9,7 @@ category:
 ---
 01. [Extractive Summarization on Colab <span style="color:red">(Please do not made public)</span>](https://colab.research.google.com/drive/1al92FMOhPry8m20sqcF40w5au8AH5LPT?usp=sharing)
 02. [OpenAI test on Colab <span style="color:red">(Please do not made public)</span>](https://colab.research.google.com/drive/1IVOY5bo8AK7gu2svt2rLpeIlYVpSeLIV?usp=sharing)
-
+03. [PaLM Test on Colab](https://colab.research.google.com/drive/1E6UyNTrt40_wMDa7K2ZYrx4-hIymoqcf?usp=sharing)
 ---
 
 The table below is the summarization for <span style="color:orange;">text summarization</span> and <span style="color:orange;">key entity extraction</span>. The next plan is to validate most of them find the best model and fine-tune them to fill our own needs.
@@ -29,6 +29,7 @@ The table below is the summarization for <span style="color:orange;">text summar
 | T5 | [Github Site](https://github.com/google-research/t5x) | OpenSource |
 | GPT-3~4 | [Github Sample](https://github.com/openai/openai-cookbook)[openai documentation](https://platform.openai.com/docs/models/overview) | Commercial |
 | AWS Service | [AWS Comprehend](https://aws.amazon.com/comprehend/)|Commercial |
+| PaLM | [PaLM API: Text Quickstart with Python](https://developers.generativeai.google/tutorials/text_quickstart) | Commerical |
 
 ---
 
