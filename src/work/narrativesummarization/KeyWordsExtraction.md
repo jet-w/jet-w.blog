@@ -7,7 +7,7 @@ date: 2023-10-27
 category:
   - work
 ---
-[Entities Extraction](https://colab.research.google.com/drive/1Bsq1ouvVnFDOEqFhd_-9oeeyTgy9vJFp?usp=sharing)
+[Entities Extraction on google Colab <span style="color:red">(Please do not made public)</span>](https://colab.research.google.com/drive/1Bsq1ouvVnFDOEqFhd_-9oeeyTgy9vJFp?usp=sharing)
 
 
 1. [Introduction to Entity Extraction: What Is It And How It Works](https://monkeylearn.com/blog/entity-extraction/#:~:text=Entity%20extraction%20is%20a%20text,phrases%20that%20represent%20a%20noun).
@@ -28,7 +28,9 @@ category:
     Concept description.
     :::
 5. [Extracting sentiment, entities, and key phrases from text with Amazon Comprehend | NLP | Python](https://www.youtube.com/watch?v=UoNKG1A_X40)
-
+    ::: info
+    Paid service using AWS service.
+    :::
 6. [KeyBERT Github official site](https://github.com/MaartenGr/KeyBERT)
 7. [KerBERT Github offical documentation](https://maartengr.github.io/KeyBERT/#about-the-project)
 8. [Github of entity-recognition-datasets](https://github.com/juand-r/entity-recognition-datasets)
