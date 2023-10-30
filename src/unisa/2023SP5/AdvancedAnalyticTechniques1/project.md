@@ -84,13 +84,7 @@ The final formula is the <span style="color:orange">status update equation</span
 
 
 
-
-
-
-
-
-
-## Example of Car
+### How to track a Car
 ![Alt text](/data/unisa/AdvancedAnalytic1/project/car.png)
 
 
@@ -120,20 +114,49 @@ $F_t = \begin{bmatrix}
 \end{bmatrix}, B_t = \begin{bmatrix}
    \frac{\Delta t^2}{2}\\
    \Delta t
-\end{bmatrix}u_t
-$
-
-
-
+\end{bmatrix}u_t$
 
 Then the formulas could be transformed into
 $\hat x^- = F\hat x_{t-1} + Bu_{t-1}$
 
 
+### How to track a plane
+If we want to track a plane, how to do it.
+The state will be 
+$x = x_0 + v_0\Delta t + \frac{1}{2}a\Delta t^2$
 
+::: info
+$x$: is the position of a plan
+$x_0$: the initial postion 
+$v_0$: the initial speed
+$a$: The acceleration
+$\Delta t$: Sample period
+:::
 
+Because of we location a 3 dimentions world. There are 3 components in 3 different direction.
 
+$
+x = \begin{cases}
+   x= x_0 + v_x\Delta t + \frac{1}{2}a_x\Delta t^2 \\
+   y= y_0 + v_y\Delta t + \frac{1}{2}a_y\Delta t^2 \\
+   z= z_0 + v_z\Delta t + \frac{1}{2}a_z\Delta t^2
+\end{cases}
+$
 
+So the state in three world would be like below.
+$
+\begin{bmatrix}
+   x \\
+   y \\
+   y \\
+   v_x \\
+   v_y \\
+   v_z \\
+   a_x \\
+   a_y \\
+   a_z
+\end{bmatrix}
+$
 
 
 
