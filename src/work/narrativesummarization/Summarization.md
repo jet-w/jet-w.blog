@@ -7,7 +7,7 @@ date: 2023-10-27
 category:
   - work
 ---
-01. [Extractive Summarization on Colab <span style="color:red">(Please do not made public)</span>](https://colab.research.google.com/drive/1al92FMOhPry8m20sqcF40w5au8AH5LPT?usp=sharing)
+01. [Bert Test on Colab <span style="color:red">(Please do not made public)</span>](https://colab.research.google.com/drive/1al92FMOhPry8m20sqcF40w5au8AH5LPT?usp=sharing)
 02. [OpenAI test on Colab <span style="color:red">(Please do not made public)</span>](https://colab.research.google.com/drive/1IVOY5bo8AK7gu2svt2rLpeIlYVpSeLIV?usp=sharing)
 03. [PaLM Test on Colab](https://colab.research.google.com/drive/1E6UyNTrt40_wMDa7K2ZYrx4-hIymoqcf?usp=sharing)
 ---
@@ -18,8 +18,8 @@ The table below is the summarization for <span style="color:orange;">text summar
 | --- | --- | --- |
 | GPT2 | [Github](https://github.com/openai/gpt-2) | OpenSource |
 | XLNet | [Github](https://github.com/zihangdai/xlnet) | OpenSource |
-| BERT | [Github of Bert](https://github.com/google-research/bert) [Bert-Summarizer](https://pypi.org/project/bert-extractive-summarizer/) | OpenSource |
-| KeyBERT | [Github of KeyBert](https://github.com/MaartenGr/KeyBERT) | OpenSource |
+| <span style="color:orange">BERT</span> | [Github of Bert](https://github.com/google-research/bert) [Bert-Summarizer](https://pypi.org/project/bert-extractive-summarizer/) | OpenSource |
+| <span style="color:orange">KeyBERT</span> | [Github of KeyBert](https://github.com/MaartenGr/KeyBERT) | OpenSource |
 | TextRank | [Github Site](https://github.com/summanlp/textrank) [Another Example](https://github.com/letiantian/TextRank4ZH) | OpenSource |
 | TF-IDF | | Unknow |
 | Word2Vec | [Github Site](https://github.com/danielfrg/word2vec) | OpenSource |
@@ -27,9 +27,9 @@ The table below is the summarization for <span style="color:orange;">text summar
 | Sumy | [Github Site](https://github.com/miso-belica/sumy) | OpenSource |
 | NLTK | [Github Site](https://github.com/nltk/nltk) | OpenSource |
 | T5 | [Github Site](https://github.com/google-research/t5x) | OpenSource |
-| GPT-3~4 | [Github Sample](https://github.com/openai/openai-cookbook)[openai documentation](https://platform.openai.com/docs/models/overview) | Commercial |
-| AWS Service | [AWS Comprehend](https://aws.amazon.com/comprehend/)|Commercial |
-| PaLM | [PaLM API: Text Quickstart with Python](https://developers.generativeai.google/tutorials/text_quickstart) | Commerical |
+| <span style="color:orange">GPT-3~4</span> | [Github Sample](https://github.com/openai/openai-cookbook)[openai documentation](https://platform.openai.com/docs/models/overview) | Commercial |
+| AWS Service | [AWS bedrock](https://aws.amazon.com/bedrock/jurassic/)|Commercial |
+| <span style="color:orange">PaLM</span> | [PaLM API: Text Quickstart with Python](https://developers.generativeai.google/tutorials/text_quickstart) | Commerical |
 
 ---
 
