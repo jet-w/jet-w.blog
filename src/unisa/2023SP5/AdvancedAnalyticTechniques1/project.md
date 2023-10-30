@@ -8,6 +8,8 @@ date: 2023-10-29
 category:
   - Assignment
 ---
+[My presentation slides](/data/unisa/AdvancedAnalytic1/project/Kalman Filter.pptx)
+
 
 ## What is Kalma Filter
 The Kalman Filter is a mathematical algorithm used for estimating and predicting the state of a dynamic system, particularly in the presence of noisy or uncertain data. It consist of five equations.
