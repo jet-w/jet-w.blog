@@ -8,7 +8,7 @@ date: 2023-10-29
 category:
   - Assignment
 ---
-[My presentation slides](/data/unisa/AdvancedAnalytic1/project/Kalman Filter.pptx)
+[My presentation slides](/data/unisa/AdvancedAnalytic1/project/Kalman%20Filter.pptx)
 
 
 ## What is Kalma Filter
