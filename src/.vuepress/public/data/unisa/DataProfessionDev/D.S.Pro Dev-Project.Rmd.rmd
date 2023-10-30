@@ -1,0 +1,552 @@
+---
+title: "Project"
+author: "Haiyue Wang"
+output:
+  pdf_document: default
+  bookdown::pdf_document2:
+    latex_engine: lualatex
+  tufte::tufte_handout:
+    latex_engine: xelatex
+  html_notebook: default
+  html_document:
+    df_print: paged
+---
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(gRain)
+library(pcalg)
+library(bnlearn)
+
+#install.packages("vioplot")
+library(vioplot)
+```
+
+# Data Preprocessing
+
+## Read data
+
+```{r message=FALSE, warning=FALSE}
+data <- read_csv(
+  "https://seamice.github.io/data/unisa/DataProfessionDev/data/melb_house_withnum.csv", 
+  col_names = TRUE
+)
+#data.no.class <- data %>% select(-class)
+
+data
+```
+
+```{r}
+names(data)
+
+data_without_region <- data %>% select(
+  -SUBURB, -ADDRESS, -SELLERG, -DATE, 
+  -POSTCODE, -COUNCILARE, -REGIONNAME
+)
+data_without_region
+```
+
+## Task 1: Dealing with Missing values
+
+```{r}
+b <- summary(data_without_region %>% select(CAR, BUILDINGAR, YEARBUILT, AREANUM))
+#as.data.frame(b)
+b
+```
+
+```{r message=FALSE, warning=FALSE}
+#install.packages("mice")
+library(mice)
+```
+
+```{r}
+data.imputed <- mice(
+  #data_without_region %>% select(-PRICE), 
+  data_without_region %>% select(CAR, BUILDINGAR, YEARBUILT, AREANUM),
+  m=3, 
+  maxit = 50, 
+  method = 'pmm', 
+  seed = 500)
+#summary(data.imputed)
+```
+
+```{r}
+data.complete <- complete(data.imputed, 2)
+summary(data.complete)
+```
+
+```{r}
+data.no.missing <- cbind(
+  data_without_region %>% select(-CAR, -BUILDINGAR, -YEARBUILT, -AREANUM), 
+  data.complete
+)
+data.no.missing
+```
+
+## Task 2: Make levels for price
+
+```{r}
+data$city="Melbourne"
+ggplot(data, aes(x = city, y = PRICE)) +
+  geom_violin() + 
+  stat_summary(fun = function(x){
+                   mean(x) + (mean(x)-min(x))
+               },
+               geom = "crossbar", 
+               width = 0.5,
+               colour = "red")
+#data.no.missing <- data.no.missing %>% select(-city)
+```
+
+According to the prices, we make the price greater than [4e06, infinate) is high price group, between [3e06, 4e06) is middle price group, all others belongs to low normal price group.
+
+```{r}
+#data.no.missing %>%
+#  mutate(a = )
+#d <- lapply(data.no.missing$PRICE, function (x) ifelse(x < 3e06, 'N', ifelse(x < 4e06, 'M', 'H')))
+#d <- lapply(data.no.missing$PRICE, function (x) ifelse(x < 3e06, 1, ifelse(x < 4e06, 2, 3)))
+
+#mid <- max(data.no.missing$PRICE)/2 + min(data.no.missing$PRICE)/2
+mid <- mean(data.no.missing$PRICE)
+mid <- mid + (mid-min(data.no.missing$PRICE))
+
+d <- lapply(data.no.missing$PRICE, function(x) ifelse(x<mid, 0, 1))
+
+data.no.missing$PRICE_LEVEL<-unlist(d)
+
+data.no.missing.pl <- data.no.missing %>% select(-PRICE)
+```
+
+## Task 3: Convert String -\> Numeric
+
+```{r}
+
+a<-data.frame(ch_val=unique(data.no.missing.pl$TYPE),
+              new_val=1:3)
+```
+
+```{r}
+unique_values <- unique(data.no.missing.pl$TYPE)
+data.no.missing.pl$TYPE <- unlist(
+  lapply(data.no.missing.pl$TYPE, function(x) which(unique_values == x))
+)
+```
+
+```{r}
+unique(data.no.missing.pl$METHOD)
+
+
+a<-data.frame(ch_val=unique(data.no.missing.pl$METHOD),
+              new_val=1:5)
+```
+
+```{r}
+unique_values <- unique(data.no.missing.pl$METHOD)
+data.no.missing.pl$METHOD <- unlist(
+  lapply(data.no.missing.pl$METHOD, function(x) which(unique_values == x))
+)
+```
+
+```{r}
+data.no.missing.pl$PROPERTYCO <- as.numeric(
+  substr(data.no.missing$PROPERTYCO,
+         1,
+         nchar(data.no.missing$PROPERTYCO)-1
+  )
+)
+```
+
+# Bayesian Network
+
+## Task 4: Learn the global structure (CPDAG)
+
+### `Structure learning:`pc algorithm
+
+```{r}
+library(DT)
+NAMES=colnames(data.no.missing.pl)
+NumNameMap <- data.frame(NUM=1:length(NAMES), NAME=NAMES)
+datatable(NumNameMap)
+```
+
+```{r warning=FALSE}
+pc.fit <- pc(
+  suffStat = list(C = cor(data.no.missing.pl), n = nrow(data.no.missing.pl)), 
+  indepTest = gaussCItest, 
+  alpha=0.01, 
+  #labels = colnames(data.no.missing.pl)
+  labels = as.character(1:length(NAMES))  #label node names
+)
+
+#data.frame(NUM=1:50, NAME=colnames(data.no.class))
+plot(pc.fit, main = "CPDAG")
+```
+
+## Task 5: Causal Effects (IDA)
+
+### Causal Effects on PRICE_LEVEL from Other Variables
+
+```{r warning=FALSE}
+# Get gene EBF1 index
+PRICE_idx <- match("PRICE_LEVEL", names(data.no.missing.pl))
+CausalOnPRICE <- data.frame(
+  causality = unlist(
+    lapply(
+      (1:length(names(data.no.missing.pl)))[-PRICE_idx], 
+      function(idx){
+        min(
+          abs(
+            idaFast(
+              idx,
+              PRICE_idx,
+              cov(data.no.missing.pl),
+              pc.fit@graph)
+          )
+        )
+      }
+    )
+  ),
+  variable  = names(data.no.missing.pl)[-PRICE_idx]
+) 
+CausalOnPRICE %>% 
+  arrange(across(causality, desc))
+```
+
+## Task 6: PC-Simple
+
+### 6.1 Find the parents and children
+
+```{r warning=FALSE}
+class.pc <- pcSelect(
+  data.no.missing.pl %>% select(PRICE_LEVEL),
+  data.no.missing.pl %>% select(-PRICE_LEVEL),
+  alpha = 0.01
+)
+class.pc <- data.frame(ispc = class.pc$G, zmin = class.pc$zMin)
+class.pc[order(class.pc$zmin, decreasing=TRUE),]
+```
+
+```{r warning=FALSE}
+rownames(class.pc[class.pc$ispc == TRUE,])
+```
+
+### 6.2 Naïve Bayes classification
+
+The Naive Bayes classifier is using `caret` package to train model.
+
+```{r message=FALSE, warning=FALSE}
+library(caret)
+```
+
+#### 6.2.1 Naive Bayes classification with all features
+
+The code below using all features as input features for training.
+
+```{r warning=FALSE}
+set.seed(100)
+trctrl <- trainControl(method = "cv", number = 10, savePredictions=TRUE)
+ma <- train(
+  factor(PRICE_LEVEL) ~., 
+  data = data.no.missing.pl, 
+  method = "naive_bayes", 
+  trControl=trctrl, 
+  tuneLength = 0
+)
+ma
+```
+
+#### 6.2.2 Naive Bayes classification with PC set
+
+The code below using parents and children features of `class` feature as input features for training.
+
+```{r warning=FALSE}
+data.related <- data.no.missing.pl[,append(rownames(class.pc[class.pc$ispc == TRUE,]), "PRICE_LEVEL")]
+
+mr <- train(
+  factor(PRICE_LEVEL) ~., 
+  data = data.related, 
+  method = "naive_bayes", 
+  trControl=trctrl, 
+  tuneLength = 0
+)
+mr
+```
+
+# Classification Modeling
+
+## Feature Selection
+
+```{r warning=FALSE}
+library(FSelectorRcpp)
+library(ggcorrplot)
+```
+
+```{r warning=FALSE}
+data.importance <- information_gain(PRICE_LEVEL ~ ., data.no.missing.pl)
+data.importance <- data.importance %>% arrange(importance)
+data.importance <- data.importance %>% mutate(attributes = factor(attributes, levels=attributes))
+
+data.importance %>% 
+  ggplot(aes(x=attributes, y=importance)) + 
+  geom_bar(stat = "identity", fill = "darksalmon") + 
+  ggtitle("Importance with PRICE_LEVEL") + 
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  xlab("Variables") +
+  xlab("Importance") + 
+  coord_flip()
+```
+
+```{r}
+#rm.fs <- data.importance[data.importance$importance < 0.000001,]$attributes
+rm.fs <- data.importance[data.importance$importance < 0.01,]$attributes
+spearman <- cor(data.no.missing.pl %>% select(-rm.fs), method = "spearman")
+
+ggcorrplot(spearman,
+  hc.order = TRUE,
+  type = "lower",
+  colors = c("#6D9EC1", "white", "#E46726"),
+  lab = TRUE
+) + labs(title = "Pearson Correlation among Variables")+ theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+model.data <- data.no.missing.pl %>% select(-rm.fs) %>%select(-BEDROOM2)
+```
+
+## Common Functions
+
+```{r}
+get_indicator <- function(predict_ret, real_ret){
+  if (class(factor(1,2,3)) != class(predict_ret))
+    predict_ret = as.factor(predict_ret)
+  if (class(factor(1,2,3)) != class(real_ret))
+    real_ret = as.factor(real_ret)
+  cm <- confusionMatrix(as.factor(predict_ret), as.factor(real_ret))
+  df <- as.data.frame.matrix(cm$table)
+
+  TP <- df['H', 'H']
+  TN <- df['L', 'L']
+  FN <- df['H', 'L']
+  FP <- df['L', 'H']
+
+  Accuracy <- (TP + TN)/(TP+TN+FP+FN)
+  BCR <- (TP/(TP+FN) + TN/(TN+FP))/2
+  Precision = TP/(TP+FP)
+  Recall <- TP/(TP+FN)
+  F.score <- (2*TP)/(2*TP+FP+FN)
+  Kappa <- cm$overall["Kappa"]
+
+  return (data.frame(
+    'Accuracy' = Accuracy,
+    'BCR' = BCR,
+    'Precision' = Precision,
+    'Recall' = Recall,
+    'F.score' = F.score,
+    'Kappa' = Kappa
+  ))
+}
+
+get_test_ret <- function(model, test_data){
+  input_variables <- test_data %>% select(-PRICE_LEVEL)
+  test.predict <- predict(model, input_variables, type="class")
+  return (get_indicator(test.predict, test_data$PRICE_LEVEL))
+}
+
+merge_indicator = function(x,y){
+  if (is.null(x[[2]])){
+    return (list(x[[1]], get_test_ret(y, x[[1]])))
+  }
+  ret <- rbind(x[[2]], (get_test_ret(y, x[[1]])))
+  return (list(x[[1]], ret))
+}
+
+get_models_indicators <- function(test_data, models){
+  ret = (Reduce(merge_indicator, models, list(test_data, NULL))[[2]])
+  rownames(ret) <- 1:nrow(ret)
+  return (ret)
+}
+```
+
+## Decision Tree
+
+```{r}
+library(rpart)
+```
+
+```{r}
+set.seed(1092)
+
+model.data$PRICE_LEVEL <- unlist(
+  lapply(model.data$PRICE_LEVEL, function(x) ifelse(x == 1, 'H', 'L')))
+
+train_index <- sample(1:nrow(model.data), 0.8*nrow(model.data))
+dt.train_data <- model.data[train_index,]
+dt.test_data <- model.data[-train_index,]
+```
+
+```{r}
+# Define the grid of parameters
+dt.param_grid <- expand.grid(
+  maxdepth = seq(3, 30, by=3),
+  minsplit = seq(5, 50, by=5),
+  minbucket = seq(5, 50, by=5)
+)
+
+# Train models with different parameters
+dt.models <- lapply(1:nrow(dt.param_grid), function(i) {
+  param <- dt.param_grid[i,]
+  model <- rpart(
+    PRICE_LEVEL ~ .,
+    data = dt.train_data,
+    control = rpart.control(
+      maxdepth = param$maxdepth,
+      minsplit = param$minsplit,
+      minbucket = param$minbucket
+    )
+  )
+  return(model)
+})
+```
+
+```{r}
+# indicator on training data
+dt.train_data.indicator <- get_models_indicators(dt.train_data, dt.models)
+dt.test_data.indicator <- get_models_indicators(dt.test_data, dt.models)
+
+dt.param_grid$test_accuracy <- dt.test_data.indicator$Accuracy
+dt.param_grid$train_accuracy <- dt.train_data.indicator$Accuracy
+
+dt.param_grid$test_BCR <- dt.test_data.indicator$BCR
+dt.param_grid$train_BCR <- dt.train_data.indicator$BCR
+
+dt.param_grid$test_Precision <- dt.test_data.indicator$Precision
+dt.param_grid$train_Precision <- dt.train_data.indicator$Precision
+
+dt.param_grid$test_Recall <- dt.test_data.indicator$Recall
+dt.param_grid$train_Recall <- dt.train_data.indicator$Recall
+
+dt.param_grid$test_F.score <- dt.test_data.indicator$F.score
+dt.param_grid$train_F.score <- dt.train_data.indicator$F.score
+
+dt.param_grid$test_Kappa <- dt.test_data.indicator$Kappa
+dt.param_grid$train_Kappa <- dt.train_data.indicator$Kappa
+```
+
+```{r}
+#install.packages('plotly')
+library(plotly)
+```
+
+```{r}
+# Create the plot
+p <- plot_ly(
+  dt.param_grid, x = ~maxdepth, y = ~minsplit, z = ~minbucket,
+  color = ~train_accuracy
+) %>%
+  add_markers() %>%
+  layout(
+    scene = list(xaxis = list(title = 'Max Depth'),
+                 yaxis = list(title = 'Min Split'),
+                 zaxis = list(title = 'Min Bucket'))
+  )
+t1 <- list(
+  family = "Times New Roman",
+  color = "red"
+)
+p %>% layout(title= list(text = "Train Accuracy",font = t1))
+```
+
+## Neural Networks
+
+```{r}
+#install.packages(c('neuralnet','keras','tensorflow'),dependencies = T)
+library(neuralnet)
+```
+
+```{r}
+train_index <- sample(1:nrow(model.data), 0.8*nrow(model.data))
+neu_train_data <- model.data[train_index,]
+neu_test_data <- model.data[-train_index,]
+head(neu_train_data)
+```
+
+```{r}
+model = neuralnet(
+    PRICE_LEVEL~.,
+    data=neu_train_data,
+    hidden=c(13, 8, 5, 3, 2),
+    linear.output = T,
+)
+
+plot(model, rep = "best")
+```
+
+```{r}
+#Model Evaluation
+pred <- predict(model, neu_test_data)
+#test_data$target %>% unique()
+labels <- c("disease", "no disease")
+prediction_label <- data.frame(max.col(pred)) %>%
+  mutate(pred=labels[max.col.pred.]) %>%
+  select(2)
+
+# Get indicator for test data
+get_indicator(as.factor(prediction_label$pred), neu_test_data$target)
+```
+
+```{r}
+# Get indicator for train data
+pred <- predict(model, neu_train_data)
+labels <- c("disease", "no disease")
+prediction_label <- data.frame(max.col(pred)) %>%
+  mutate(pred=labels[max.col.pred.]) %>%
+  select(2)
+get_indicator(as.factor(prediction_label$pred), neu_train_data$target)
+```
+
+## K-Nearest Neighbors.
+
+```{r}
+knn.train_index <- sample(1:nrow(model.data), 0.8*nrow(model.data))
+knn.train_data <- model.data[knn.train_index,]
+knn.test_data <- model.data[-knn.train_index,]
+head(knn.train_data)
+```
+
+```{r}
+# Define the training control
+ctrl <- trainControl(method = "repeatedcv", number = 5)  # 5-fold cross-validation
+
+# Define the parameter grid
+param_grid <- expand.grid(k = 1:40)  # Vary the k parameter
+
+# Perform grid search
+knn.model <- train(
+  knn.train_data %>% select(-PRICE_LEVEL),
+  knn.train_data$PRICE_LEVEL,
+  method = "knn",
+  trControl = ctrl,
+  tuneGrid = param_grid
+)
+```
+
+```{r}
+# The indicator on test data
+get_indicator(predict(knn.model, knn.test_data), knn.test_data$PRICE_LEVEL)
+```
+
+```{r}
+get_indicator(predict(knn.model, knn.train_data), knn.train_data$PRICE_LEVEL)
+```
+
+```{r}
+knn.model$results %>%
+  ggplot(aes(x=k,y=Accuracy)) +
+  geom_point() +
+  geom_line() +
+  xlab('K') +
+  ylab('Accuracy')+
+  ylim(0.0,1) +
+  ggtitle('The relationship among Train Accuracy with K ') +
+  theme(plot.title = element_text(hjust = 0.5))
+```

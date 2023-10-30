@@ -11,7 +11,7 @@ export default hopeTheme({
 
   author: {
     name: "Haiyue",
-    url: "https://seamice.github.io/blog/",
+    url: "https://jet-w.github.io/blog/",
   },
 
   iconAssets: "fontawesome-with-brands",
@@ -111,8 +111,12 @@ export default hopeTheme({
       "/unisa/2023SP5/AdvancedAnalyticTechniques1/assignment2": ["#John"],
       "/unisa/2023SP5/AdvancedAnalyticTechniques1/ContinueAssessments": ["#1234"],
       "/unisa/2023SP5/AdvancedAnalyticTechniques2/assignment1": ["#Thuc"],
-      "/unisa/2023SP5/AdvancedAnalyticTechniques2/assignment2": ["#Thuc"],
+      "/unisa/2023SP5/AdvancedAnalyticTechniques2/assignment2": ["##Thuc"],
       "/unisa/2023SP5/AdvancedAnalyticTechniques2/project": ["#Thuc"],
+      "/work/narrativesummarization/Summarization": ["C3L-Genix"],
+      "/work/narrativesummarization/EventRanking": ["C3L-Genix"],
+      "/work/narrativesummarization/KeyWordsExtraction": ["C3L-Genix"],
+      "/work/narrativesummarization/VectorDatabase": ["C3L-Genix"],
       "/Task/task_details.html": ["#1234"],
       "/demo/*": ["1234"],
       "/demo/encrypt.html": ["1234"],
