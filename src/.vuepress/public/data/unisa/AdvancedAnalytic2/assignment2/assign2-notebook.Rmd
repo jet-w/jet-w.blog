@@ -284,11 +284,9 @@ plot(auspop[as.integer(auspop$population) >= 1000000], add=TRUE, col="red")
 sa <- ausvec[ausvec$STE_NAME21 == "South Australia"]
 
 # dissolve based on SA4 level
-#sa4Agg <- aggregate(sa, by="SA4_NAME21")
+sa4Agg <- aggregate(sa, by="SA4_NAME21")
 
-#plot(sa4Agg, c('SA4_NAME21'))
-plot(sa, c('SA4_NAME21'))
-
+plot(sa4Agg, c('SA4_NAME21'))
 ```
 
 ### **c.** [**Create a spatial vector of "Greater Adelaide"**]{style="color:orange;font-weight:bold"}. Aggregate the polygons to draw a map that shows [**only the borders**]{style="color:orange;font-weight:bold"} for statistical areas [**level 3 (SA3)**]{style="color:orange;font-weight:bold"}.
@@ -340,30 +338,39 @@ data.frame(
 -   [**Create a spatial raster**]{style="color:orange;font-weight:bold"} to [display the crimeCounts]{style="color:orange;font-weight:bold"} in Salisbury. Select a colour palette so that [high crimeCounts]{style="color:orange;font-weight:bold"} are represented [in red colour]{style="color:orange;font-weight:bold"}.
 
 ```{r}
-#plot(salibury, c('SA2_NAME21'))
+#library(RColorBrewer)
+#display.brewer.all()
 
+salibury_raster <- rast(
+  ncol=1000, nrow=1000, 
+  xmin=138.53, xmax=138.71, 
+  ymin=-34.85, ymax=-34.68
+)
 
-#plot(salibury[salibury], c('SA2_NAME21'))
-
-#plot(salibury[salibury$crimeCounts < 1000], col="green")
-#plot(salibury[salibury$crimeCounts >= 1000], col="red", add=TRUE)
-
+#Use a feature from the SpatVector as raster values 
+salibury_raster <- rasterize(salibury, salibury_raster, "crimeCounts")
+terra::plot(salibury_raster, col=brewer.pal(9, "YlOrRd"))
+terra::lines(salibury)
+text(salibury, salibury$crimeCounts, inside=T, cex=0.6)
 ```
 
 -   Show [**Salisbury**]{style="color:orange;font-weight:bold"} suburb [names]{style="color:orange;font-weight:bold"} and [borders]{style="color:orange;font-weight:bold"} in the map.
 
 ```{r}
-plot(salibury, c('SA2_NAME21'))
+salibury_raster <- rast(ncol=2000, nrow=2000, xmin=138.53, xmax=138.71, ymin=-34.85, ymax=-34.68)
+#Use a feature from the SpatVector as raster values 
+#salibury_raster <- rasterize(salibury, salibury_raster, "crimeCounts")
+salibury_raster <- rasterize(salibury, salibury_raster, "SA2_NAME21")
+terra::plot(salibury_raster, col=brewer.pal(11, "Spectral"))
+terra::lines(salibury)
+text(salibury, salibury$SA2_NAME21, inside=T, cex=0.6)
 ```
 
 ### **e.** Create a [**html page**]{style="color:orange;font-weight:bold"} with an [interactive map]{style="color:orange;font-weight:bold"} containing the [markers]{style="color:orange;font-weight:bold"} of your [top 5 restaurants in Adelaide]{style="color:orange;font-weight:bold"}. Include in your [report a screenshot of the interactive map]{style="color:orange;font-weight:bold"}. [Upload the html]{style="color:orange;font-weight:bold"} as additional file in your submission.
 
-I implemented using two methods, both of the approaches are based on leaflet library.
+The resturant data get from <https://discover.data.vic.gov.au/dataset/cafe-restaurant-bistro-seats>
 
-1.  Using leaflet package in R to create an interactive map.
-2.  Using leaflet library to create a single web page app.
-
-```{r message=FALSE, waning=FALSE}
+```{r}
 if(!require(leaflet))
   install.packages("leaflet")
 if(!require(sf))

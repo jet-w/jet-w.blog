@@ -40,14 +40,32 @@ zip -r palm.zip pylibs
 cp palm.zip /content/drive/MyDrive/python_pkg
 ```
 :::
-### 05. Downlaod 
-![Alt text](/data/techniques/google_colab/download.png)
 
-### 06. Upload to Google Drive
-
-### 07. Mount Google Drive
-![Alt text](/data/techniques/google_colab/mount_google_drive.png)
-### 08. Using the libraries
+## How to use zipped libraries
+### 01. Mount google drive
+``` python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+### 02. Unzip libraries
+``` bash
+# Load our own zipped packages( with core packages bert/sbert/coreference)
+!unzip /content/drive/MyDrive/python_pkg/bert_sbert_coreference.zip -d /content/
+!cp -r /content/drive/MyDrive/python_pkg/environ /content/dist-packages/ 
+```
+### 03. Setting searching path
+```
+# Add package search path
+import sys
+sys.path.append('/content/dist-packages')
+```
+### 04. Use it
+``` python
+import environ
+environ.Env.read_env('/content/drive/MyDrive/Work/NarrativeSummarization/local.env')
+env = environ.Env()
+openai.api_key = env("OPENAI_API_KEY", default="")
+```
 
 ## How to install packages into specified location
 ### 1. Modify the location of package location
