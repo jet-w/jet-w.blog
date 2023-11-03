@@ -11,11 +11,13 @@ Use `Rmarkdown` to do the following tasks(2). Please note that the presentation 
 
 ## 1. Describe a [**real-world application**]{style="color:orange;font-weight:bold"} that uses [topic modelling]{style="color:orange;font-weight:bold"} and [explain how the topic model works]{style="color:orange;font-weight:bold"}. [(4)]{style="color:red;font-weight:bold"}
 
-The [**recommendation system**]{style="color:orange;font-weight:bold"} could use topic modelling to work. The key work is to calculate the similarity. All the works could be processed with three steps.
+The [online shopping recommendation system]{style="color:orange"}, such as JD recommendation system (A Chinese online shop), could use topic modelling to work. The key work is to calculate the similarity. All the works could be processed with three steps.
 
-1.  Calculating the distribution of topics for two items.
-2.  Calculating the similarity (Kullback-Leibler divergence could be used) between two items based on the distribution of topics.
+1.  Calculating the distribution of topics for several items.
+2.  Calculating the similarity (Kullback-Leibler divergence could be used) among other items with the items you viewing based on the distribution of topics.
 3.  The item with higher similarity will get a higher chance for recommendation.
+
+Once the system have your viewing history, then it could recommend the similar goods to you.
 
 ## 2. Download the Twitter dataset (rdmTweets-201306.RData) from the course website and do the following. [(8)]{style="color:red;font-weight:bold"}
 
@@ -47,7 +49,7 @@ text_clean <- function(x) {
     text <- gsub("\\bwww[1-9a-zA-Z]*\\.\\S+", "", text)
     # convert to lower case and remove non-English letters and space
     text <- tolower(gsub("\\s+", " ", gsub("[^a-zA-Z ]", " ", text)))
-    # remove the space
+    # remove the space located at the begining and the end
     trimws(text)
 }
 tweet_texts <- unlist(lapply(tweets, text_clean))
@@ -56,7 +58,7 @@ tweet_texts
 
 ### b. Count the frequency of words "data" and "mining".
 
-***method 1***
+***method 1: manually count the word 'data' and 'mining'***
 
 ```{r warning=FALSE}
 freq.words <- data.frame(
@@ -74,7 +76,7 @@ freq <- freq.words %>% summarize(across(everything(), sum, na.rm=TRUE))
 freq
 ```
 
-***method 2***
+***method 2: count word using Corpus function***
 
 ```{r}
 # concatenate all string into one
@@ -92,7 +94,14 @@ freq
 
 ### c. Plot the word cloud.
 
-```{r warning=FALSE}
+The following code is ploting the word cloud. All the work is split into 3 steps.
+
+1.  Merge all sentences.
+2.  Remove meaningless words.
+3.  Calculating word frequency.
+4.  Plot word cloud.
+
+```{r warning=FALSE, message=FALSE}
 # concatenate all string into one
 text_data <- paste(tweet_texts, collapse=" ")
 
@@ -142,6 +151,7 @@ lda_model <- LDA(dtm,
                                 iter = 1000)
                  )
 
+# Get 6 top frequency words with each topic
 top_words <- terms(lda_model, 6)
 
 lda_model
@@ -149,6 +159,8 @@ top_words
 ```
 
 ## 3. Provide a [**real-world example**]{style="color:orange;font-weight:bold"} of a system or an application that [utilises stream-data]{style="color:orange;font-weight:bold"}. In your example, [explain the challenges]{style="color:orange;font-weight:bold"} faced by algorithms in analysing stream data and [suggest some ideas to address those challenges]{style="color:orange;font-weight:bold"} [(6)]{style="color:red;font-weight:bold"}
+
+**A real example of stream data application**
 
 [[StockSight]()]{style="color:orange"} is an application that has been used for many organization. It uses the dataset from Twitter and news headlines data for stocks to analysis the sentiment of the author. Normally, Twitter and other news platforms owns a huge amount of data; more even, the data will be posted rapidly, especially on Twitter; some people also will add some slang, emojis, etc. that will make more challenging for analyzing; Lots of unrelated data exist, etc. All the problems are the challenges for implementation. The items listed below are some of my ideas for dealing with all the challenges.
 
@@ -233,6 +245,41 @@ evaluate_static(
 )
 ```
 
+### Performance comparison
+
+```{r}
+reservoir <- evaluate_static(Reservoir_Kmeans, 
+                stream, 
+                measure =c("f1", "precision", "recall"), 
+                n =100
+)
+
+window <- evaluate_static(
+  Window_Kmeans, 
+  stream,
+  measure = c("f1","precision","recall"), 
+  n =100
+)
+
+dstream_p <- evaluate_static(
+  dstream, 
+  stream,
+  measure = c("f1","precision","recall"), 
+  n =100
+)
+
+
+
+performance <- rbind(t(reservoir[1:3]), t(window[1:3]))
+performance <- rbind(performance, t(dstream_p[1:3]))
+
+rownames(performance) <- c('reservoir', 'window', 'dstream')
+performance
+
+```
+
+According to the results, the performance of the three indicators, window method has the highest performance for this case.
+
 ## 5. explain a [**real-world application of geographical information system**]{style="color:orange;font-weight:bold"}. [(4)]{style="color:red;font-weight:bold"}
 
 QGIS (Quantum GIS) is a powerful and open-source Geographical Information System (GIS) software that provides a comprehensive set of tools for managing, analyzing, and visualizing geographic and spatial data.
@@ -242,6 +289,12 @@ It is widely used for a variety of applications, from mapping and cartography to
 Qgis allows users to import and manage kinds of data, and also provides a wide range of geospatial analysis tools for spatial queries, buffer analysis, spatial joins, proximity analysis, etc. Users can also create high-quality maps with symbols, labels and styling options. Besides, Qgis is also high customizable that allow users to adapt it to their specific needs.
 
 The most important is that the Qgis is also an open source and community-driven software. It is freely available for everyone. Another important point is that it's a cross-platform that is available for multiple operating system.
+
+***References***
+
+[QGIS: An Introduction to an Open-Source Geographic Information System](https://extension.msstate.edu/publications/qgis-introduction-open-source-geographic-information-system)
+
+[QGIS Github Repository](https://github.com/qgis/QGIS)
 
 ## 6. Use spatial data analysis packages in R do the following tasks. [**(10)**]{style="color:red;font-weight:bold"}
 
@@ -285,8 +338,8 @@ sa <- ausvec[ausvec$STE_NAME21 == "South Australia"]
 
 # dissolve based on SA4 level
 sa4Agg <- aggregate(sa, by="SA4_NAME21")
-
 plot(sa4Agg, c('SA4_NAME21'))
+plot(sa, add=TRUE)
 ```
 
 ### **c.** [**Create a spatial vector of "Greater Adelaide"**]{style="color:orange;font-weight:bold"}. Aggregate the polygons to draw a map that shows [**only the borders**]{style="color:orange;font-weight:bold"} for statistical areas [**level 3 (SA3)**]{style="color:orange;font-weight:bold"}.
@@ -329,10 +382,7 @@ suburb.df <- left_join(suburb.df, crime_count, by="lowerSub")
 salibury$crimeCounts <- suburb.df$crimeCounts
 
 # show the count and suburbs
-data.frame(
-  "suburb" = salibury$SA2_NAME21,
-  "crimeCounts" = salibury$crimeCounts
-)
+values(salibury) %>% select(SA2_NAME21, crimeCounts)
 ```
 
 -   [**Create a spatial raster**]{style="color:orange;font-weight:bold"} to [display the crimeCounts]{style="color:orange;font-weight:bold"} in Salisbury. Select a colour palette so that [high crimeCounts]{style="color:orange;font-weight:bold"} are represented [in red colour]{style="color:orange;font-weight:bold"}.
@@ -351,16 +401,15 @@ salibury_raster <- rast(
 salibury_raster <- rasterize(salibury, salibury_raster, "crimeCounts")
 terra::plot(salibury_raster, col=brewer.pal(9, "YlOrRd"))
 terra::lines(salibury)
-text(salibury, salibury$crimeCounts, inside=T, cex=0.6)
+#text(salibury, salibury$crimeCounts, inside=T, cex=0.6)
 ```
 
 -   Show [**Salisbury**]{style="color:orange;font-weight:bold"} suburb [names]{style="color:orange;font-weight:bold"} and [borders]{style="color:orange;font-weight:bold"} in the map.
 
-```{r}
-salibury_raster <- rast(ncol=2000, nrow=2000, xmin=138.53, xmax=138.71, ymin=-34.85, ymax=-34.68)
+```{r warning=FALSE}
+salibury_raster <- rast(ncol=1000, nrow=1000, xmin=138.53, xmax=138.71, ymin=-34.85, ymax=-34.68)
 #Use a feature from the SpatVector as raster values 
-#salibury_raster <- rasterize(salibury, salibury_raster, "crimeCounts")
-salibury_raster <- rasterize(salibury, salibury_raster, "SA2_NAME21")
+salibury_raster <- rasterize(salibury, salibury_raster, "crimeCounts")
 terra::plot(salibury_raster, col=brewer.pal(11, "Spectral"))
 terra::lines(salibury)
 text(salibury, salibury$SA2_NAME21, inside=T, cex=0.6)
@@ -368,7 +417,7 @@ text(salibury, salibury$SA2_NAME21, inside=T, cex=0.6)
 
 ### **e.** Create a [**html page**]{style="color:orange;font-weight:bold"} with an [interactive map]{style="color:orange;font-weight:bold"} containing the [markers]{style="color:orange;font-weight:bold"} of your [top 5 restaurants in Adelaide]{style="color:orange;font-weight:bold"}. Include in your [report a screenshot of the interactive map]{style="color:orange;font-weight:bold"}. [Upload the html]{style="color:orange;font-weight:bold"} as additional file in your submission.
 
-The resturant data get from <https://discover.data.vic.gov.au/dataset/cafe-restaurant-bistro-seats>
+The restaurant data get from <https://discover.data.vic.gov.au/dataset/cafe-restaurant-bistro-seats>
 
 ```{r}
 if(!require(leaflet))
@@ -386,6 +435,5 @@ leaflet() %>%
   addMarkers(lng = 138.59883250622383,lat = -34.924407169226825,popup = "GEORGES") %>%
   addMarkers(lng = 138.5941120067306,lat = -34.92806706283753,popup = "Nu Thai Restaurant") %>%
   addMarkers(lng = 138.6006364073467, lat = -34.932289053377616, popup = "La Trattoria Restaurant & Pizza Bar") %>%
-  addMarkers(lng = 138.61282628115364, lat = -34.93249827609448, popup = "Ballaboosta") %>%
-  addMarkers(lng = 138.62167389866696, lat = -34.944179031545026, popup = "Fumo Restaurant")
+  addMarkers(lng = 138.61282628115364, lat = -34.93249827609448, popup = "Ballaboosta")
 ```

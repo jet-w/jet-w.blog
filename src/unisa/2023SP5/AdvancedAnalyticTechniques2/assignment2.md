@@ -241,7 +241,7 @@ if(!require(terra))
   install.packages("terra")
 library(terra)
 ```
-
+[Population shapefile](/data/unisa/AdvancedAnalytic2/assignment2/Australia_population.zip)
 ``` R
 filename <- paste0(getwd(),"/SA2_2021_AUST_SHP_GDA2020/SA2_2021_AUST_GDA2020.shp")
 #basename(filename)
@@ -354,3 +354,4 @@ leaflet() %>%
 ```
 
 
+[Final Result](/data/unisa/AdvancedAnalytic2/assignment2/assign2-notebook.Rmd)
