@@ -1,6 +1,6 @@
 ---
 #cover: /assets/images/unisa.jpg
-title: Connection Pool using psycopg2
+title: Psql DB conn Pool
 date: 2023-07-19
 author: Haiyue
 icon: /assets/icon/common/pool.svg

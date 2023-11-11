@@ -12,13 +12,6 @@ category:
 03. [PaLM Test on Colab](https://colab.research.google.com/drive/1E6UyNTrt40_wMDa7K2ZYrx4-hIymoqcf?usp=sharing)
 ---
 
-[Listing Available OpenAI Models – OpenAI API](https://holypython.com/python-api-tutorial/listing-all-available-openai-models-openai-api)
-[Text Generation Models](https://huggingface.co/models?sort=trending&search=llama)
-[Run models on a desktop computer?](https://discuss.huggingface.co/t/run-models-on-a-desktop-computer/31125)
-[How to Use transformer models from a local machine and from Hugging Face](https://www.youtube.com/watch?v=bnaCKP6mLZI)
-[locally (Llama) on M1](https://medium.com/@gadarsh/run-your-own-chatgpt-alternative-locally-llama-on-m1-9e59ecf1891a)
-[Run a Chatgpt-like Chatbot on a Single GPU with ROCm](https://huggingface.co/blog/chatbot-amd-gpu)
-[Huggingface encoder and decoder](https://huggingface.co/docs/transformers/model_doc/encoder-decoder)
 
 The table below is the summarization for <span style="color:orange;">text summarization</span> and <span style="color:orange;">key entity extraction</span>. The next plan is to validate most of them find the best model and fine-tune them to fill our own needs.
 

@@ -27,8 +27,8 @@ export const enNavbar = navbar([
     prefix: "/techniques/",
     children: [
       {text: "Geoscience", link: "geoscience"},
-      {text: "Python", link: "python"},
-      {text: "R", link: "R"},
+      {text: "Python", link: "coding/python"},
+      {text: "R", link: "coding/R"},
       {text: "Github", link: "github"},
     ]
   },
