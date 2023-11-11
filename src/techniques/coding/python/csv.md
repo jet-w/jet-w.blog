@@ -15,8 +15,7 @@ sticky: false
 ``` python
 import json
 import csv
- 
- 
+
 # Opening JSON file and loading the data
 # into the variable data
 with open('data.json') as json_file:
@@ -36,7 +35,6 @@ count = 0
  
 for emp in employee_data:
     if count == 0:
- 
         # Writing headers of CSV file
         header = emp.keys()
         csv_writer.writerow(header)

@@ -11,3 +11,5 @@ tag:
 ---
 
 Here will record some things related with Python language.
+
+[Python Build-in functions](https://www.programiz.com/python-programming/methods/built-in/getattr)

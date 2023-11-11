@@ -21,7 +21,7 @@ Data alignment and relational data manipulations for merging and joining togethe
 Expressing conditional logic as array expressions instead of loops with if-elif-else branches 
  
 Groupwise data manipulations (aggregation, transformation, function application) – useful for pandas!
-::: tabs
+::: code-tabs
 
 @tab Simple code
 ``` python
