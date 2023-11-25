@@ -118,6 +118,7 @@ export default hopeTheme({
       "/work/narrativesummarization/KeyWordsExtraction": ["C3L-Genix"],
       "/work/narrativesummarization/VectorDatabase": ["C3L-Genix"],
       "/work/Blueprint_AI/01.Index":["HS"],
+      "/work/Blueprint_AI/02.Meeting":["HS"],
       "/Task/task_details.html": ["#1234"],
       "/demo/*": ["1234"],
       "/demo/encrypt.html": ["1234"],
