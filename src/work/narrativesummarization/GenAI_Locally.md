@@ -15,3 +15,4 @@ category:
 [Llama 2 Chat 13B now supported in Amazon Bedrock](https://aws.amazon.com/blogs/aws/amazon-bedrock-now-provides-access-to-llama-2-chat-13b-model/)
 
 [llama-server](https://pypi.org/project/llama-server/)
+[Deploy Llama 2 7B on AWS inferentia2 with Amazon SageMaker](https://www.philschmid.de/inferentia2-llama-7b)

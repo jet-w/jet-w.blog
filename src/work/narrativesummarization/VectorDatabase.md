@@ -34,3 +34,7 @@ Vector Database:
 
 9. OpenSearch (formerly Open Distro for Elasticsearch): OpenSearch is a fork of Elasticsearch that provides open-source search and analytics. It's often used for vector data applications and offers a high degree of customization.
 10. Pinecone: 
+
+
+[Recommendation]
+11. https://kuzudb.com/
