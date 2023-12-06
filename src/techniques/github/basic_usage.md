@@ -195,6 +195,20 @@ git merge origin/master
 git checkout --orphan NEWBRANCH
 git rm -rf .
 ```
+### Delete branch
+``` bash
+# Delete local branch
+git branch --delete name
+# delete remote branch
+git push remote --delete name
+```
+### Rename branch
+``` bash
+# rename local branch
+git branch -m oldname newname
+
+
+```
 
 ## References
 01. [尚学堂教程](https://www.youtube.com/watch?v=iR8CbeZktoA)

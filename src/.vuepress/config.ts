@@ -1,6 +1,7 @@
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
-import { searchProPlugin } from "vuepress-plugin-search-pro";
+//import { searchProPlugin } from "vuepress-plugin-search-pro";
+//import { cut } from "nodejs-jieba";
 
 export default defineUserConfig({
   base: "/",
