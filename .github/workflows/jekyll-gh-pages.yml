@@ -59,7 +59,6 @@ jobs:
 
       - uses: cpina/github-action-push-to-another-repository@main
         env:
-          #SSH_DEPLOY_KEY: ${{ secrets.TEST_SECRET_KEY }}
           API_TOKEN_GITHUB: ${{secrets.API_TOKEN_KEY}}
         with:
           source-directory: 'src/.vuepress/dist'
@@ -67,5 +66,4 @@ jobs:
           destination-repository-name: 'jet-w.github.com'
           user-email: unisa.dady@gmail.com
           target-branch: hope
-          #target-branch: master
           target-directory: /
