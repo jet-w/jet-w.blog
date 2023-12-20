@@ -443,5 +443,101 @@ cleaned2
 ```
 
 
+## Add/Delete/Query/Mofify
+### Add
+::: code-tabs
+@tab Add Column
+``` python
+
+# method 1
+citys = ['ny','zz','xy']
+df.insert(0,'city',citys) #add column city to the first position, values are specified wity cities
+
+# method 2
+jobs = ['student','AI','teacher']
+df['job'] = jobs # Add column job to the last position, values are specified with jobs
+
+# method 3
+df.loc[:,'salary'] = ['1k','2k','2k','2k','3k'] #Add column salary to the last postion
+```
+
+@tab Add Rows
+``` python
+# add a new row with index equals 4 if index 4 does not exists
+# update the data with index equals 4 if index 4 exists
+df.loc[4] = ['zz','mason','m',24,'engineer’]
+
+# construct a new dataframe
+df_insert = pd.DataFrame({'name':['mason','mario'],'sex':['m','f'],'age':[21,22]},index = [4,5])
+# get a new dataframe, do not modify df
+# The meaning of ignore_index
+#     False: the result using the index from df insert
+#     True: the result doesn't using the index from df insert, and will generate a new index
+ndf = df.append(df_insert,ignore_index = True)
+```
+:::
+
+### Delete
+::: code-tabs
+@tab delete row
+``` python
+df.drop([1,3],axis = 0,inplace = False)#delete index=1, 3 two rows
+```
+@tab delete column
+``` python
+df.drop(['name'],axis = 1,inplace = False)  #delete column column
+del df['name']       #delete name column
+ndf = df.pop('age')  #delete age column
+```
+:::
+### Query
+::: code-tabs
+@tab []
+``` python
+df['name']   # select the column 'name'
+df['gender'] # select the column 'gender'
+df[['name','gender']] #select multi columns
+df[0:]    # select data from the row 0 to the end
+df[:2]    # select data from the begining to the row 2, (row 2 is not included)
+df[0:1]   # select only row 0
+df[1:3]   # select row 1 and row 2
+df[-1:]   # select the last row
+df[-3:-1] # select the last 3 column to the last 1 column, the last 1 column is not included.
+```
+
+@tab loc[]
+``` python
+# select the specified row and columns
+df.loc[0,'name']  # select the cell are specified with row=0, and column='name'
+df.loc[0:2, ['name','age']] #select data are specfied with the range row=[0, 2), column=['name', 'age']
+df.loc[[2,3],['name','age']] #select the row 2 and row 3, columns are specified with 'name' and 'age'
+df.loc[df['gender']=='M','name'] #select column name with rows gender='M'
+df.loc[df['gender']=='M',['name','age']] #select column name, age with rows gender='M'
+```
+
+@tab iloc[]
+``` python
+df.iloc[0,0]         #Select row=0, column=0 
+df.iloc[1,2]         #Select row=1, column=2
+df.iloc[[1,3],0:2]   #select row=1,3， column from 0 to 2 (2 is excluded)
+df.iloc[1:3,[1,2]    #select row from 1 to 3 (3 is excluded), column=1,2
+```
+:::
+### Mofify
+::: code-tabs
+@tab loc[]
+``` python
+df.loc[1,'name'] = 'aa'              #modify cell value
+df.loc[1] = ['bb','ff',11]           #modify row
+df.loc[1,['name','age']] = ['bb',11] #modify some values
+```
+@tab iloc[]
+``` python
+df.iloc[1,2] = 19              #
+df.iloc[:,2] = [11,22,33]      #
+df.iloc[0,:] = ['lily','F',15] #
+```
+:::
+
 ## References
 [Pandas教程（非常详细）](http://c.biancheng.net/pandas/)

@@ -30,3 +30,13 @@ voice clone:
 https://huggingface.co/dog/kanye
 https://huggingface.co/spaces/akhaliq/Real-Time-Voice-Cloning
 https://huggingface.co/anton-l/wav2vec2-xls-r-common_voice-tr-ft-stream
+
+
+Speech2Text: 
+
+[turboscribe.ai](https://turboscribe.ai/dashboard)
+https://huggingface.co/docs/transformers/model_doc/speech_to_text
+
+
+
+

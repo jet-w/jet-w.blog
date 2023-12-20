@@ -12,15 +12,15 @@ export const enNavbar = navbar([
       {text: "Term3(2023SP5)", link: "2023SP5"},
     ]
   },
-  {
-    text: "Life in 42 Adelaide",
-    icon: "/assets/icon/42adelaide/42_adelaide.svg",
-    prefix: "/42adelaide/",
-    children: [
-      {text: "Piscine(Dolphin)", link: "piscine", icon: "/assets/icon/42adelaide/dolphin.svg"},
-      {text: "42cursus(Sol)", link: "42cursus", icon: "/assets/icon/42adelaide/sol.svg"},
-    ]
-  },
+  //{
+  //  text: "Life in 42 Adelaide",
+  //  icon: "/assets/icon/42adelaide/42_adelaide.svg",
+  //  prefix: "/42adelaide/",
+  //  children: [
+  //    {text: "Piscine(Dolphin)", link: "piscine", icon: "/assets/icon/42adelaide/dolphin.svg"},
+  //    {text: "42cursus(Sol)", link: "42cursus", icon: "/assets/icon/42adelaide/sol.svg"},
+  //  ]
+  //},
   {
     text: "Techniques",
     icon: "building-columns",
