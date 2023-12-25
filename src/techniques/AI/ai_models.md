@@ -32,6 +32,12 @@ https://huggingface.co/spaces/akhaliq/Real-Time-Voice-Cloning
 https://huggingface.co/anton-l/wav2vec2-xls-r-common_voice-tr-ft-stream
 
 
+
+[deblur](https://huggingface.co/google/maxim-s3-deblurring-gopro)
+[maxim-tf](https://github.com/sayakpaul/maxim-tf)
+[maxim](https://github.com/google-research/maxim)
+[NAFNet](https://github.com/megvii-research/NAFNet?tab=readme-ov-file)
+
 Speech2Text: 
 
 [turboscribe.ai](https://turboscribe.ai/dashboard)
