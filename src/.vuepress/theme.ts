@@ -119,6 +119,7 @@ export default hopeTheme({
       "/work/Blueprint_AI/01.Index":["HS"],
       "/work/Blueprint_AI/02.Meeting":["HS"],
       "/work/Blueprint_AI/04.FeedbackSeekingBehivour":["HS"],
+      "/work/Blueprint_AI/05.Levels2ReflectiveText":["HS"],
       "/Task/task_details.html": ["#1234"],
       "/demo/*": ["1234"],
       "/demo/encrypt.html": ["1234"],
