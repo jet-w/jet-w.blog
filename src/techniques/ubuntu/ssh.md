@@ -1,7 +1,7 @@
 ---
 title: ssh service
 index: true
-icon: /assets/icon/common/ssh.svg
+icon: circle-dot
 author: Haiyue
 category:
   - linux

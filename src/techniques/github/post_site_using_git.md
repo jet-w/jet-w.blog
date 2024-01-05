@@ -1,6 +1,6 @@
 ---
 title: How to post you site on using Git
-icon: /github.svg
+icon: circle-dot
 date: 2022-01-09
 category:
   - github

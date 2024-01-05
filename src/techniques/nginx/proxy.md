@@ -1,7 +1,7 @@
 ---
 #cover: /assets/images/unisa.jpg
 title: Proxy
-icon: /assets/icon/common/nginx.svg
+icon: circle-dot
 date: 2023-08-26
 category:
   - nginx

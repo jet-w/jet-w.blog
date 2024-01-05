@@ -1,7 +1,7 @@
 ---
 title: Fine Tune Models
 date: 2023-11-27
-icon: /assets/icon/common/hammer.svg
+icon: circle-dot
 author: Haiyue
 category:
   - AI

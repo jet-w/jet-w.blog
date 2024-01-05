@@ -21,3 +21,19 @@ change the pip config file.
 [global]
 target=C:\Users\Bob\Desktop
 ```
+
+
+## Pip install packages from github
+
+
+``` bash
+# For HTTP
+pip install git+https://bitbucket.org/<project_owner>/<project_name>
+
+# For SSH
+pip install git+ssh://git@bitbucket.org/<project_owner>/<project_name>.git/
+
+#For Local Git Repository
+pip install git+file///path/to/your/git/project/
+```
+

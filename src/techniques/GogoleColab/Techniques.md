@@ -1,7 +1,7 @@
 ---
 title: Google Colab Techniques
 index: true
-icon: laptop-code
+icon: circle-dot
 author: Haiyue
 category:
   - google

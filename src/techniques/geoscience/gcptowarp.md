@@ -1,6 +1,7 @@
 ---
+title: Warp a Geotif
 #cover: /assets/images/unisa.jpg
-icon: pen-to-square
+icon: circle-dot
 date: 2023-07-10
 category:
   - geoscience

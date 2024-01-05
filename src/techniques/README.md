@@ -1,7 +1,7 @@
 ---
 title: Techniques
 index: false
-icon: laptop-code
+icon: list-check
 author: Haiyue
 category:
   - readme

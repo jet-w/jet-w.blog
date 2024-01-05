@@ -1,7 +1,7 @@
 ---
 #cover: /assets/images/unisa.jpg
 title: OSGEO Resources
-icon: Resources
+icon: circle-dot
 date: 2023-12-01
 category:
   - geoscience

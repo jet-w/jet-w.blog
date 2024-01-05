@@ -1,6 +1,6 @@
 ---
 title: Problems of Git Action
-icon: /github.svg
+icon: circle-dot
 date: 2023-12-13
 category:
   - github

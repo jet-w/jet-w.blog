@@ -1,7 +1,7 @@
 ---
 title: GDAL in python
 #cover: /assets/images/unisa.jpg
-icon: pen-to-square
+icon: circle-dot
 date: 2023-12-02
 category:
   - geoscience

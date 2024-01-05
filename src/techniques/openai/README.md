@@ -1,7 +1,7 @@
 ---
 title: OpenAI
 index: false
-icon: /assets/icon/common/openai.svg
+icon: list-check
 author: Haiyue
 category:
   - readme
@@ -10,9 +10,6 @@ category:
 ## Catalog
 
 This category will record all the things related with techniques.
-
-AI generate Image
-[TensorArt](https://tensor.art/)
 
 [vuepress-theme-hope](https://theme-hope.vuejs.press/)
 

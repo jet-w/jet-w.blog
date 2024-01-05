@@ -1,7 +1,7 @@
 ---
 title: 42 Adelaide Life
 index: false
-icon: /assets/icon/42adelaide/42_adelaide.svg
+icon: list-check
 author: Haiyue
 category:
   - Guide

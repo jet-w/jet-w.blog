@@ -1,7 +1,7 @@
 ---
 title: Ubuntu Related
 index: false
-icon: /assets/icon/common/ubuntu.svg
+icon: list-check
 author: Haiyue
 category:
   - linux

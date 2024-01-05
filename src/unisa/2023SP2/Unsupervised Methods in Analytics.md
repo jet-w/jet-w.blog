@@ -1,7 +1,7 @@
 ---
 title: Unsupervised Methods in Analytics
 index: true
-icon: /assets/icon/unisa/unsupervised.svg
+icon: circle-dot
 author: Haiyue
 date: 2023-07-20
 category:

@@ -1,6 +1,6 @@
 ---
 title: Basic Usage
-icon: /github.svg
+icon: circle-dot
 date: 2023-07-23
 category:
   - github

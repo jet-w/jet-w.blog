@@ -1,7 +1,7 @@
 ---
 title: Statistical Programming for Data Science
 index: true
-icon: code
+icon: circle-dot
 author: Haiyue
 date: 2023-07-20
 category:

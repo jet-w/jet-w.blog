@@ -1,7 +1,7 @@
 ---
 title: Term2(2023SP2)
 index: false
-icon: "/assets/icon/common/semester.svg"
+icon: list-check
 author: Haiyue
 category:
   - Guide

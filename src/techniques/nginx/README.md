@@ -1,7 +1,7 @@
 ---
 title: Nginx
 index: false
-icon: /assets/icon/common/nginx.svg
+icon: list-check
 author: Haiyue
 category:
   - readme

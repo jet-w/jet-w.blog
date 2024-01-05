@@ -1,7 +1,7 @@
 ---
 title: Term3(2023SP5)
 index: false
-icon: "/assets/icon/common/semester.svg"
+icon: list-check
 author: Haiyue
 date: 2023-07-19
 category:

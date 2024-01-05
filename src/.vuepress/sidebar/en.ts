@@ -22,20 +22,8 @@ export const enSidebar = sidebar({
       children: "structure",
     },
     {
-      text: "Math",
-      icon: "square-root-variable",
-      prefix: "Math/",
-      children: "structure",
-    },
-    {
-      text: "Task",
-      icon: "list-check",
-      prefix: "Task/",
-      children: "structure",
-    },
-    {
       text: "Work",
-      icon: "/assets/icon/common/work.svg",
+      icon: "list-check",
       prefix: "work/",
       children: "structure",
     },

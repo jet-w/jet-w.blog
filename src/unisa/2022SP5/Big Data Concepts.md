@@ -1,7 +1,7 @@
 ---
 title: Big Data Concepts
 index: true
-icon: database
+icon: circle-dot
 author: Haiyue
 date: 2023-07-20
 category:

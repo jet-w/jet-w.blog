@@ -1,6 +1,6 @@
 ---
 title: How to use gitee
-icon: /github.svg
+icon: circle-dot
 date: 2022-01-09
 category:
   - github

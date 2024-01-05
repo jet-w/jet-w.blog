@@ -1,7 +1,7 @@
 ---
 title: Data Visualisation
 index: true
-icon: /assets/icon/unisa/visualization.svg
+icon: circle-dot
 author: Haiyue
 date: 2023-07-20
 sticky: 1

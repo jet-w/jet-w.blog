@@ -1,7 +1,7 @@
 ---
 title: Use cases
 index: true
-icon: "/assets/icon/common/manual.svg"
+icon: circle-dot
 author: Haiyue
 date: 2023-12-19
 category:

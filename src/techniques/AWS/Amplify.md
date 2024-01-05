@@ -2,7 +2,7 @@
 #cover: /assets/images/unisa.jpg
 title: Amplify
 date: 2023-07-24
-icon: /assets/icon/aws/aws-lambda.svg
+icon: circle-dot
 author: Haiyue
 category:
   - aws

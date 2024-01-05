@@ -1,7 +1,7 @@
 ---
 title: Research Methods
 index: true
-icon: /assets/icon/unisa/method.svg
+icon: circle-dot
 author: Haiyue
 date: 2023-07-20
 category:

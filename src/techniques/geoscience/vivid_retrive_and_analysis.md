@@ -1,7 +1,7 @@
 ---
 title: WFS(Vivid) Retrive and Analysis
 #cover: /assets/images/unisa.jpg
-icon: earth-asia
+icon: circle-dot
 date: 2023-07-15
 category:
   - geoscience

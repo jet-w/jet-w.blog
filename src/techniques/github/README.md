@@ -1,6 +1,6 @@
 ---
 title: Git & Github
-icon: /github.svg
+icon: list-check
 index: false
 author: Haiyue
 category:

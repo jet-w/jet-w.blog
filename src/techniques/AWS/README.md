@@ -1,6 +1,6 @@
 ---
 title: AWS
-icon: /assets/icon/aws/aws-logo.svg
+icon: list-check
 index: false
 author: Haiyue
 date: 2023-07-17

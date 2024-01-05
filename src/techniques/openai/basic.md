@@ -1,7 +1,7 @@
 ---
 title: Basic Usuage
 index: true
-icon: /assets/icon/common/openai.svg
+icon: circle-dot
 author: Haiyue
 category:
   - openai
