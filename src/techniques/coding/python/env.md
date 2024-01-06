@@ -29,5 +29,7 @@ USE_PATH_FOR_GDAL_PYTHON=YES
 
 
 ## Virtual Environment
-
+``` bash
+python -m venv /path/to/new/virtual/environment
+```
 

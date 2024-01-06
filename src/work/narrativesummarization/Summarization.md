@@ -1,7 +1,7 @@
 ---
 title: 02. Text Summarization
 index: true
-icon: "/assets/icon/common/submarine.svg"
+icon: circle-dot
 author: Haiyue
 date: 2023-10-27
 category:

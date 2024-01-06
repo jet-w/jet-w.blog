@@ -1,7 +1,7 @@
 ---
 title: 06. Local AIGC
 index: true
-icon: "/assets/icon/common/ranking.svg"
+icon: circle-dot
 author: Haiyue
 date: 2023-11-14
 category:

@@ -1,7 +1,7 @@
 ---
 title: Narrative Summarization
 index: false
-icon: "/assets/icon/common/work.svg"
+icon: list-check
 author: Haiyue
 date: 2023-10-27
 category:

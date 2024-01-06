@@ -1,7 +1,7 @@
 ---
 title: 01. Key Words
 index: true
-icon: "/assets/icon/common/key.svg"
+icon: circle-dot
 author: Haiyue
 date: 2023-10-27
 category:

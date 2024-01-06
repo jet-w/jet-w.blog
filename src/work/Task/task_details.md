@@ -1,7 +1,7 @@
 ---
 title: Details for task assignments
 index: true
-icon: cubes-stacked
+icon: circle-dot
 author: Haiyue
 date: 2023-07-20
 category:

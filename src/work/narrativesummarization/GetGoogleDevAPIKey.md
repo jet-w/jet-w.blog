@@ -1,7 +1,7 @@
 ---
 title: 04. Google Could API
 index: true
-icon: "/assets/icon/common/ranking.svg"
+icon: circle-dot
 author: Haiyue
 date: 2023-10-29
 category:

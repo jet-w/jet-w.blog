@@ -10,8 +10,7 @@ export const enSidebar = sidebar({
       children: "structure",
     },
     {
-      text: "Life in 42 Adelaide",
-      icon: "/assets/icon/42adelaide/42_adelaide.svg",
+      text: "42 Adelaide",
       prefix: "42adelaide/",
       children: "structure",
     },

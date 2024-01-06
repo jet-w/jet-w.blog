@@ -1,7 +1,7 @@
 ---
 title: Vector Database
 index: true
-icon: database
+icon: circle-dot
 author: Haiyue
 date: 2023-10-27
 category:

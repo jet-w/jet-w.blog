@@ -1,7 +1,7 @@
 ---
 title: 05. Generative AI
 index: true
-icon: "/assets/icon/common/ranking.svg"
+icon: circle-dot
 author: Haiyue
 date: 2023-11-05
 category:

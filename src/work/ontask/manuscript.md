@@ -1,7 +1,7 @@
 ---
 title: Manuscript
 index: true
-icon: "/assets/icon/common/manual.svg"
+icon: circle-dot
 author: Haiyue
 date: 2023-10-27
 category:

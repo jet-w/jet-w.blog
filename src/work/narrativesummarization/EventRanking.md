@@ -1,7 +1,7 @@
 ---
 title: 03. Events Ranking
 index: true
-icon: "/assets/icon/common/ranking.svg"
+icon: circle-dot
 author: Haiyue
 date: 2023-10-27
 category:
