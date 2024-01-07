@@ -7,9 +7,9 @@ export const enNavbar = navbar([
     icon: "building-columns",
     prefix: "/techniques/",
     children: [
-      {text: "Geoscience", link: "geoscience"},
-      {text: "Google Colab", link: "GogleColab"},
-      {text: "OpenAI", link: "openai"},
+      {text: "Geoscience", link: "geoscience/gcptowarp"},
+      {text: "Google Colab", link: "GogoleColab/Techniques"},
+      {text: "OpenAI", link: "openai/basic"},
     ]
   },
   {
