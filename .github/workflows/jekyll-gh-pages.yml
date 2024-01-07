@@ -1,11 +1,11 @@
 
-name: Deploy Docs
+name: Deploy For Part time
 
 on:
   push:
     branches:
       # make sure this is the branch you are using
-      - hope
+      - seamice
 
 permissions:
   contents: write
