@@ -3,7 +3,7 @@
 title: Logging
 date: 2023-12-22
 author: Haiyue
-icon: /assets/icon/common/pool.svg
+icon: circle-dot
 category:
   - python
   - logging

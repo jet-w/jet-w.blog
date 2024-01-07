@@ -1,7 +1,7 @@
 ---
 title: AXIOS
 index: false
-icon: "/assets/icon/common/axios.svg"
+icon: list-check
 author: Haiyue
 category:
   - readme

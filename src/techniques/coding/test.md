@@ -1,7 +1,7 @@
 ---
 title: Markmap
 index: false
-icon: laptop-code
+icon: circle-dot
 author: Haiyue
 category:
   - readme

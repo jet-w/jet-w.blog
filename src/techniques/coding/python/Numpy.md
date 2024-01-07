@@ -1,7 +1,7 @@
 ---
 #cover: /assets/images/unisa.jpg
 title: Numpy
-icon: /assets/icon/common/numpy.svg
+icon: circle-dot
 date: 2023-08-26
 category:
   - python

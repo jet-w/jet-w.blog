@@ -1,7 +1,7 @@
 ---
 title: VUE
 index: false
-icon: /assets/icon/common/vue.svg
+icon: list-check
 author: Haiyue
 category:
   - readme

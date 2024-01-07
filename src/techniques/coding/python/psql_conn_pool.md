@@ -3,7 +3,7 @@
 title: Psql DB conn Pool
 date: 2023-07-19
 author: Haiyue
-icon: /assets/icon/common/pool.svg
+icon: circle-dot
 category:
   - python
 tag:

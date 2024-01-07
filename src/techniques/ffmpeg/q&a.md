@@ -144,7 +144,14 @@ image-%d.jpeg：生成图像的文件名，可以加上完整路径，%d会使�
   -s      ：格式大小，如-s 640x360
   -y      ：覆盖，直接使用
 ```
+## Clip mp3
+``` bash
+# clip input.mp3 from 10 seconds to 16 seconds
+ffmpeg -ss 10 -to 16 -i input.mp3 output.mp3
 
+# clip input.mp3 from 10 seconds to keep 16 seconds length
+ffmpeg -ss 10 -t 16 -i input.mp3 output.mp3
+```
 
 ffmpeg使用：
 https://blog.csdn.net/qq_43057180/article/details/105676230

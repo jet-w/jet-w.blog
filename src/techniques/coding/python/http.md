@@ -3,7 +3,7 @@
 title: Http Authorization
 date: 2023-12-30
 author: Haiyue
-icon: /assets/icon/common/pool.svg
+icon: circle-dot
 category:
   - python
   - http authorization

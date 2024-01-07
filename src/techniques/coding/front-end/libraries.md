@@ -1,7 +1,7 @@
 ---
 title: JS Libraries
 date: 2023-12-16
-icon: /assets/icon/common/html.svg
+icon: circle-dot
 author: Haiyue
 category:
   - make

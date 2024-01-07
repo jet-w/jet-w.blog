@@ -3,7 +3,7 @@
 title: CSV
 date: 2023-11-07
 author: Haiyue
-icon: /assets/icon/common/pool.svg
+icon: circle-dot
 category:
   - python
   - csv

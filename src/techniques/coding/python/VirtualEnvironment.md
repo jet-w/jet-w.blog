@@ -1,7 +1,7 @@
 ---
 #cover: /assets/images/unisa.jpg
 title: Virtual Environment
-icon: vr-cardboard
+icon: circle-dot
 date: 2023-08-26
 category:
   - python

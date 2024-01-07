@@ -1,7 +1,7 @@
 ---
 title: CSS
 index: false
-icon: /assets/icon/common/css.svg
+icon: list-check
 author: Haiyue
 category:
   - readme

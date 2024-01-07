@@ -1,7 +1,7 @@
 ---
 title: HTML
 date: 2023-11-05
-icon: /assets/icon/common/html.svg
+icon: circle-dot
 author: Haiyue
 category:
   - make

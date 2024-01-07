@@ -1,7 +1,7 @@
 ---
 #cover: /assets/images/unisa.jpg
 title: Pandas
-icon: /assets/icon/common/pandas.svg
+icon: circle-dot
 date: 2023-08-26
 category:
   - python

@@ -3,7 +3,7 @@
 title: SingleClass
 date: 2023-12-18
 author: Haiyue
-icon: /assets/icon/common/pool.svg
+icon: circle-dot
 category:
   - python
   - csv

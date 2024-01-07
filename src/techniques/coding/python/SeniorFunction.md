@@ -3,7 +3,7 @@
 title: Senior Functions
 date: 2023-11-11
 author: Haiyue
-icon: /assets/icon/common/pool.svg
+icon: circle-dot
 category:
   - python
   - pip

@@ -3,7 +3,7 @@
 title: Environment
 date: 2023-12-03
 author: Haiyue
-icon: /assets/icon/common/pool.svg
+icon: circle-dot
 category:
   - python
   - env

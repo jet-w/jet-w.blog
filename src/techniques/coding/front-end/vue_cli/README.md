@@ -1,7 +1,7 @@
 ---
 title: VUE-CLI
 index: false
-icon: "/assets/icon/common/vue-cli.svg"
+icon: list-check
 author: Haiyue
 category:
   - readme

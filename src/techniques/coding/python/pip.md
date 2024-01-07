@@ -3,7 +3,7 @@
 title: Pip configuration
 date: 2023-10-29
 author: Haiyue
-icon: /assets/icon/common/pool.svg
+icon: circle-dot
 category:
   - python
   - pip
@@ -13,10 +13,10 @@ sticky: false
 
 ## How to change default installation location
 
-[official website](https://pip.pypa.io/en/stable/topics/configuration/)
+[pip documentation](https://pip.pypa.io/en/stable/topics/configuration/)
 
 
-change the pip config file.
+## pip config file.
 ``` ini
 [global]
 target=C:\Users\Bob\Desktop

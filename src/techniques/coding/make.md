@@ -1,7 +1,7 @@
 ---
 title: Makefile
 date: 2023-08-22
-icon: /assets/icon/common/hammer.svg
+icon: circle-dot
 author: Haiyue
 category:
   - make
