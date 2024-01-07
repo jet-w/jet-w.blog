@@ -3,33 +3,23 @@ import { navbar } from "vuepress-theme-hope";
 export const enNavbar = navbar([
   "/",
   {
-    text: "Master of Data Science (Unisa)",
-    icon: "/assets/icon/unisa/unisa-logo.svg",
-    prefix: "/unisa/",
-    children: [
-      {text: "Term1(2022SP5)", link: "2022SP5"},
-      {text: "Term2(2023SP2)", link: "2023SP2"},
-      {text: "Term3(2023SP5)", link: "2023SP5"},
-    ]
-  },
-  //{
-  //  text: "Life in 42 Adelaide",
-  //  icon: "/assets/icon/42adelaide/42_adelaide.svg",
-  //  prefix: "/42adelaide/",
-  //  children: [
-  //    {text: "Piscine(Dolphin)", link: "piscine", icon: "/assets/icon/42adelaide/dolphin.svg"},
-  //    {text: "42cursus(Sol)", link: "42cursus", icon: "/assets/icon/42adelaide/sol.svg"},
-  //  ]
-  //},
-  {
     text: "Techniques",
     icon: "building-columns",
     prefix: "/techniques/",
     children: [
       {text: "Geoscience", link: "geoscience"},
-      {text: "Python", link: "coding/python"},
-      {text: "R", link: "coding/R"},
-      {text: "Github", link: "github"},
+      {text: "Google Colab", link: "GogleColab"},
+      {text: "OpenAI", link: "openai"},
+    ]
+  },
+  {
+    text: "Coding",
+    icon: "building-columns",
+    prefix: "/techniques/coding/",
+    children: [
+      {text: "R", link: "R"},
+      {text: "Python", link: "python"},
+      {text: "Ruby", link: "Ruby"}
     ]
   },
 

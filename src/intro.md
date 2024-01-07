@@ -10,7 +10,7 @@ navbar: false
 ![](/haiyue.jpg)
 :::
 -----
-Hello, my name is Haiyue, you could call me Jet for short. 
+Hello, you can call me Jet for short. 
 
 <!-- If you have any questions on technique or any technical position please contact me via email.-->
 
@@ -18,8 +18,7 @@ Hello, my name is Haiyue, you could call me Jet for short.
 
 | University | Major | Degree |
 | - | - | - |
-|[Inner Mogolia University](https://www.imu.edu.cn/index.htm) | Computer Science (Software Engineer) | Bachelor |
-| [University of South Australia](https://www.unisa.edu.au/) | Data Science | Master (July 2024) |
+| [University of South Australia](https://www.unisa.edu.au/) | Master of Data Science | Master |
 
 -----
 ## Work experience
@@ -55,12 +54,10 @@ Hello, my name is Haiyue, you could call me Jet for short.
 - Mongodb
 - Sqlite
 - Redis
-
-@tab Analysis technique
-
+- etc.
 :::
 
 ## Contact me
-- Email: nutterair1989@gmail.com
+- Email: unisa.dady@gmail.com
 
 

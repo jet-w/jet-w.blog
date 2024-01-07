@@ -44,26 +44,26 @@ jobs:
       #    branch: gh-pages
       #    folder: src/.vuepress/dist
 
-      #- uses: cpina/github-action-push-to-another-repository@main
-      #  env:
-      #    #SSH_DEPLOY_KEY: ${{ secrets.TEST_SECRET_KEY }}
-      #    API_TOKEN_GITHUB: ${{secrets.API_TOKEN_KEY}}
-      #  with:
-      #    source-directory: 'src/.vuepress/dist'
-      #    destination-github-username: 'seamice'
-      #    destination-repository-name: 'seamice.github.com'
-      #    user-email: unisa.dady@gmail.com
-      #    target-branch: gh-pages
-      #    #target-branch: master
-      #    target-directory: /
-
       - uses: cpina/github-action-push-to-another-repository@main
         env:
+          #SSH_DEPLOY_KEY: ${{ secrets.TEST_SECRET_KEY }}
           API_TOKEN_GITHUB: ${{secrets.API_TOKEN_KEY}}
         with:
           source-directory: 'src/.vuepress/dist'
-          destination-github-username: 'jet-w'
-          destination-repository-name: 'jet-w.github.com'
+          destination-github-username: 'seamice'
+          destination-repository-name: 'seamice.github.com'
           user-email: unisa.dady@gmail.com
-          target-branch: hope
+          target-branch: gh-pages
+          #target-branch: master
           target-directory: /
+
+      #- uses: cpina/github-action-push-to-another-repository@main
+      #  env:
+      #    API_TOKEN_GITHUB: ${{secrets.API_TOKEN_KEY}}
+      #  with:
+      #    source-directory: 'src/.vuepress/dist'
+      #    destination-github-username: 'jet-w'
+      #    destination-repository-name: 'jet-w.github.com'
+      #    user-email: unisa.dady@gmail.com
+      #    target-branch: hope
+      #    target-directory: /
