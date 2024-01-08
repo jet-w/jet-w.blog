@@ -13,7 +13,7 @@ sticky: false
 
 ## Generate Video
 1. stable video diffusion: generate video
-
+1. [Stability-AI](https://github.com/Stability-AI/generative-models?tab=readme-ov-file)
 
 ## Building Detection (Geoscience)
 1. [Datasets for satellite building segmentation](https://huggingface.co/datasets/keremberke/satellite-building-segmentation/viewer/mini/test)
@@ -44,6 +44,8 @@ sticky: false
 1. [Speech to Text](https://huggingface.co/docs/transformers/model_doc/speech_to_text)
 2. [Speech to Text 2](https://huggingface.co/docs/transformers/model_doc/speech_to_text_2)
 3. [turboscribe.ai](https://turboscribe.ai/dashboard)
+4. [wbbbbb/wav2vec2-large-chinese-zh-cn](https://huggingface.co/wbbbbb/wav2vec2-large-chinese-zh-cn) **Important**
+5. [Google speech to text supported languages](https://cloud.google.com/speech-to-text/docs/speech-to-text-supported-languages)
 
 
 
