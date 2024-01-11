@@ -539,5 +539,10 @@ df.iloc[0,:] = ['lily','F',15] #
 ```
 :::
 
+## Sort Value
+``` python
+df.sort_values(by='cost', ascending=False)
+```
+
 ## References
 [Pandas教程（非常详细）](http://c.biancheng.net/pandas/)
