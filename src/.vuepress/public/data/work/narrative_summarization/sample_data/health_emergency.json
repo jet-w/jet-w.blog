@@ -1,0 +1,62 @@
+[
+    {
+        "date": "05/04/2022",
+        "text_desc": "A sudden outbreak of a mysterious respiratory illness is reported in several downtown neighborhoods.",
+        "parties": ["Public Health Department", "Local Hospitals"],
+        "artefacts": ["1_OutbreakReport_05042022.pdf"]
+    },
+    {
+        "date": "06/04/2022",
+        "text_desc": "Health officials declare a public health emergency and start contact tracing efforts.",
+        "parties": ["Public Health Department", "Emergency Services"],
+        "artefacts": ["2_PublicHealthEmergencyDeclaration_06042022.pdf"]
+    },
+    {
+        "date": "08/04/2022",
+        "text_desc": "Laboratories confirm the illness is caused by a new strain of influenza virus.",
+        "parties": ["Research Laboratories", "Public Health Department"],
+        "artefacts": ["3_LabResults_08042022.pdf"]
+    },
+    {
+        "date": "10/04/2022",
+        "text_desc": "City officials set up temporary quarantine zones in the affected areas.",
+        "parties": ["City Administration", "Emergency Services"],
+        "artefacts": ["4_QuarantineZoneSetup_10042022.pdf"]
+    },
+    {
+        "date": "12/04/2022",
+        "text_desc": "Vaccination campaign begins, prioritizing high-risk populations.",
+        "parties": ["Public Health Department", "Local Clinics"],
+        "artefacts": ["5_VaccinationCampaignStart_12042022.pdf", "5_VaccinationSchedule_12042022.pdf"]
+    },
+    {
+        "date": "15/04/2022",
+        "text_desc": "Public awareness campaign launched to educate citizens about preventive measures.",
+        "parties": ["Public Relations Office", "Public Health Department"],
+        "artefacts": ["6_PublicAwarenessCampaign_15042022.mp4", "6_PreventiveMeasuresBrochure_15042022.pdf"]
+    },
+    {
+        "date": "18/04/2022",
+        "text_desc": "International health organizations send experts to assist in managing the outbreak.",
+        "parties": ["World Health Organization", "Public Health Department"],
+        "artefacts": ["7_InternationalAssistance_18042022.pdf"]
+    },
+    {
+        "date": "20/04/2022",
+        "text_desc": "Progress report shows a decline in new cases, suggesting the outbreak is under control.",
+        "parties": ["Public Health Department", "Data Analysis Team"],
+        "artefacts": ["8_ProgressReport_20042022.pdf"]
+    },
+    {
+        "date": "22/04/2022",
+        "text_desc": "City mayor holds a press conference thanking healthcare workers and outlining future health strategies.",
+        "parties": ["City Mayor's Office", "Local Hospitals"],
+        "artefacts": ["9_MayorPressConference_22042022.mp4"]
+    },
+    {
+        "date": "25/04/2022",
+        "text_desc": "Community outreach programs initiated to support affected families and rehabilitate quarantined zones.",
+        "parties": ["Community Support Groups", "City Administration"],
+        "artefacts": ["10_CommunityOutreachInitiatives_25042022.pdf"]
+    }
+]

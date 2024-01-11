@@ -1,0 +1,62 @@
+[
+    {
+        "date": "01/09/2021",
+        "text_desc": "A major cyber attack is detected on the city's power grid, causing widespread outages.",
+        "parties": ["City Power Grid", "Cyber Security Agency"],
+        "artefacts": ["1_CyberAttackAlert_01092021.pdf"]
+    },
+    {
+        "date": "02/09/2021",
+        "text_desc": "Emergency response teams activated. Cyber Security Agency starts investigating the source of the attack.",
+        "parties": ["Emergency Response Team", "Cyber Security Agency"],
+        "artefacts": ["2_EmergencyResponseActivation_02092021.pdf"]
+    },
+    {
+        "date": "04/09/2021",
+        "text_desc": "Preliminary findings suggest a sophisticated malware was used in the attack. Public is informed.",
+        "parties": ["Cyber Security Agency", "Public Relations Office"],
+        "artefacts": ["3_PreliminaryFindingsReport_04092021.pdf", "3_PublicAnnouncement_04092021.mp4"]
+    },
+    {
+        "date": "07/09/2021",
+        "text_desc": "Cyber Security Agency identifies the group responsible for the attack. Countermeasures initiated.",
+        "parties": ["Cyber Security Agency", "Law Enforcement"],
+        "artefacts": ["4_AttackGroupIdentification_07092021.pdf"]
+    },
+    {
+        "date": "10/09/2021",
+        "text_desc": "Critical infrastructure systems restored. Enhanced security measures implemented.",
+        "parties": ["City Power Grid", "IT Department"],
+        "artefacts": ["5_SystemRestorationUpdate_10092021.pdf", "5_SecurityEnhancementMeasures_10092021.pdf"]
+    },
+    {
+        "date": "12/09/2021",
+        "text_desc": "Joint operation by Cyber Security Agency and law enforcement arrests suspects involved in the cyber attack.",
+        "parties": ["Cyber Security Agency", "Law Enforcement"],
+        "artefacts": ["6_JointOperationReport_12092021.pdf"]
+    },
+    {
+        "date": "15/09/2021",
+        "text_desc": "City council holds a meeting to review the cyber attack response and discuss future prevention strategies.",
+        "parties": ["City Council", "Cyber Security Agency"],
+        "artefacts": ["7_CouncilMeetingMinutes_15092021.pdf", "7_PreventionStrategyProposal_15092021.pdf"]
+    },
+    {
+        "date": "18/09/2021",
+        "text_desc": "Public briefing held to update citizens on the incident and measures taken for future security.",
+        "parties": ["Public Relations Office", "Cyber Security Agency"],
+        "artefacts": ["8_PublicBriefingRecording_18092021.mp4", "8_BriefingSummary_18092021.pdf"]
+    },
+    {
+        "date": "20/09/2021",
+        "text_desc": "Collaboration announced between city and federal cybersecurity units to strengthen defense mechanisms.",
+        "parties": ["City Cybersecurity Unit", "Federal Cybersecurity Agency"],
+        "artefacts": ["9_CollaborationAnnouncement_20092021.pdf"]
+    },
+    {
+        "date": "25/09/2021",
+        "text_desc": "Cybersecurity training programs launched for city employees, focusing on awareness and prevention.",
+        "parties": ["Human Resources Department", "Cyber Security Agency"],
+        "artefacts": ["10_TrainingProgramSchedule_25092021.pdf", "10_TrainingMaterials_25092021.pdf"]
+    }
+]

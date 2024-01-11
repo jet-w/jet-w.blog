@@ -1,0 +1,62 @@
+[
+    {
+        "date": "01/06/2021",
+        "text_desc": "Local bank reports suspicious activity after hours. Security alerts police to potential break-in.",
+        "parties": ["Local Bank", "City Police Department"],
+        "artefacts": ["1_BankSecurityAlert_01062021.pdf"]
+    },
+    {
+        "date": "02/06/2021",
+        "text_desc": "Police review surveillance footage from bank, identify suspect vehicle leaving scene.",
+        "parties": ["City Police Department"],
+        "artefacts": ["2_SurveillanceFootage_02062021.mp4"]
+    },
+    {
+        "date": "03/06/2021",
+        "text_desc": "Vehicle involved in bank incident spotted by traffic camera. Police issue an APB.",
+        "parties": ["City Traffic Control", "City Police Department"],
+        "artefacts": ["3_TrafficCameraImage_03062021.png"]
+    },
+    {
+        "date": "04/06/2021",
+        "text_desc": "Suspect vehicle found abandoned. Forensic team collects evidence from the scene.",
+        "parties": ["Forensic Department", "City Police Department"],
+        "artefacts": ["4_VehicleForensicReport_04062021.pdf"]
+    },
+    {
+        "date": "07/06/2021",
+        "text_desc": "Bank confirms missing items from safety deposit boxes. Police start victim interviews.",
+        "parties": ["Local Bank", "Affected Customers", "City Police Department"],
+        "artefacts": ["5_BankTheftReport_07062021.pdf"]
+    },
+    {
+        "date": "10/06/2021",
+        "text_desc": "Anonymous tip received about suspect's whereabouts. Special task force dispatched.",
+        "parties": ["City Police Department"],
+        "artefacts": ["6_AnonymousTipDetails_10062021.pdf"]
+    },
+    {
+        "date": "12/06/2021",
+        "text_desc": "Police raid suspect hideout. Suspect arrested and brought in for questioning.",
+        "parties": ["City Police Department", "Suspect"],
+        "artefacts": ["7_RaidReport_12062021.pdf"]
+    },
+    {
+        "date": "15/06/2021",
+        "text_desc": "Suspect charged with bank robbery. Case file prepared for the district attorney.",
+        "parties": ["City Police Department", "District Attorney's Office", "Suspect"],
+        "artefacts": ["8_CaseFile_15062021.pdf"]
+    },
+    {
+        "date": "18/06/2021",
+        "text_desc": "Preliminary hearing in court. Suspect held for trial. Media coverage escalates.",
+        "parties": ["District Court", "Suspect", "Media"],
+        "artefacts": ["9_CourtHearingTranscript_18062021.pdf", "9_MediaCoverage_18062021.mp4"]
+    },
+    {
+        "date": "22/06/2021",
+        "text_desc": "Bank robbery trial begins. Key witnesses testify. Public interest peaks.",
+        "parties": ["District Court", "Suspect", "Key Witnesses", "General Public"],
+        "artefacts": ["10_TrialDayOne_22062021.pdf", "10_PublicInterestReport_22062021.pdf"]
+    }
+]

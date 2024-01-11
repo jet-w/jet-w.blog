@@ -1,0 +1,62 @@
+[
+    {
+        "date": "05/07/2021",
+        "text_desc": "Local hospital reports a sudden outbreak of an unknown respiratory illness among patients.",
+        "parties": ["Local Hospital", "Health Department"],
+        "artefacts": ["1_HospitalOutbreakReport_05072021.pdf"]
+    },
+    {
+        "date": "06/07/2021",
+        "text_desc": "Health Department initiates an investigation. Epidemiologists begin on-site examination.",
+        "parties": ["Health Department", "Epidemiology Team"],
+        "artefacts": ["2_InitialInvestigationReport_06072021.pdf"]
+    },
+    {
+        "date": "08/07/2021",
+        "text_desc": "Samples from patients sent for lab testing. Hospital increases infection control measures.",
+        "parties": ["Local Hospital", "National Laboratory"],
+        "artefacts": ["3_PatientSamples_08072021.pdf", "3_InfectionControlMemo_08072021.pdf"]
+    },
+    {
+        "date": "12/07/2021",
+        "text_desc": "Lab results indicate a new strain of influenza virus. Health advisory issued.",
+        "parties": ["National Laboratory", "Health Department"],
+        "artefacts": ["4_LabResults_12072021.pdf", "4_HealthAdvisory_12072021.pdf"]
+    },
+    {
+        "date": "15/07/2021",
+        "text_desc": "Vaccination campaign starts in response to the outbreak. Public health alerts are broadcast.",
+        "parties": ["Health Department", "Local Hospital", "Media Outlets"],
+        "artefacts": ["5_VaccinationCampaignDetails_15072021.pdf", "5_PublicHealthAlerts_15072021.mp4"]
+    },
+    {
+        "date": "20/07/2021",
+        "text_desc": "First round of vaccinations completed. Hospital reports decline in new cases.",
+        "parties": ["Local Hospital", "Health Department"],
+        "artefacts": ["6_VaccinationReport_20072021.pdf", "6_HospitalCaseUpdate_20072021.pdf"]
+    },
+    {
+        "date": "25/07/2021",
+        "text_desc": "Health Department holds a press conference to update on the outbreak control.",
+        "parties": ["Health Department", "Media Outlets"],
+        "artefacts": ["7_PressConferenceRecording_25072021.mp4", "7_PressRelease_25072021.pdf"]
+    },
+    {
+        "date": "30/07/2021",
+        "text_desc": "Final report on outbreak management published. Recommendations for future prevention outlined.",
+        "parties": ["Health Department", "Epidemiology Team"],
+        "artefacts": ["8_FinalOutbreakReport_30072021.pdf", "8_PreventionGuidelines_30072021.pdf"]
+    },
+    {
+        "date": "05/08/2021",
+        "text_desc": "Community health workshops initiated to educate public on influenza prevention and control.",
+        "parties": ["Health Department", "Community Centers"],
+        "artefacts": ["9_WorkshopSchedule_05082021.pdf", "9_EducationalMaterials_05082021.pdf"]
+    },
+    {
+        "date": "10/08/2021",
+        "text_desc": "Health Department recognized for effective outbreak response. Lessons learned shared with international health organizations.",
+        "parties": ["Health Department", "World Health Organization"],
+        "artefacts": ["10_ResponseRecognition_10082021.pdf", "10_LessonsLearnedDocument_10082021.pdf"]
+    }
+]

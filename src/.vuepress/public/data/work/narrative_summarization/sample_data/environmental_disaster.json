@@ -1,0 +1,62 @@
+[
+    {
+        "date": "07/05/2022",
+        "text_desc": "A significant oil spill occurs off the coast, causing widespread environmental damage.",
+        "parties": ["Coast Guard", "Environmental Protection Agency"],
+        "artefacts": ["1_OilSpillReport_07052022.pdf"]
+    },
+    {
+        "date": "08/05/2022",
+        "text_desc": "Emergency response teams are deployed for immediate containment efforts.",
+        "parties": ["Emergency Response Units", "Environmental Protection Agency"],
+        "artefacts": ["2_EmergencyResponseDeployment_08052022.pdf"]
+    },
+    {
+        "date": "10/05/2022",
+        "text_desc": "Investigation launched into the cause of the oil spill, focusing on potential negligence.",
+        "parties": ["Federal Investigation Bureau", "Maritime Safety Authority"],
+        "artefacts": ["3_InvestigationLaunch_10052022.pdf"]
+    },
+    {
+        "date": "12/05/2022",
+        "text_desc": "Local communities affected by the spill begin to report significant impacts on fisheries and tourism.",
+        "parties": ["Local Community Leaders", "Tourism Department"],
+        "artefacts": ["4_CommunityImpactReport_12052022.pdf"]
+    },
+    {
+        "date": "15/05/2022",
+        "text_desc": "Environmental groups launch a cleanup operation, recruiting volunteers for shoreline cleaning.",
+        "parties": ["Environmental NGOs", "Local Volunteers"],
+        "artefacts": ["5_CleanupOperationStart_15052022.pdf"]
+    },
+    {
+        "date": "18/05/2022",
+        "text_desc": "Government announces compensation funds for affected communities and businesses.",
+        "parties": ["Government Finance Department", "Affected Communities"],
+        "artefacts": ["6_CompensationAnnouncement_18052022.pdf"]
+    },
+    {
+        "date": "20/05/2022",
+        "text_desc": "Wildlife rescue centers mobilize to treat and rehabilitate affected marine life.",
+        "parties": ["Wildlife Rescue Centers", "Veterinary Services"],
+        "artefacts": ["7_WildlifeRescueMobilization_20052022.pdf"]
+    },
+    {
+        "date": "23/05/2022",
+        "text_desc": "International environmental experts are called in to assess long-term ecological impacts.",
+        "parties": ["International Environmental Council", "Ecological Assessment Team"],
+        "artefacts": ["8_InternationalExpertsAssessment_23052022.pdf"]
+    },
+    {
+        "date": "25/05/2022",
+        "text_desc": "Regulatory agencies introduce stricter regulations and oversight for offshore drilling activities.",
+        "parties": ["Regulatory Agencies", "Offshore Drilling Companies"],
+        "artefacts": ["9_NewRegulationsIntroduction_25052022.pdf"]
+    },
+    {
+        "date": "28/05/2022",
+        "text_desc": "Community forums organized to discuss ongoing recovery efforts and future preventive measures.",
+        "parties": ["Community Forums", "Environmental Advocacy Groups"],
+        "artefacts": ["10_CommunityForum_28052022.pdf"]
+    }
+]
