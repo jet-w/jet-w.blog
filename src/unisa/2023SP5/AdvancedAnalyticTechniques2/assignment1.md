@@ -12,7 +12,7 @@ category:
 ## Requirements
 ### Instructions
 ::: details Instructions
-<PDF url="/data/unisa/AdvancedAnalytic2/assignment1/Assignment1.pdf" ratio="1.4" />
+<PDF url="/data/unisa/AdvancedAnalytic2/assignment1/Assignment1.pdf" />
 
 ### Marking Guide
 <PDF url="/data/unisa/AdvancedAnalytic2/assignment1/MarkingGuidelines-Assignment1.pdf" ratio="1.4" />

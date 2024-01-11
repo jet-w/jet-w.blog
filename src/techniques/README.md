@@ -28,4 +28,8 @@ AI generate Image
 [受保护的始图打开解决方案](https://support.microsoft.com/zh-cn/office/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%97%E4%BF%9D%E6%8A%A4%E7%9A%84%E8%A7%86%E5%9B%BE-d6f09ac7-e6b9-4495-8e43-2bbcdbcb6653)
 
 
+## Vuepress-theme-hope
+https://theme-hope.vuejs.press/zh/guide/customize/external.html#%E5%85%A8%E5%B1%80
+
+
 [How to configure the debug environment in VSCode in MAC](https://medium.com/gdplabs/build-and-debug-c-on-visual-studio-code-for-mac-77e05537105e)

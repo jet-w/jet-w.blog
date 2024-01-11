@@ -20,6 +20,7 @@
   },
   "packageManager": "yarn@4.0.2",
   "dependencies": {
+    "@vuepress/plugin-docsearch": "^2.0.0-rc.0",
     "nodejs-jieba": "^0.0.2"
   }
 }
