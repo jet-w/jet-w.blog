@@ -43,8 +43,8 @@ export default defineUserConfig({
     "@Test": path.resolve(__dirname, "components/test.vue")
   },
   head: [
-    ['srcipt', {"async":"", src: 'https://www.googletagmanager.com/gtag/js?id=G-4BP2YK8NPN'}],
-    ['srcipt', {src: '/src/gtag.js'}],
+    ['script', {"async":"", src: 'https://www.googletagmanager.com/gtag/js?id=G-4BP2YK8NPN', type: "text/javascript"}],
+    ['script', {src: '/src/gtag.js', type: "text/javascript"}],
   ]
   // Enable it with pwa
   // shouldPrefetch: false,
