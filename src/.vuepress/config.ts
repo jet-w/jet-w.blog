@@ -20,4 +20,9 @@ export default defineUserConfig({
   theme,
   // Enable it with pwa
   // shouldPrefetch: false,
+  head: [
+    // Other head elements...
+    ['script', { async:"", src: 'https://www.googletagmanager.com/gtag/js?id=G-DEMNZ1E6YS' }],
+    ['script', { src: '/src/js/gtag.js' }],
+  ],
 });
