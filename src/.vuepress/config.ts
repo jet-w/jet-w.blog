@@ -41,7 +41,11 @@ export default defineUserConfig({
   ],
   alias: {
     "@Test": path.resolve(__dirname, "components/test.vue")
-  }
+  },
+  head: [
+    ['srcipt', {src: 'https://www.googletagmanager.com/gtag/js?id=G-4BP2YK8NPN'}],
+    ['srcipt', {src: '/src/gtag.js'}],
+  ]
   // Enable it with pwa
   // shouldPrefetch: false,
 });
