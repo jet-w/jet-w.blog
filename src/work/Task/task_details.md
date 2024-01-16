@@ -8,6 +8,8 @@ category:
   - Task
 ---
 
+<span style="">[jupyter online](http://1.119.149.130:10000/tree?#notebooks)<span>
+
 ### 2023-07-26
 ---
 - [x] 01. Make sure the status of repository
