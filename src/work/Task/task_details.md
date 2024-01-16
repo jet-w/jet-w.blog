@@ -8,7 +8,7 @@ category:
   - Task
 ---
 
-<span style="">[jupyter online](http://1.119.149.130:10000/tree?#notebooks)<span>
+<span style="">[jupyter online](http://1.119.149.130:10000/tree?#notebooks)</span>
 
 ### 2023-07-26
 ---
