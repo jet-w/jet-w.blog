@@ -159,3 +159,50 @@ https://blog.csdn.net/qq_43057180/article/details/105676230
 youtube downloader online: https://yt1s.com/en17
 
 
+
+## How to join ts files into a single file
+``` bash
+ffmpeg -f concat -i filelist.txt -c copy output.mp4
+```
+
+`filelist.txt`
+``` txt
+file 'seg-1-v1-a1.ts'
+file 'seg-2-v1-a1.ts'
+file 'seg-3-v1-a1.ts'
+file 'seg-4-v1-a1.ts'
+file 'seg-5-v1-a1.ts'
+```
+
+## Change Resolution
+``` bash
+ffmpeg -i video1.mp4 -vf "scale=1920:1080" -c:a copy resized_video1.mp4
+```
+
+## Merge Audio and Video
+### reencode audio
+`ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4`
+
+### copy audio
+`ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv`
+
+### Replace audio stream
+`ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4`
+The `-map` option makes ffmpeg only use the first video stream from the first input and the first audio stream from the second input for the output file.
+
+## Pictures to Video
+One image per second
+``` bash
+ffmpeg -framerate 1 -pattern_type glob -i '*.png' \
+  -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4
+```
+
+Add some audio
+``` bash
+ffmpeg -framerate 1 -pattern_type glob -i '*.png' -i audio.ogg \
+  -c:a copy -shortest -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4
+```
+
+## Add overlay Logo
+`ffmpeg.exe -i video.mp4 -i logo.png -filter_complex “overlay=X:Y” output.mp4`
+[Resource](https://arccoder.medium.com/ffmpeg-add-a-logo-on-video-bf1f4652792a)
