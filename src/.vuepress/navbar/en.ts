@@ -32,6 +32,16 @@ export const enNavbar = navbar([
       {text: "Github", link: "github"},
     ]
   },
+  {
+    text: "Work",
+    icon: "briefcase",
+    prefix: "/work/",
+    children: [
+      {text: "HS", link: "Blueprint&AI"},
+      {text: "Narrative", link: "narrativesummarization"},
+      {text: "Ontask", link: "ontask"},
+    ]
+  },
 
   //All the sample below
   /*
