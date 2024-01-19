@@ -16,3 +16,4 @@ category:
 [02. Key Words Extraction](KeyWordsExtraction)
 [03. Text Summarization](Summarization)
 
+[Visio Graph](/data/work/narrative_summarization/seq-graph.vsdx)
