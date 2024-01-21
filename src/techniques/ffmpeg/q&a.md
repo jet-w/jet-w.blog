@@ -197,6 +197,29 @@ ffmpeg -framerate 1 -pattern_type glob -i '*.png' \
   -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4
 ```
 
+### With Duration
+``` bash
+ffmpeg -loop 1 -i image.png -c:v libx264 -t 15 -pix_fmt yuv420p -vf scale=320:240 out.mp4
+```
+
+### With Transition
+``` python
+ffmpeg \
+-loop 1 -t 3 -i p1-s1.jpg \
+-loop 1 -t 3 -i p2-s1.jpg \
+-loop 1 -t 3 -i p3-s1.jpg \
+-loop 1 -t 3 -i p4-s1.jpg \
+-loop 1 -t 3 -i p5-s1.jpg \
+-filter_complex \
+"[1]fade=d=1:t=in:alpha=1,setpts=PTS-STARTPTS+2/TB[f0]; \
+ [2]fade=d=1:t=in:alpha=1,setpts=PTS-STARTPTS+4/TB[f1]; \
+ [3]fade=d=1:t=in:alpha=1,setpts=PTS-STARTPTS+6/TB[f2]; \
+ [4]fade=d=1:t=in:alpha=1,setpts=PTS-STARTPTS+8/TB[f3]; \
+ [0][f0]overlay[bg1];[bg1][f1]overlay[bg2];[bg2][f2]overlay[bg3]; \
+ [bg3][f3]overlay,format=yuv420p[v]" -map "[v]" -r 25 -c:v libx264  -pix_fmt yuv420p output-crossfade.mp4
+```
+[References](https://www.bannerbear.com/blog/how-to-create-a-slideshow-from-images-with-ffmpeg/)
+
 Add some audio
 ``` bash
 ffmpeg -framerate 1 -pattern_type glob -i '*.png' -i audio.ogg \
