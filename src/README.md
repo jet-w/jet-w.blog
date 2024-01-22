@@ -5,7 +5,7 @@ icon: home
 title: Blog Home
 heroImage: /haiyue.svg
 heroText: Haiyue's blog
-#bgImage: /assets/images/bg_data.webp
+sidebar: true
 bgImage: /assets/images/sky.jpg
 tagline: Notes from a coding dog
 heroFullScreen: true

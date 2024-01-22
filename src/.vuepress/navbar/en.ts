@@ -26,10 +26,10 @@ export const enNavbar = navbar([
     icon: "building-columns",
     prefix: "/techniques/",
     children: [
-      {text: "Geoscience", link: "geoscience"},
+      {text: "Geoscience", link: "geoscience/pythonwithgdal"},
       {text: "Python", link: "coding/python"},
-      {text: "R", link: "coding/R"},
-      {text: "Github", link: "github"},
+      {text: "R", link: "coding/R/01.R Language"},
+      {text: "AI", link: "AI/01.ai_models"},
     ]
   },
   {

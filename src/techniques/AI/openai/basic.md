@@ -133,3 +133,7 @@ Sometimes we get better results when we explicitly instruct the model to reason 
 
 #### 6. [Test changes systematically](https://platform.openai.com/docs/guides/prompt-engineering/strategy-test-changes-systematically)
     More details please read the official document.
+
+
+## [Fine-Turning GPT](https://platform.openai.com/docs/guides/fine-tuning/preparing-your-dataset)
+[Mastering GPT-3: A Comprehensive Guide to Fine-Tuning with OpenAI, Complete with Examples](https://medium.com/@kapildevkhatik2/mastering-gpt-3-a-comprehensive-guide-to-fine-tuning-with-openai-complete-with-examples-e28515c22d92)

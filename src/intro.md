@@ -1,7 +1,7 @@
 ---
 icon: user
 cover: /assets/images/unisa.jpg
-sidebar: false
+sidebar: true
 navbar: false
 ---
 # Details of me
