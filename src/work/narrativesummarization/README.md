@@ -17,3 +17,11 @@ category:
 [03. Text Summarization](Summarization)
 
 [Visio Graph](/data/work/narrative_summarization/seq-graph.vsdx)
+
+
+## Task 2024-01-20
+1. Finish the documents for narrative summarization.
+    - Project Report
+    - Manual guidance
+2. Finish the reconstruction for the code.
+    Scan the code aumatically.

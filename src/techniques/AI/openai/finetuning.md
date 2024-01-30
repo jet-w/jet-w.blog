@@ -130,3 +130,11 @@ client.fine_tuning.jobs.list(limit=10)
 client.fine_tuning.jobs.retrieve(finetuning.id)
 ```
 :::
+
+
+
+## References
+[Official document: Fine-tuning](https://platform.openai.com/docs/guides/fine-tuning/create-a-fine-tuned-model)
+
+[Learn Fine Tuning: Making GPT-3.5 Better at Recognizing Sentiment](https://medium.com/bertcode/learn-fine-tuning-making-gpt-3-5-better-at-recognizing-sentiment-9dc7a36966ae)
+[sentiment-ft/training_set.jsonl](https://github.com/bert-bae/bertcode-blog-content/blob/master/sentiment-ft/training_set.jsonl)
