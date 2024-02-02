@@ -13,3 +13,4 @@ sticky: false
 
 ## PDF password Remover
 01. [PDFCrack Open Source](https://github.com/alitrack/PDFCrack/releases/tag/0.19)
+02. [qpdf](https://github.com/qpdf/qpdf)
