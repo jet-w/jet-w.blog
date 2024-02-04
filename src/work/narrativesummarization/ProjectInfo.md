@@ -32,5 +32,5 @@ In addition to the summarisation capability, the text summarisation tool will in
 1. [Code Intergration](https://docs.google.com/document/d/1zb_HjJ_zArFpCArg_Mq29erP61XrzGHUQfzCGEum0Fg/edit?usp=sharing)
 2. [User Guide](https://docs.google.com/document/d/11H75KmSGJ11tBeX1__wSTp0KOBVvOKjyMM4T1jecg5s/edit?usp=sharing)
 3. [Project Report](https://docs.google.com/document/d/1AozPQtZL6jQxSSh_4QF0TSBcoUf5uYCf9AXvGC1pR8w/edit#heading=h.o1e0j7hq7f2s)
-
+4. [Project Report(Srecko doc)](https://docs.google.com/document/d/1HIOeP7UBZky84f0-X7rC1G0MuiUFC-pJMeLTuiMnJMg/edit#heading=h.zbn4dizc4zcy)
 
