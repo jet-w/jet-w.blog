@@ -225,7 +225,12 @@ Add some audio
 ffmpeg -framerate 1 -pattern_type glob -i '*.png' -i audio.ogg \
   -c:a copy -shortest -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4
 ```
+1. [ffmpeg transition](https://trac.ffmpeg.org/wiki/Xfade)
+2. [GL transition](https://gl-transitions.com/gallery?page=2)
+3. [3 Methods you need to know about FFmpeg transition animation](https://donglumail.medium.com/3-methods-you-need-to-know-for-ffmpeg-transition-animation-7d2ea8f7ced7)
+
 
 ## Add overlay Logo
 `ffmpeg.exe -i video.mp4 -i logo.png -filter_complex “overlay=X:Y” output.mp4`
 [Resource](https://arccoder.medium.com/ffmpeg-add-a-logo-on-video-bf1f4652792a)
+
