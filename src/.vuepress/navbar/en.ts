@@ -37,7 +37,7 @@ export const enNavbar = navbar([
     icon: "briefcase",
     prefix: "/work/",
     children: [
-      {text: "HS", link: "Blueprint&AI"},
+      {text: "HumanSys(Blueprint&AI)", link: "Blueprint&AI"},
       {text: "Narrative", link: "narrativesummarization"},
       {text: "Ontask", link: "ontask"},
     ]
