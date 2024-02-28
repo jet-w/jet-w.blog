@@ -109,6 +109,7 @@ export default hopeTheme({
       "/work/narrativesummarization/": ["C3L-Genix"],
       "/work/Blueprint_AI/":["HS"],
       "/work/Task/": ["#1234"],
+      "/unisa/2024(LastSemester)/Capstone Professional Project/01.Resources": ["DJHG1"],
     },
   },
 
