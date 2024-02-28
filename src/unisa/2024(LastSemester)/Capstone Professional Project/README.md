@@ -1,5 +1,5 @@
 ---
-title: Term4(2024SP2&SP3)
+title: Capstone Professional Project
 index: false
 icon: list-check
 author: Haiyue
