@@ -8,6 +8,8 @@ category:
   - work
 ---
 
+
+## Description
 I need your help with one of the student research projects, while we're waiting for further input on the Human Systems work.
 
 
@@ -17,3 +19,7 @@ I want to send this:
 `The methods I employed to compare the articles involved reading each one and making a list of its main themes. I then reread the two articles side by side, nothing their similarities and differences.`
 
 [This is Prompt](https://docs.google.com/document/d/1JC6bhbpqn99OJf7GBYvlIcaLD5bdBTI108NnO2dm1qc/edit?usp=sharing)
+
+
+## Code on [Google Colab](https://colab.research.google.com/drive/1Vp0SihZB2fWfdbuyQSh8fIx2YLlDSfWd?usp=sharing)
+
