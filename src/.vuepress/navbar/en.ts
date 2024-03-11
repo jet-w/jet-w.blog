@@ -10,6 +10,7 @@ export const enNavbar = navbar([
       {text: "Term1(2022SP5)", link: "2022SP5"},
       {text: "Term2(2023SP2)", link: "2023SP2"},
       {text: "Term3(2023SP5)", link: "2023SP5"},
+      {text: "Term4(2023SP2&SP3)", link: "2024(LastSemester)"},
     ]
   },
   //{
