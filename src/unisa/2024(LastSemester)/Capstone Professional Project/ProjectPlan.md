@@ -92,4 +92,3 @@ the introduction.
 * <span style="color:orange;font-weight:bold;">Anticipate any questions</span> that might be asked and <span style="color:orange;font-weight:bold;">consider possible responses</span>.
 * Be <span style="color:orange;font-weight:bold;">clear about your knowledge</span> and what is outside the scope of your presentation.
 
-
