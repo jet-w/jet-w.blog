@@ -8,6 +8,8 @@ category:
   - unisa
 ---
 
+[Slides](https://mymailunisaedu-my.sharepoint.com/:p:/g/personal/wanhy149_mymail_unisa_edu_au/ESMYlM_kTuRApkrt2h1UNJoB64iHV5lnesK0ZZR6preo1w?e=dnu7Hg)
+
 Good morning, professors, I'm very super pleased to present our team's project plan.
 The plan comprises 8 sections like the items listed in the slides. Each section focus on different perspective of the plan. I will describe each of them.
 
@@ -97,4 +99,3 @@ The final section define the timeline for each phase.
 Such as, phase 1 & 2 take 1 week each; phase 3 takes 3 weeks, etc.
 
 It's all my presentation. Thanks very much.
-:::

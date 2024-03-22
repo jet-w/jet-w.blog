@@ -1,5 +1,5 @@
 ---
-title: 01. Customer Analytics
+title: 01. Customer Analytics (W1)
 index: true
 icon: circle-dot
 author: Haiyue
@@ -7,6 +7,7 @@ date: 2024-03-16
 category:
   - unisa
 ---
+
 
 ## Problems need to solve
 * Who are our customers? 
@@ -22,4 +23,158 @@ category:
 * Statistics
 * Probability theory
 
+## Types of Analytics
+* Descriptive Analytics – <span style="color:orange">What has happened? </span>
+* Predictive Analytics – <span style="color:orange">What might happen?</span>
+* Prescriptive Analytics – <span style="color:orange">What should we do?</span>
 
+## Type of research
+* Descriptive Research – <span style="color:orange">Aware of Problem</span>
+    What are our sales? 
+    Who are our customers?
+* Exploratory Research – <span style="color:orange">Ambiguous Problem</span>
+    Our sales are down – Why? 
+* Causal Research – <span style="color:orange">Problem Clearly Defined</span>
+    Do we get higher sales if we change packaging?
+
+
+## Data collection
+* **Exploratory Research**
+    * Focus groups
+    * Online communities
+
+* **Descriptive Research**
+    * Surveys
+    * Self-reporting
+    * Panel data
+    * Scanner data
+    * Mobile, Web data
+* **Causal Research**
+    * Experiments
+
+### Focus groups
+* Qualitative research data gathering technique 
+* Moderated unstructured discussionbetween diverse group of people
+* Members discuss some topics and allowed to influence each other
+
+::: tip
+“Aha!” moment
+Slow and expensive
+:::
+### Online communities
+Working with C Space, IKEA:
+* Ran online communities in seven core, globally representative countries (USA, China, India, Denmark, Germany, Japan and Russia)
+* Surveyed more than 21,000 people across 22 countries to robustly validate insights and hypotheses
+
+### Surveys
+* Face-to-face
+* Mailout
+* Online
+
+### Survey Design
+* Do we ask right questions?
+* Do we collect right data?
+
+Two important characteristics:
+* **Predictive validity** – data make good predictions for variables of interest
+* **Test-retest reliability** – if we are to re-measure, do we get the same result?
+
+[resources](https://www.researchnow.com/blog/10-best-practices-survey-screening/?lang=gb)
+* Mode of Data Collection
+* Impact of Survey Fatigue
+* The Effect of Survey Question Wording
+* How You Order Your Questions
+* Different Survey Question Formats
+* Accuracy of the Answers You Receive
+* Bias in Self-Reported Behavior
+* Survey Analysis Plan
+
+### Sampling Techniques
+
+* Simple Random Sample
+    each member of population has an equal chance
+* Stratified Random Sample 
+    split population in groups (eg sex), then SRS from groups
+* Cluster Sample
+    organize population in clusters, then choose clusters and SRS from them
+* Voluntary-Response Sample
+    members of population who have chosen to respond
+* Convenience Sample
+    members of population from which data are easy to collect
+* Systematic Sample
+    every $𝑛^{𝑡ℎ}$ member of the population is selected
+
+### Sample Size
+$CI=\hat{\mu} {+\atop-} + z_{cr}\sqrt{\frac{\sigma ^2}{N}}\Rightarrow N = (\frac{2z_{cr}\sigma}{D})^2$
+$CI = \hat{p} {+\atop-}z_{cr}\sqrt{\frac{p(1-p)}{N}} \Rightarrow N=\frac{4z_{cr}^{2}p(1-p)}{D^2}$
+
+Margin of error: $D=(CI^+ - CI^-)/2$
+
+### Self-reporting, panel data
+* Panel of customers representing & different demographic groups
+* Report all purchases
+* Purchase trigged surveys
+* Mobile surveys
+
+#### data
+Nielsen US Panel 2016
+* 63,150 households
+* 10,745,635 shopping trips
+* 67,767,386 purchases
+* 4,231,283 SKUs
+
+### Passive data collection
+* Scanner data 
+* Media planning – radio, TV audience
+* Social Media Analysis – Facebook, Twitter, Instagram
+* Mobile data – Facebook, Foursquare, coupon services
+* Web data – web logs, Google
+
+#### Scanner data
+
+**Pros**
+Completeness
+Timeliness
+Accuracy
+
+**Cons**
+* Misses out on convenience stores and even some big retailers (Aldi, Whole Foods)
+* Cannot make causal statements
+* Don’t know behaviors and psychographics
+* Don’t know the exact set of choices faced by the consumer at the time of decision.
+
+##### Assignments
+* An average size supermarket
+* About 1,000,000 transactions per month
+* 36 months of data
+* Unique feature of the data – customer ID
+
+## Causal Research 
+**Experiments and Field Tests**
+* Scientific testing where specific variables and hypothesis can be tested
+* Controlled environment, where a set of variables are kept constant
+* Invariable behavior between cause and effect to establish a cause-effect relationship
+
+**Correlation and Causation**
+* Correlation - relationship between two variables.
+* Causation - one variable producing an effect in another variable.
+
+### Causal Inference: Three Requirements
+* Correlation: Evidence of association between X and Y
+* Temporal antecedence: X must occur before Y
+* No third factor driving both: Control of other possible factors
+
+
+## Summary
+* Types of analytics: descriptive, predictive, prescriptive
+* Types of descriptive analytics: 
+    descriptive research, exploratory research, causal research
+* Data collection for each type of research. Active/passive data collection
+    * Focus groups, online communities
+    * Survey, self-reporting, panel data, scanner data, online and mobile data
+    * Experiments
+* Correlation vs Causality
+
+
+## Reference
+[Tim's slides of Week 1](https://lo.unisa.edu.au/pluginfile.php/4493654/mod_resource/content/2/week_01%20Descriptive%20analytics.pptx)
