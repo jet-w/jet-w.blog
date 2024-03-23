@@ -1,13 +1,13 @@
 ---
-title: 03. Descriptive Analytics (W3)
+title: 03. Market Segmentation (W3)
 index: true
 icon: circle-dot
 author: Haiyue
-date: 2024-03-22
+date: 2024-03-23
 category:
   - unisa
 ---
-<span style="color:orange;font-weight:bold;font-size: 25px">Market Segmentation</span>
+<span style="color:orange;font-weight:bold;font-size: 25px">Descriptive Analytics - Market Segmentation</span>
 
 
 ## Market segmentation
@@ -96,6 +96,10 @@ The data set contains 563 respondents who state how often they take risks from t
 
 Respondents are presented with an ordinal scale consisting of five answer options ***[NEVER(1), RARELY(2), QUITE OFTEN(3), OFTEN(4), VERY OFTEN(5)]***.
 
+[Code On Google Colab](https://colab.research.google.com/drive/1foZjUC1BdNab0XvMMQmRThQ549qHxCoQ?usp=sharing)
+
+::: code-tabs
+@tab Hierarchical clustering
 ``` R
 risk <- read_csv("risk.csv")
 dim(risk)
@@ -127,7 +131,7 @@ barchart(risk.hcl, risk, k = 2)
 library("flexclust")
 barchart(risk.hcl, risk, k = 6)
 ```
-
+@tab DBScan
 ``` R
 library(dbscan)
 library(readr)
@@ -139,6 +143,8 @@ res.db
 
 fviz_cluster(res.db, risk, geom = "point")
 ```
+
+@tab EMCluster
 ``` R
 library(EMCluster)
 
@@ -150,6 +156,7 @@ plotem(risk.em, risk)
 
 summary(risk.em)
 ```
+@tab Cluster Plot
 ``` R
 library(cluster) 
 clusplot(risk, risk.em$class, color=TRUE, 
@@ -161,7 +168,7 @@ em.means <- aggregate(risk,
 round(em.means[, -1], 1)
 
 ```
-
+:::
 ## Summary
 * Segmentation – to do or not to do?
 * Methods for segmentation: business rules vs clustering
@@ -172,4 +179,4 @@ round(em.means[, -1], 1)
 * Interpretation of clusters
 
 ## Reference
-[Tim's slides of Week 2](https://lo.unisa.edu.au/pluginfile.php/4493649/mod_resource/content/0/week_03%20Market%20Segmentation.pptx)
+[Tim's slides of Week 3](https://lo.unisa.edu.au/pluginfile.php/4493649/mod_resource/content/0/week_03%20Market%20Segmentation.pptx)
