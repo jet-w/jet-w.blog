@@ -20,41 +20,40 @@ category:
 * The type of golf shoe spike worn (metal or soft)
 * Playing on a windy day or playing on a calm day
 
-### One-factor-at-a-time strategy
-![Alt text](/data/unisa/customer_analytic/w2/factor.png)
+::: tabs
+@tab One-factor-at-a-time strategy
+![T-Test](/data/unisa/customer_analytic/w2/factor.png)
 
-![Alt text](/data/unisa/customer_analytic/w2/beverage.png)
+![ANOVA](/data/unisa/customer_analytic/w2/beverage.png)
 
-### $2^2$ factorial design
+@tab $2^2$ factorial design
 
-![Alt text](/data/unisa/customer_analytic/w2/2factors.png)
+<div style="display:flex">
+<div style="flex:1">
+
+![Interaction between type of driver and type of beverage for golf experiment](/data/unisa/customer_analytic/w2/2factors.png)
+</div>
+<div style="flex:1">
 
 ![type of driver](/data/unisa/customer_analytic/w2/typeofdriver.png)
+</div>
+</div>
+
 $Diver\ effect=\frac{92+94+93+91}{4}-\frac{88+91+88+90}{4} = 3.25$
 $Ball\ effect=\frac{92+94+93+91}{4}-\frac{88+91+88+90}{4} = 0.75$
 $Drive -\ Ball\ interaction\ effect=\frac{88 + 90 + 92 + 94}{4}-\frac{88+91+93+91}{4} = 0.25$
-
-### Recall Playing golf experiment
-* The type of driver used (oversized or regular size)
-* The type of ball used (balata or three pieces)
-* Walking and carrying the golf clubs or riding in a golf cart
-* Drinking water or drinking beer while playing
-* Playing in the morning or playing in the afternoon
-* Playing when it is cool or playing when it is hot
-* The type of golf shoe spike worn (metal or soft)
-* Playing on a windy day or playing on a calm day
-
+:::
 ## Discrete (Stated) Choice Experiment
-3 factors:
-* HACCP label (Yes/No)
-* Eco label (Yes/No)
-* Price (145, 150, 155, or 160 yen)
+::: tabs
+@tab **3 factors**
+* **HACCP label:** (Yes/No)
+* **Eco label:** (Yes/No)
+* **Price:** (145, 150, 155, or 160 yen)
 
 
 Aizaki, H. and Nishimura, K., 2008. Design and analysis of choice experiments using R: a brief introduction. *Agricultural Information Research, 17(2)*, pp.86-94.
 
-
-## Full Factorial Design
+@tab Full Factorial Design
 ``` R
 library(AlgDesign)
 ffd <- gen.factorial(
@@ -83,14 +82,19 @@ ffd
 |15|  1 |  2 |  4|
 |16|  2 |  2 |  4|
 
+:::
 
-## Discrete Choice Experiment
+### Discrete Choice Experiment
 Consider a product with the following three attributes:
-* The region of origin: Region A, Region B, Region C
-* The eco-friendly label:  “Conv.” (conventional cultivation method), “More” (more eco-friendly cultivation method), and “Most”  (most eco-friendly cultivation method)
-* The price per piece of the product: $1, $1.1, $1.2
+* **The region of origin**: Region A, Region B, Region C
+* **The eco-friendly label**:  
+    * “Conv.” (conventional cultivation method), 
+    * “More” (more eco-friendly cultivation method), and 
+    * “Most”  (most eco-friendly cultivation method)
+* **The price per piece of the product**: $1, $1.1, $1.2
 
-### Design
+::: tabs
+@tab Design
 ``` R
 library(support.CEs)
 des1 <- rotation.design(
@@ -108,7 +112,7 @@ des1 <- rotation.design(
 questionnaire(choice.experiment.design = des1)
 ```
 
-### Collected data
+@tab Collected data
 ``` R
 data("syn.res1")
 syn.res1[1:3, ]
@@ -132,7 +136,7 @@ dataset1 <- make.dataset(
 dataset1[1:10, ]
 ```
 
-### Analysis - clogit
+@tab Analysis - clogit
 ``` R
 library(survival)
 clogout1 <- clogit(
@@ -145,16 +149,18 @@ clogout1 <- clogit(
 )
 clogout1
 ```
-::: info
-Results interpretation is the same as in “normal” Logistic Regression Analysis.
-:::
+* tips
+    ::: info
+    Results interpretation is the same as in <span style="color:red">**“normal” Logistic Regression Analysis**.</span>
+    :::
 
-### Analysis - goodness of fit
+@tab Analysis - Goodness of Fit
 ``` r
 gofm(clogout1)
 ```
 
-### Analysis – Marginal Willingness to Pay (MWTP)
+@tab Analysis – MWTP
+<span style="color:orange">Marginal Willingness to Pay (MWTP)</span>
 ``` R
 mwtp(
     output = clogout1, 
@@ -165,6 +171,7 @@ mwtp(
 )
 
 ```
+:::
 
 
 ## Summary
