@@ -8,6 +8,7 @@ category:
   - unisa
 ---
 <span style="color:orange;font-weight:bold;font-size: 25px">Descriptive Analytics - Probability distributions</span>
+[Codes on Google Collab](https://colab.research.google.com/drive/1fR21rp6lqjnYcNSEyVLn9FCQq612eLa_?usp=sharing)
 
 ## Predictive analytics VS randomness
 * What is a prediction?  

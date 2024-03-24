@@ -114,6 +114,7 @@ questionnaire(choice.experiment.design = des1)
 
 @tab Collected data
 ``` R
+## https://cran.r-project.org/web/packages/support.CEs/support.CEs.pdf
 data("syn.res1")
 syn.res1[1:3, ]
 
